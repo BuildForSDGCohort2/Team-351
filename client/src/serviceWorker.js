@@ -16,7 +16,7 @@ const isLocalhost = Boolean(
     window.location.hostname === "[::1]" ||
     // 127.0.0.0/8 are considered localhost for IPv4.
     window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+      // /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
 );
 
@@ -40,15 +40,15 @@ export function register(config) {
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
-          console.log(
-            "This web app is being served cache-first by a service " +
-              "worker. To learn more, visit https://bit.ly/CRA-PWA"
-          );
-        });
+        // navigator.serviceWorker.ready.then(() => {
+        //   console.log(
+        //     "This web app is being served cache-first by a service " +
+        //       "worker. To learn more, visit https://bit.ly/CRA-PWA"
+        //   );
+        // });
       } else {
         // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config);
+        // registerValidSW(swUrl, config);
       }
     });
   }
@@ -60,7 +60,7 @@ function registerValidSW(swUrl, config) {
     .then((registration) => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
-        if (installingWorker == null) {
+        if (installingWorker === null) {
           return;
         }
         installingWorker.onstatechange = () => {
@@ -82,7 +82,7 @@ function registerValidSW(swUrl, config) {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
-              console.log("Content is cached for offline use.");
+              // console.log("Content is cached for offline use.");
 
               // Execute callback
               if (config && config.onSuccess) {
@@ -94,7 +94,7 @@ function registerValidSW(swUrl, config) {
       };
     })
     .catch((error) => {
-      console.error("Error during service worker registration:", error);
+      // console.error("Error during service worker registration:", error);
     });
 }
 
