@@ -7,10 +7,7 @@
 } */
 
 .App {
-  /* font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; */
   background: #fff;
-  /* background-color: transparent; */
-  /* opacity: 0.0 - 1.0 */
 }
 
 .navbar {
@@ -18,7 +15,7 @@
 }
 
 .nav-link {
-  color: #ffffff;
+  color: #fff;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -31,8 +28,8 @@
 .card-main {
   width: 70%;
   margin-top: 50px;
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
   -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
@@ -48,8 +45,8 @@
 .card-main {
   width: 70%;
   margin-top: 50px;
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
   -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
@@ -66,8 +63,8 @@
 .card-contact {
   width: 70%;
   margin-top: 50px;
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
 }
@@ -89,7 +86,7 @@
 
 .btn-submit {
   background: #53868b;
-  color: #ffffff;
+  color: #fff;
   font-size: 18px;
   width: 8rem;
   border-radius: 25px;
