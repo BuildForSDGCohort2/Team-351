@@ -1,0 +1,132 @@
+/* html {
+  background: #53868b;
+} */
+
+/* body {
+  overflow: hidden;
+} */
+
+.App {
+  background: #fff;
+}
+
+.navbar {
+  background-color: #008000;
+}
+
+.nav-link {
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.nav-icon {
+  color: #fff;
+}
+
+/* LOGIN COMPONENT */
+
+.card-main {
+  width: 70%;
+  margin-top: 50px;
+  background: #fff;
+  color: #000;
+  font-family: "Courier New", Courier, monospace, serif;
+  place-content: center;
+  -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+  box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+  -webkit-transition: 0.5s;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/* END LOGIN */
+
+/* REGISTER COMPONENT */
+
+/* .card-main {
+  width: 70%;
+  margin-top: 50px;
+  background: #fff;
+  color: #000;
+  font-family: "Courier New", Courier, monospace, serif;
+  place-content: center;
+  -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+  box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+  -webkit-transition: 0.5s;
+  opacity: 1;
+  transition: 0.5s;
+} */
+
+/* END REGISTER */
+
+/* CONTACT COMPONENT */
+
+.card-contact {
+  width: 70%;
+  margin-top: 50px;
+  background: #fff;
+  color: #000;
+  font-family: "Courier New", Courier, monospace, serif;
+  place-content: center;
+}
+
+.contact-header {
+  font-size: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.card-contact:hover {
+  -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+  box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+  -webkit-transition: 0.5s;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/* END CONTACT */
+
+.btn-submit {
+  background: #53868b;
+  color: #fff;
+  font-size: 18px;
+  width: 8rem;
+  border-radius: 25px;
+}
+
+/* PAGENOTFOUND COMPONENT */
+
+.not-found {
+  color: #f00;
+}
+
+.btn-back {
+  margin: 15px;
+  border-style: none;
+  background-color: #fff;
+  font-size: 18px;
+}
+
+.btn-back:hover {
+  color: #00e;
+  text-decoration: underline;
+}
+
+/* END PAGENOTFOUND */
+
+@media only screen and (max-width: 900px) {
+  .card-contact {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .card-main {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    overflow: visible;
+  }
+}
