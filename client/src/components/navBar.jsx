@@ -42,9 +42,9 @@ class Navbar extends Component {
               <li className="nav-item">
                 <Link to="/register" className="nav-link">Register</Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link to="/agro" className="nav-link">Agro</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
