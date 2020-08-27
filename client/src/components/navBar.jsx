@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaAlignJustify } from "react-icons/fa";
 
 class Navbar extends Component {
@@ -23,24 +23,26 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse " id="navbarNavDropdown">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <Link to="/" className="nav-link" >
+                <Link to="/" className="nav-link">
                   Home <span className="sr-only">(current)</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="nav-link" >
+                <Link to="/about" className="nav-link">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="nav-link" >
+                <Link to="/contact" className="nav-link">
                   Contact
                 </Link>
               </li>
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link to="/register" className="nav-link">Register</Link>
+                <Link to="/register" className="nav-link">
+                  Register
+                </Link>
               </li>
               {/* <li className="nav-item">
                 <Link to="/agro" className="nav-link">Agro</Link>

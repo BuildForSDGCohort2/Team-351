@@ -5,7 +5,7 @@ import "./styles/main.css";
 
 import Home from "./components/landingPage";
 import Navbar from "./components/navBar";
-import PageNotFound from "./components/landingPage"
+import PageNotFound from "./components/landingPage";
 
 function App() {
   return (
