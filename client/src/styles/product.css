@@ -6,7 +6,7 @@
 }
 
 .bg {
-  background-color: #f6f6f6 !important;
+  background-color: #f6f6f6;
 }
 
 /* --------- description list --------* /
@@ -92,14 +92,8 @@ ul.row-sm {
   text-align: center;
 }
 
-/* .item-count{
-    padding: 0 2px;
-   
-  } */
-
 .card-product {
   margin-bottom: 1rem;
-  /* btn-overlay-bottom */
 }
 
 .card-product::after {
@@ -212,10 +206,6 @@ ul.row-sm {
   border-bottom: 0;
 }
 
-/* --------- media element -------- */
-
 .img-wrap {
   margin-right: 1rem;
 }
-
-/* ================= RATINGS ============== */

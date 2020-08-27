@@ -41,7 +41,7 @@
 
 /* END LOGIN */
 
-/*REGISTER COMPONENT*/
+/* REGISTER COMPONENT */
 
 /* .card-main {
   width: 70%;
@@ -57,7 +57,7 @@
   transition: 0.5s;
 } */
 
-/*END REGISTER*/
+/* END REGISTER */
 
 /* CONTACT COMPONENT */
 
@@ -96,7 +96,7 @@
 /* PAGENOTFOUND COMPONENT */
 
 .not-found {
-  color: #ff0000;
+  color: #f00;
 }
 
 .btn-back {
@@ -107,7 +107,7 @@
 }
 
 .btn-back:hover {
-  color: #0000ee;
+  color: #00e;
   text-decoration: underline;
 }
 
