@@ -5,8 +5,8 @@ import "../styles/mainPage.css";
 //import Services from './services'
 import Banner from './banner'
 
-class Agro extends Component {
-  state = {};
+class Home extends Component {
+  state = {};  
   render() {
     return (
       <>
@@ -17,10 +17,10 @@ class Agro extends Component {
                 </Link>
             </Banner>
         </div>
-        {/* <Services /> */}
+        
       </>
     );
   }
 }
 
-export default Agro;  
+export default Home;  
