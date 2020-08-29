@@ -1,7 +1,3 @@
-.App {
-  background: #fff;
-}
-
 .navbar {
   background-color: #008000;
 }
@@ -21,7 +17,6 @@
   width: 60%;
   margin-top: 30px;
   background: #fff;
-  color: #000;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
   -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
@@ -77,12 +72,12 @@ textarea.form-control {
   background: #008000;
   color: #fff;
   font-size: 18px;
-  width: auto;
+  width: 14rem;
   border-radius: none;
 }
 
 .btn-fb {
-  background: #6647ee;
+  background: #2c0bbd;
   color: #fff;
   font-size: 18px;
   width: auto;
