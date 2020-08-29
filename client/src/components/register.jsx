@@ -63,26 +63,14 @@ class Register extends Component {
           <div className="card-body contact-body">
             <form type="form" className="form" onSubmit={this.handleSubmit}>
               <div className="row">
-                <div className="col-md-6 mx-auto">
+                <div className="col-md-12 mx-auto">
                   <div className="form-group">
-                    <label>First Name</label>
+                    <label>Full Name</label>
                     <input
                       type="text"
                       className="form-control"
                       id="firstName"
                       value={this.state.firstName}
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-md-6 mx-auto">
-                  <div className="form-group">
-                    <label>Last Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="lastName"
-                      value={this.state.lastName}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -111,13 +99,23 @@ class Register extends Component {
                     />
                   </div>
                 </div>
+                <div className="col-md-12">
+                  <div className="form-group">
+                    <label>Status</label>
+                    <select class="form-control">
+                      <option>Select</option>
+                      <option>Farmer</option>
+                      <option>Consumer</option>
+                    </select>
+                  </div>
+                </div>
                 <div className="col-md-12 mx-auto">
                   <div className="form-group">
                     <label>Address</label>
                     <textarea
                       type="textarea"
                       className="form-control"
-                      rows="3"
+                      rows="2"
                       col=""
                       id="address"
                       value={this.state.address}
@@ -150,10 +148,21 @@ class Register extends Component {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-end">
-                <button type="submit" className="btn-submit">
-                  Submit
-                </button>
+              <div className="row">
+                <div className="col-md-6 mx-auto">
+                  <div className="d-flex justify-content-end">
+                    <button type="submit" className="btn-submit">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                <div className="col-md-6 mx-auto">
+                  <div className="d-flex justify-content-end">
+                    <button type="submit" className="btn-fb">
+                      Signup with Facebook
+                    </button>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
