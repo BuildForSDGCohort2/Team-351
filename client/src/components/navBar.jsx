@@ -44,9 +44,9 @@ class Navbar extends Component {
                   Register
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link to="/agro" className="nav-link">Agro</Link>
-              </li> */}
+              <li className="nav-item">
+                <Link to="/login" className="nav-link">Login</Link>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,15 +1,3 @@
-/* html {
-  background: #53868b;
-} */
-
-/* body {
-  overflow: hidden;
-} */
-
-.App {
-  background: #fff;
-}
-
 .navbar {
   background-color: #008000;
 }
@@ -23,13 +11,12 @@
   color: #fff;
 }
 
-/* LOGIN COMPONENT */
+/* CARD SECTION */
 
 .card-main {
-  width: 70%;
-  margin-top: 50px;
+  width: 60%;
+  margin-top: 30px;
   background: #fff;
-  color: #000;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
   -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
@@ -39,25 +26,21 @@
   transition: 0.5s;
 }
 
-/* END LOGIN */
+/* END */
 
-/* REGISTER COMPONENT */
-
-/* .card-main {
-  width: 70%;
-  margin-top: 50px;
-  background: #fff;
-  color: #000;
-  font-family: "Courier New", Courier, monospace, serif;
-  place-content: center;
-  -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-  box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-  -webkit-transition: 0.5s;
-  opacity: 1;
-  transition: 0.5s;
-} */
-
-/* END REGISTER */
+input.form-control,
+select.form-control,
+textarea.form-control {
+  background: transparent;
+  border-bottom: 1px solid #000;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  height: 30px;
+  line-height: 10px;
+  outline: none;
+}
 
 /* CONTACT COMPONENT */
 
@@ -86,11 +69,19 @@
 /* END CONTACT */
 
 .btn-submit {
-  background: #53868b;
+  background: #008000;
   color: #fff;
   font-size: 18px;
-  width: 8rem;
-  border-radius: 25px;
+  width: 14rem;
+  border-radius: none;
+}
+
+.btn-fb {
+  background: #2c0bbd;
+  color: #fff;
+  font-size: 18px;
+  width: auto;
+  border-radius: none;
 }
 
 /* PAGENOTFOUND COMPONENT */
