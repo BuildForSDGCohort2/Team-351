@@ -5,7 +5,7 @@ import "./styles/main.css";
 
 import Home from "./components/landingPage";
 import Navbar from "./components/navBar";
-import Register from "./components/register"
+import Register from "./components/register";
 import PageNotFound from "./components/landingPage";
 
 function App() {

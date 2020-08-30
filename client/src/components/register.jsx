@@ -42,7 +42,7 @@ class Register extends Component {
 
     axios.post("http://localhost:4000/user", msg).then((response) => {
       if (response) {
-        console.log(response);
+        
         this.setState({
           firstName: "",
           lastName: "",
