@@ -48,7 +48,7 @@ class Product extends Component {
         </div>
 
         {/* Table */}
-        <div className="row">
+        {/* <div className="row">
           <main className="col-md-9">
             <div className="card card-product">
               <div className="card-body">
@@ -78,7 +78,7 @@ class Product extends Component {
               <aside>side bar</aside>
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
