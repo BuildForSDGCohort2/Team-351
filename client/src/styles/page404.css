@@ -1,0 +1,15 @@
+.not-found {
+  color: #f00;
+}
+
+.btn-back {
+  margin: 15px;
+  border-style: none;
+  background-color: #fff;
+  font-size: 18px;
+}
+
+.btn-back:hover {
+  color: #00e;
+  text-decoration: underline;
+}

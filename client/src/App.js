@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import "./styles/main.css";
-//import "./App.css";
 
 import Home from "./components/landingPage";
 import Navbar from "./components/navBar";
