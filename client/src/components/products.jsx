@@ -5,7 +5,7 @@ class Product extends Component {
   render() {
     return (
       <div className="container">
-        <div className="search d-flex justify-content-center m-3">
+        <div className="search d-flex justify-content-end m-3">
           <input type="text" />
           <button>Search</button>
         </div>
