@@ -58,7 +58,6 @@ class Farmer extends Component {
             <Product />
           </div>
         </div>
-        
       </div>
     );
   }
