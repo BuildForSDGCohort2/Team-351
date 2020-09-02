@@ -30,17 +30,19 @@ const Login = (props) => {
           <div className="modal-body">
             {/* <button className="btn-primary">Login with Facebook</button> */}
             <form>
-                <div className="form-group">
-                    <label htmlFor="">Email</label>
-                    <input type="text" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="">Password</label>
-                    <input type="password" className="form-control" />
-                </div>
-                <div className="d-flex justify-content-end">
-                    <button className="btn-primary" type="submit">Login</button>
-                </div>
+              <div className="form-group">
+                <label htmlFor="">Email</label>
+                <input type="text" className="form-control" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="">Password</label>
+                <input type="password" className="form-control" />
+              </div>
+              <div className="d-flex justify-content-end">
+                <button className="btn-primary" type="submit">
+                  Login
+                </button>
+              </div>
             </form>
           </div>
         </div>

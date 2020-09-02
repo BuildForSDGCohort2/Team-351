@@ -19,10 +19,9 @@
   }
 }
 
-.btn-fb{
-    width: 100%;
-    font-stretch: expanded;
-    font-size: 30px;
-     font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+.btn-fb {
+  width: 100%;
+  font-stretch: expanded;
+  font-size: 30px;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 }
