@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignJustify } from "react-icons/fa";
 
+import Login from "./login"
+
 import "../styles/navBar.css";
 
 class Navbar extends Component {
@@ -11,6 +13,9 @@ class Navbar extends Component {
     this.state = {
       show: false,
     };
+
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   showModal = () => {
@@ -22,6 +27,7 @@ class Navbar extends Component {
   };
   render() {
     return (
+      <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
           <button
@@ -62,7 +68,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/login" className="nav-link">
+                <Link to="/login" className="nav-link" onClick={this.showModal}>
                   Login
                 </Link>
               </li>
@@ -70,6 +76,8 @@ class Navbar extends Component {
           </div>
         </div>
       </nav>
+      <Login show={this.state.show} hide={this.hideModal}/>
+      </>
     );
   }
 }

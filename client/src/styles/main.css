@@ -29,6 +29,10 @@ textarea.form-control {
   outline: none;
 }
 
+*:focus {
+  outline: 0;
+}
+
 /* CONTACT COMPONENT */
 
 .card-contact {
