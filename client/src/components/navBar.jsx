@@ -2,9 +2,32 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignJustify } from "react-icons/fa";
 
+import Login from "./login"
+
+import "../styles/navBar.css";
+
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      show: false,
+    };
+
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
   render() {
     return (
+      <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
           <button
@@ -33,7 +56,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="nav-link">
+                <Link to="/farmer" className="nav-link">
                   Contact
                 </Link>
               </li>
@@ -45,12 +68,16 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/login" className="nav-link">Login</Link>
+                <Link to="/login" className="nav-link" onClick={this.showModal}>
+                  Login
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+      <Login show={this.state.show} hide={this.hideModal}/>
+      </>
     );
   }
 }
