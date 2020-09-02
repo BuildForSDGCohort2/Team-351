@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-//import "../styles/register.css";
+import "../styles/register.css";
 
 class Register extends Component {
   constructor(props) {
@@ -59,6 +59,11 @@ class Register extends Component {
     return (
       <div className="container">
         <div className="card card-main mx-auto">
+          <div className="d-flex justify-content-center">
+            <button type="submit" className="btn-primary btn-fb">
+              Register with Facebook
+            </button>
+          </div>
           <div className="card-body contact-body">
             <form type="form" className="form" onSubmit={this.handleSubmit}>
               <div className="row">
@@ -147,26 +152,11 @@ class Register extends Component {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-md-5 mx-auto">
-                  <div className="d-flex justify-content-center">
-                    <button type="submit" className="btn-submit">
-                      Submit
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-2 mx-auto">
-                  <div className="d-flex justify-content-center">
-                    <span>OR</span>
-                  </div>
-                </div>
-                <div className="col-md-5 mx-auto">
-                  <div className="d-flex justify-content-center">
-                    <button type="submit" className="btn-fb">
-                      Signup with Facebook
-                    </button>
-                  </div>
-                </div>
+
+              <div className="d-flex justify-content-end">
+                <button type="submit" className="btn-submit">
+                  Submit
+                </button>
               </div>
             </form>
           </div>
