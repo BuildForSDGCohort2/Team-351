@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Product from "./products";
-import NewProduct from "./addProduct"
+import NewProduct from "./addProduct";
+import Preserve from "./preservation";
 
 class Farmer extends Component {
   render() {
@@ -56,7 +57,7 @@ class Farmer extends Component {
             </div>
           </aside>
           <div className="col-md-9 mt-5">
-            <NewProduct  />
+            <Preserve />
           </div>
         </div>
       </div>
