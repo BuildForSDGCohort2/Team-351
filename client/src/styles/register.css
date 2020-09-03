@@ -1,3 +1,25 @@
+input.control,
+select.control,
+textarea.control {
+  background: transparent;
+  border-bottom: 1px solid #000;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  height: 30px;
+  line-height: 10px;
+  outline: none;
+}
+
+.btn-submit {
+  background: #008000;
+  color: #fff;
+  font-size: 18px;
+  width: 14rem;
+  border-radius: none;
+}
+
 .btn-fb {
   width: 100%;
   font-stretch: expanded;

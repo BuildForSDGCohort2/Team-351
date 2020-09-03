@@ -9,7 +9,7 @@ class Preserve extends Component {
             <form type="form">
               <div className="form-gorup">
                 <input type="text" className="form-control" />
-                <button type="submit" className="btn-submit">
+                <button type="submit" className="btn-search">
                   Search
                 </button>
               </div>
