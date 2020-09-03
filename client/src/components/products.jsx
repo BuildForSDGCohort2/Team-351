@@ -19,10 +19,10 @@ class Product extends Component {
                   </aside>
                   <article className="col-sm-6">
                     <h4 className="title">Product Name</h4>
-                    <h5>Category:</h5>
-                    <p name="description">
-                      What is the category do your product{" "}
-                    </p>
+                    <dl className="dlist-align">
+                      <dt>Category</dt>
+                      <dd>What is the category do your product</dd>
+                    </dl>
                     <dl className="dlist-align">
                       <dt>Quantity</dt>
                       <dd>How much of the product do you have</dd>
