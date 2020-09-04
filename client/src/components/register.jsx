@@ -25,9 +25,7 @@ class Register extends Component {
       [e.target.id]: e.target.value,
     });
   };
-  //  componentDidMount(){
-  //    console.log(this.props)
-  //  }
+ 
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -72,7 +70,7 @@ class Register extends Component {
                     <label>Full Name</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control control"
                       id="firstName"
                       value={this.state.firstName}
                       onChange={this.handleChange}
@@ -84,7 +82,7 @@ class Register extends Component {
                     <label>Email</label>
                     <input
                       type="email"
-                      className="form-control"
+                      className="form-control control"
                       id="email"
                       value={this.state.email}
                       onChange={this.handleChange}
@@ -96,7 +94,7 @@ class Register extends Component {
                     <label>Phone Number</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control control"
                       id="phoneNumber"
                       value={this.state.phoneNumber}
                       onChange={this.handleChange}
@@ -106,7 +104,7 @@ class Register extends Component {
                 <div className="col-md-12">
                   <div className="form-group">
                     <label>Status</label>
-                    <select class="form-control">
+                    <select class="form-control control">
                       <option>Select</option>
                       <option>Farmer</option>
                       <option>Consumer</option>
@@ -118,7 +116,7 @@ class Register extends Component {
                     <label>Address</label>
                     <textarea
                       type="textarea"
-                      className="form-control"
+                      className="form-control control"
                       rows="2"
                       col=""
                       id="address"
@@ -132,7 +130,7 @@ class Register extends Component {
                     <label>Password</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control control"
                       id="password"
                       value={this.state.password}
                       onChange={this.handleChange}
@@ -144,7 +142,7 @@ class Register extends Component {
                     <label>Confirm Password</label>
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control control"
                       id="confirmPassword"
                       value={this.state.confirmPassword}
                       onChange={this.handleChange}
@@ -152,7 +150,6 @@ class Register extends Component {
                   </div>
                 </div>
               </div>
-
               <div className="d-flex justify-content-end">
                 <button type="submit" className="btn-submit">
                   Submit

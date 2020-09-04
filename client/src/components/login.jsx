@@ -17,18 +17,9 @@ const Login = (props) => {
       >
         <div className="modal-content">
           <div className="modal-header d-flex justify-content-center">
-            {/* <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button> */}
             <button className="btn-primary btn-fb">Login with Facebook</button>
           </div>
           <div className="modal-body">
-            {/* <button className="btn-primary">Login with Facebook</button> */}
             <form>
               <div className="form-group">
                 <label htmlFor="">Email</label>

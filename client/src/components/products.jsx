@@ -5,10 +5,10 @@ class Product extends Component {
   render() {
     return (
       <div className="container">
-        <div className="search d-flex justify-content-end m-3">
+        {/* <div className="search d-flex justify-content-end m-3">
           <input type="text" />
           <button>Search</button>
-        </div>
+        </div> */}
         <div className="row ">
           <main className="col ">
             <article className="card card-product">
@@ -19,10 +19,10 @@ class Product extends Component {
                   </aside>
                   <article className="col-sm-6">
                     <h4 className="title">Product Name</h4>
-                    <h5>Category:</h5>
-                    <p name="description">
-                      What is the category do your product{" "}
-                    </p>
+                    <dl className="dlist-align">
+                      <dt>Category</dt>
+                      <dd>What is the category do your product</dd>
+                    </dl>
                     <dl className="dlist-align">
                       <dt>Quantity</dt>
                       <dd>How much of the product do you have</dd>
@@ -41,13 +41,6 @@ class Product extends Component {
               </div>
             </article>
           </main>
-          {/* <div className="col-md-4">
-            <div className="card">
-              <div className="card-body">
-                This is some text within a card body.
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     );

@@ -9,37 +9,6 @@
   background-color: #f6f6f6;
 }
 
-/* --------- description list --------* /
-
-[class*="dlist-"] {
-  margin-bottom: 5px;
-}
-
-[class*="dlist-"] dd {
-  margin-bottom: 0;
-}
-
-.scroll {
-  height: 35rem;
-  overflow-y: scroll;
-}
-
-.dlist-inline dt,
-.dlist-inline dd {
-  display: inline-block;
-}
-
-.dlist-align dt {
-  width: 90px;
-  float: left;
-  word-wrap: break-word;
-}
-
-.dlist-align dd {
-  margin-left: 120px;
-  vertical-align: baseline;
-}
-
 /* -------------------- list.row--------------------- */
 
 ul.row,
@@ -49,6 +18,24 @@ ul.row-sm {
   margin-bottom: 0;
 }
 
+[class*="dlist-"] {
+  margin-bottom: 5px;
+}
+
+[class*="dlist-"] dd {
+  margin-bottom: 0;
+}
+
+.dlist-align dd {
+  margin-left: 120px;
+  vertical-align: baseline;
+}
+
+.dlist-align dt {
+  width: 90px;
+  float: left;
+  word-wrap: break-word;
+}
 /* ================= lists ================= */
 
 [class*="list-"] li::after {
