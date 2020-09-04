@@ -25,6 +25,7 @@ ul.row-sm {
 [class*="dlist-"] dd {
   margin-bottom: 0;
 }
+
 .dlist-align dd {
   margin-left: 120px;
   vertical-align: baseline;
