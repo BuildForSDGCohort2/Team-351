@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "../styles/farmerDashboard.css";
+import "../../styles/farmerDashboard.css";
 
-import Product from "./products";
+import Product from "../products";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
 
