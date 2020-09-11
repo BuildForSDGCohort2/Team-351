@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
+import "../../styles/footer.css";
+
 class Footer extends Component {
   render() {
     return (
-      <div class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row footer">
-          <div class="col-12 col-md">
+      <div className=" border-top d-flex justify-content-center pt-4 my-md-5 pt-md-5">
+        <div className="row footer">
+          <div className="col-12 col-md">
             <a href="#" className="dashboard-img" to="#">
               <img
                 src={
@@ -15,38 +17,38 @@ class Footer extends Component {
               />
             </a>
             <br></br>
-            <small class="-block mb-3 text-muted">&copy; 2020</small>
+            <small className="-block mb-3 text-muted">&copy; 2020</small>
           </div>
-          <div class="col-6 col-md">
+          <div className="col-6 col-md">
             <h5>Features</h5>
-            <ul class="list-unstyled text-small">
+            <ul className="list-unstyled text-small">
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   FAQ
                 </a>
               </li>
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Testimonials
                 </a>
               </li>
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Careers
                 </a>
               </li>
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Financial News
                 </a>
               </li>
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Financial Education
                 </a>
               </li>
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Additional Features
                 </a>
               </li>
@@ -141,3 +143,5 @@ class Footer extends Component {
     );
   }
 }
+
+export default Footer;
