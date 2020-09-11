@@ -4,6 +4,7 @@ import "../styles/landingPage.css";
 
 //import Services from './services'
 import Banner from "./banner";
+import Footer from "../components/footer/footer"
 
 class Home extends Component {
   state = {};
@@ -20,6 +21,7 @@ class Home extends Component {
             </Link>
           </Banner>
         </div>
+        {/* <Footer /> */}
       </>
     );
   }
