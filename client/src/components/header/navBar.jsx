@@ -4,7 +4,7 @@ import { FaAlignJustify } from "react-icons/fa";
 
 import Login from "./login";
 
-import "../styles/navBar.css";
+import "../../styles/navBar.css";
 
 class Navbar extends Component {
   constructor(props) {
