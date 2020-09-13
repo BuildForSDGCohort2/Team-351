@@ -5,7 +5,7 @@ import "./styles/main.css";
 import Home from "./components/landingPage";
 import Navbar from "./components/navBar";
 import Register from "./components/register";
-import Farmer from "./components/farmerDashboard";
+import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
 import PageNotFound from "./components/landingPage";
 

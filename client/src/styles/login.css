@@ -7,9 +7,16 @@
   box-shadow: 1px 1px 1px black;
   padding: 16px;
   left: 15%;
-  top: 30%;
+  top: 20%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+}
+
+.fb-btn {
+  width: 100%;
+  font-stretch: expanded;
+  font-size: 30px;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 }
 
 @media (min-width: 600px) {
@@ -19,9 +26,8 @@
   }
 }
 
-.btn-fb {
-  width: 100%;
-  font-stretch: expanded;
-  font-size: 30px;
-  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+@media (max-width: 900px) {
+  .fb-btn {
+    font-size: 16px;
+  }
 }

@@ -101,7 +101,7 @@ class Register extends Component {
                     />
                   </div>
                 </div>
-                <div className="col-md-12">
+                <div className="col-md-6">
                   <div className="form-group">
                     <label>Status</label>
                     <select class="form-control control">
@@ -111,16 +111,14 @@ class Register extends Component {
                     </select>
                   </div>
                 </div>
-                <div className="col-md-12 mx-auto">
+                <div className="col-md-6 mx-auto">
                   <div className="form-group">
-                    <label>Address</label>
-                    <textarea
-                      type="textarea"
+                    <label>Username</label>
+                    <input
+                      type="text"
                       className="form-control control"
-                      rows="2"
-                      col=""
-                      id="address"
-                      value={this.state.address}
+                      id="username"
+                      value={this.state.password}
                       onChange={this.handleChange}
                     />
                   </div>

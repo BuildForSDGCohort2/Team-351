@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-import Product from "./products";
+import "../../styles/farmerDashboard.css";
+
+import Product from "../products";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
 
@@ -76,20 +78,34 @@ class Farmer extends Component {
                     </form>
                     <ul className="list-unstyled list-lg">
                       <li>
-                        <button onClick={this.showProducts}>Products</button>
+                        <button
+                          className="btn-link"
+                          onClick={this.showProducts}
+                        >
+                          Products
+                        </button>
                       </li>
                       <li>
-                        <button onClick={this.showNewProduct}>
+                        <button
+                          className="btn-link"
+                          onClick={this.showNewProduct}
+                        >
                           New Product
                         </button>
                       </li>
                       <li>
-                        <button onClick={this.showPreserve}>
+                        <button
+                          className="btn-link"
+                          onClick={this.showPreserve}
+                        >
                           Preservation Methods
                         </button>
                       </li>
                       <li>
-                        <button onClick={this.showTransactions}>
+                        <button
+                          className="btn-link"
+                          onClick={this.showTransactions}
+                        >
                           Transactions
                         </button>
                       </li>

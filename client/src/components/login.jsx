@@ -17,7 +17,7 @@ const Login = (props) => {
       >
         <div className="modal-content">
           <div className="modal-header d-flex justify-content-center">
-            <button className="btn-primary btn-fb">Login with Facebook</button>
+            <button className="btn-primary fb-btn">Login with Facebook</button>
           </div>
           <div className="modal-body">
             <form>
