@@ -3,8 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import "./styles/main.css";
 
 import Home from "./components/landingPage";
-import Navbar from "./components/navBar";
-import Register from "./components/register";
+import Navbar from "./components/header/navBar";
+import Register from "./components/header/register";
 import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
 import PageNotFound from "./components/landingPage";

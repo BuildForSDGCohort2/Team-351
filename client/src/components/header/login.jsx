@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "../styles/login.css";
+import "../../styles/login.css";
 
 import Backdrop from "./backdrop";
 const Login = (props) => {

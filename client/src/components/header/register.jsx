@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import "../styles/register.css";
+import "../../styles/register.css";
 
 class Register extends Component {
   constructor(props) {
