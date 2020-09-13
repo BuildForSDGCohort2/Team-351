@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/landingPage.css";
 
-//import Services from './services'
 import Banner from "./banner";
-import Footer from "./footer/footer"
+import Footer from "./footer/footer";
 
 class Home extends Component {
   state = {};
