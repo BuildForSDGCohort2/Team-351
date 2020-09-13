@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { logo } from "../../images/logo.png";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import "../../styles/footer.css";
 
@@ -10,27 +10,27 @@ class Footer extends Component {
         <div className="row footer">
           <div className="col-12 col-md">
             <a href="#" className="dashboard-img" to="#">
-              <img src={logo} alt="logo" />
+              <img src={"../logo.png"} alt="logo" />
             </a>
             <br></br>
             <small className="-block mb-3 text-muted">&copy; 2020</small>
           </div>
-          <div class="col-6 col-md">
+          <div className="col-6 col-md">
             <h5>About</h5>
-            <ul class="list-unstyled text-small">
+            <ul className="list-unstyled text-small">
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Team
                 </a>
               </li>
 
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Privacy
                 </a>
               </li>
               <li>
-                <a class="text-muted" href="#">
+                <a className="text-muted" href="#">
                   Terms
                 </a>
               </li>
@@ -66,7 +66,7 @@ class Footer extends Component {
                   target="_blank"
                   className="footer-img"
                 >
-                  <img src="https://res.cloudinary.com/lordefid/image/upload/v1590108539/facebook_dvbkhd.png" />
+                  <FaFacebook />
                 </a>
               </li>
               <li>
@@ -75,7 +75,7 @@ class Footer extends Component {
                   target="_blank"
                   className="footer-img"
                 >
-                  <img src="https://res.cloudinary.com/lordefid/image/upload/v1590108539/twitter_e6e59l.png" />
+                  <FaTwitter />
                 </a>
               </li>
 
