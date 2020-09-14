@@ -4,6 +4,7 @@ import "./styles/main.css";
 
 import Home from "./components/landingPage";
 import Navbar from "./components/header/navBar";
+import About from "./components/header/about";
 import Register from "./components/header/register";
 import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/farmer" component={Farmer} />
         <Route exact path="/products" component={Products} />
