@@ -35,7 +35,7 @@ const getProduct = async (req, res) => {
         message: " server error",
       });
     }
-    
+
     return res.status(200).json({
       status: "ok",
       result,

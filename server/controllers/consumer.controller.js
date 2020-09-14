@@ -1,4 +1,3 @@
-
 const Customer = require("../models/consumerModel");
 
 const getAllCustomers = async (req, res) => {
