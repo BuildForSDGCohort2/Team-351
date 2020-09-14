@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const secretKey = process.env.SECRETE;
 
-const Login = require("../models/userloModel");
+const Login = require("../models/userlogModel");
 
 const hashed = (req, res) => {
   const { userId, role, email, password } = req.body;
