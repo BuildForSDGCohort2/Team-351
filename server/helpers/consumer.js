@@ -1,4 +1,4 @@
-const Customer = require("../models/customer.model");
+const Customer = require("../models/consumerModel");
 const hashed = require("../helpers/hash");
 
 const isConsumer = async (req, res) => {
