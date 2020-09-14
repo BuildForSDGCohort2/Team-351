@@ -1,10 +1,12 @@
-// //get dependencies
+// Require dependencies
 const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require("cors");
 const dbInit = require("./config/db");
+const { success, error } = require("consola");
 
-const app = express();  
+// Initialize application
+const app = express();
 
 //import environment variables
 require("dotenv").config();
@@ -21,6 +23,5 @@ app.use(bodyparser.json());
 app.use(cors());
 //app.use('/uploads', express.static('uploads'));
 
-
-
-app.listen(port, () => console.log("Server start at port " + port));
+app.listen(port, () => success({ message: `Server start on PORT ${port}`, badge :true })
+);

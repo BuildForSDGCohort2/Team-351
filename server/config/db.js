@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {success, error} = require("consola")
 
 require("dotenv").config();
 const URI = process.env.CONNECTION_STRING;
@@ -6,15 +7,15 @@ const URI = process.env.CONNECTION_STRING;
 const dbInit = async () => {   
   await mongoose
     .connect(URI, {
-      useNewUrlParser: true,
+      useNewUrlParser: true,  
       useFindAndModify: false,
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log("Successfully Connected ");
+      success({message:`Database Connected`,badge:true });
     })
-    .catch((error) => {
-      console.log("Connection failed");
+    .catch(() => {
+      error({message:`Failed to connect database`, badge:true});
     });
 };
 
