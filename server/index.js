@@ -29,5 +29,5 @@ app.use("/", api);
 
 
 app.listen(port, () =>
-  console.log({ message: `Server start on PORT ${port}` })
+  success({ message: `Server start on PORT ${port}` })
 );
