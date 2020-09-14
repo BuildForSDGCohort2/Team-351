@@ -6,4 +6,4 @@ const signUp = require("../controllers/userSigup.controller");
 //Register user
 router.post("/register", signUp);
 
-module.exports = router;
+module.exports = router;  
