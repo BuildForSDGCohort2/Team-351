@@ -23,5 +23,6 @@ app.use(bodyparser.json());
 app.use(cors());
 //app.use('/uploads', express.static('uploads'));
 
-app.listen(port, () => success({ message: `Server start on PORT ${port}`, badge :true })
+app.listen(port, () =>
+  success({ message: `Server start on PORT ${port}`, badge: true })
 );
