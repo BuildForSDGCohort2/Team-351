@@ -17,13 +17,9 @@ const UpdateFarmer = async (req, res) => {
     { email: req.body.email },
     {
       $set: {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        state: req.body.state,
-        lga: req.body.lga,
+        fullName: req.body.fullName,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
-        address: req.body.address,
       },
     },
 
