@@ -8,11 +8,11 @@ class Register extends Component {
     super(props);
 
     this.state = {
-      firstName: "",
-      lastName: "",
+      fullName: "",
       email: "",
       phoneNumber: "",
-      address: "",
+      userType: "",
+      username: "",
       password: "",
       confirmPassword: "",
     };
@@ -22,36 +22,39 @@ class Register extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value,
+      [e.target.name]: e.target.value,
     });
+
+    //console.log(this.state)
   };
- 
+
   handleSubmit = (e) => {
     e.preventDefault();
 
     let msg = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      fullName: this.state.fullName,
       email: this.state.email,
       phoneNumber: this.state.phoneNumber,
-      address: this.state.address,
+      userType: this.state.userType,
+      username: this.state.username,
       password: this.state.confirmPassword,
     };
 
-    axios.post("http://localhost:4000/user", msg).then((response) => {
+    axios.post("http://localhost:4000/register", msg).then((response) => {
       if (response) {
         this.setState({
-          firstName: "",
-          lastName: "",
+          fullName: "",
           email: "",
           phoneNumber: "",
-          address: "",
+          userType: "",
+          username: "",
           password: "",
           confirmPassword: "",
         });
-        // this.props.history.push("/");
       }
     });
+
+    console.log(this.state)
   };
   render() {
     return (
@@ -71,8 +74,8 @@ class Register extends Component {
                     <input
                       type="text"
                       className="form-control control"
-                      id="firstName"
-                      value={this.state.firstName}
+                      name="fullName"
+                      value={this.state.fullName}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -83,7 +86,7 @@ class Register extends Component {
                     <input
                       type="email"
                       className="form-control control"
-                      id="email"
+                      name="email"
                       value={this.state.email}
                       onChange={this.handleChange}
                     />
@@ -95,7 +98,7 @@ class Register extends Component {
                     <input
                       type="text"
                       className="form-control control"
-                      id="phoneNumber"
+                      name="phoneNumber"
                       value={this.state.phoneNumber}
                       onChange={this.handleChange}
                     />
@@ -104,7 +107,12 @@ class Register extends Component {
                 <div className="col-md-6">
                   <div className="form-group">
                     <label>Status</label>
-                    <select class="form-control control">
+                    <select
+                      className="form-control control"
+                      name="userType"
+                      onChange={this.handleChange}
+                      value={this.state.userType}
+                    >
                       <option>Select</option>
                       <option>Farmer</option>
                       <option>Consumer</option>
@@ -117,8 +125,8 @@ class Register extends Component {
                     <input
                       type="text"
                       className="form-control control"
-                      id="username"
-                      value={this.state.password}
+                      name="username"
+                      value={this.state.username}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -129,7 +137,7 @@ class Register extends Component {
                     <input
                       type="text"
                       className="form-control control"
-                      id="password"
+                      name="password"
                       value={this.state.password}
                       onChange={this.handleChange}
                     />
@@ -141,7 +149,7 @@ class Register extends Component {
                     <input
                       type="text"
                       className="form-control control"
-                      id="confirmPassword"
+                      name="confirmPassword"
                       value={this.state.confirmPassword}
                       onChange={this.handleChange}
                     />
