@@ -24,8 +24,6 @@ class Register extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-
-    //console.log(this.state)
   };
 
   handleSubmit = (e) => {
@@ -53,8 +51,6 @@ class Register extends Component {
         });
       }
     });
-
-    console.log(this.state)
   };
   render() {
     return (
