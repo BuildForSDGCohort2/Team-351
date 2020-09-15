@@ -5,8 +5,8 @@ const secretKey = process.env.SECRETE;
 const Login = require("../models/userlogModel");
 
 const hashed = (req, res) => {
-  const { userId, role, email, password } = req.body;
-  let login = new Login({ userId, role, email, password });
+  const { userId, userType, email, username, password } = req.body;
+  let login = new Login({ userId, userType, email, username, password });
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(login.password, salt, (err, hash) => {
       login.password = hash;
