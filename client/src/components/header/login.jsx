@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 import "../../styles/login.css";
@@ -28,20 +28,23 @@ class Login extends Component {
     e.preventDefault();
 
     //console.log(this.state);
-    let user={
-      email : this.state.email,
-      password : this.state.password
-    }
-    axios.post("http://localhost:4000/login", user).then(response=>{
-      if(response){
-        //console.log(response)
+    let user = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    axios.post("http://localhost:4000/login", user).then((response) => {
+      if (response) {
+        
 
         this.setState({
-          email : "",
-          password : ""
-        })
+          email: "",
+          password: "",
+        });
+
+        this.props.history.push("/products")
+        this.props.hide()
       }
-    })
+    });
   };
   render() {
     return (
@@ -96,4 +99,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
