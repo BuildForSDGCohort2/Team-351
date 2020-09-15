@@ -1,6 +1,6 @@
 const Customer = require("../models/consumerModel");
 
-const getAllCustomers = async (req, res) => {
+const getAllConsumers = async (req, res) => {
   await Customer.find((err, result) => {
     if (err) {
       return res.status(500).json({ status: err });
@@ -12,18 +12,15 @@ const getAllCustomers = async (req, res) => {
   });
 };
 
-const UpdateCustomer = async (req, res) => {
+const UpdateConsumer = async (req, res) => {
   await Customer.findOneAndUpdate(
     { email: req.body.email },
     {
       $set: {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        state: req.body.state,
-        lga: req.body.lga,
+        fullName: req.body.fullName,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
-        address: req.body.address,
+        
       },
     },
 
@@ -44,4 +41,4 @@ const UpdateCustomer = async (req, res) => {
   );
 };
 
-module.exports = { getAllCustomers, UpdateCustomer };
+module.exports = { getAllConsumers, UpdateConsumer };
