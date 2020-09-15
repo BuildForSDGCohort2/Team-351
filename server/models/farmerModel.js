@@ -4,7 +4,7 @@ const farmer = mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true,
+      //required: true,
     },
     fullName: {
       type: String,
@@ -22,4 +22,4 @@ const farmer = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("farmer", farmer);
+module.exports = mongoose.model("farmers", farmer);

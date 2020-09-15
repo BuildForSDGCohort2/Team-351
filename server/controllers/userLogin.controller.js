@@ -7,7 +7,7 @@ const Login = require("../models/userlogModel");
 //Login user
 const userLogIn = async (req, res) => {
   await Login.findOne(
-    { $and: [{ email: email.req.body }, { userType: userType.req.body }] },
+    { $and: [{ email: req.body.email }, { userType: req.body.userType }] },
     (err, data) => {
       if (err) {
         return res.status(500).json({
