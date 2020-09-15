@@ -85,7 +85,7 @@ class Footer extends Component {
                   target="_blank"
                   className="footer-img"
                 >
-                  <img src="https://res.cloudinary.com/lordefid/image/upload/v1590108539/linkedin_b2x3ts.png" />
+                  < FaLinkedin />
                 </a>
               </li>
             </ul>
