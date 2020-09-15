@@ -57,9 +57,9 @@ class Footer extends Component {
             </ul>
           </div>
 
-          <div class="col-6 col-md">
+          <div className="col-6 col-md">
             <h5>Follow Us</h5>
-            <ul class="list-unstyled text-small">
+            <ul className="list-unstyled text-small">
               <li>
                 <a
                   href="https://www.facebook.com/signup"
@@ -85,7 +85,7 @@ class Footer extends Component {
                   target="_blank"
                   className="footer-img"
                 >
-                  <img src="https://res.cloudinary.com/lordefid/image/upload/v1590108539/linkedin_b2x3ts.png" />
+                  < FaLinkedin />
                 </a>
               </li>
             </ul>
