@@ -40,15 +40,14 @@ class Register extends Component {
 
     axios.post("http://localhost:4000/register", msg).then((response) => {
       if (response) {
-        this.setState({
-          fullName: "",
-          email: "",
-          phoneNumber: "",
-          userType: "",
-          username: "",
-          password: "",
-          confirmPassword: "",
-        });
+        let data = response.data;
+
+        //Redirect user
+        if (data.userType === "Farmer") {
+          this.props.history.push("/farmer");
+        }else{
+          this.props.history.push("/products");
+        }
       }
     });
   };

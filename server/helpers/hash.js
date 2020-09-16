@@ -15,9 +15,10 @@ const hashed = (req, res) => {
       login.save(res, (err, details) => {
         if (err) throw err;
 
-        let payload = { subject: details };
-        let token = jwt.sign(payload, secretKey);
-        return res.status(200).send({ token });
+        // let payload = { subject: details };
+        // let token = jwt.sign(payload, secretKey);
+        // return res.status(200).send({ token });
+        return res.status(200).send(details);
       });
     });
   });
