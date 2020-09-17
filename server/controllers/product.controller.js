@@ -5,8 +5,8 @@ const addProduct = async (req, res) => {
     if (err) {
       return res.status(500).json({
         message: err.message,
-      });
-    }
+      });  
+    }   
 
     if (result) {
       return res.status(400).json({

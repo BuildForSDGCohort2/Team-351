@@ -5,39 +5,41 @@ class Product extends Component {
   render() {
     return (
       <div className="container">
-        {/* <div className="search d-flex justify-content-end m-3">
-          <input type="text" />
-          <button>Search</button>
-        </div> */}
         <div className="row ">
           <main className="col ">
             <article className="card card-product">
               <div className="card-body">
-                <div className="row">
-                  <aside className="col-sm-3">
-                    <div className="img-wrap">image here...</div>
-                  </aside>
-                  <article className="col-sm-6">
-                    <h4 className="title">Product Name</h4>
-                    <dl className="dlist-align">
-                      <dt>Category</dt>
-                      <dd>What is the category do your product</dd>
-                    </dl>
-                    <dl className="dlist-align">
-                      <dt>Quantity</dt>
-                      <dd>How much of the product do you have</dd>
-                    </dl>
-                    <dl className="dlist-align">
-                      <dt>Price per kg</dt>
-                      <dd>
-                        <span className="price">
-                          <del className="price-old">N</del>How much do you
-                          product cost for each kg
-                        </span>
-                      </dd>
-                    </dl>
-                  </article>
-                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">S/N</th>
+                      <th scope="col">Product Category</th>
+                      <th scope="col">Product Name</th>
+                      <th scope="col">Amount in Stock</th>
+                      {/* <th scope="col">Availabilty</th> */}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </article>
           </main>
