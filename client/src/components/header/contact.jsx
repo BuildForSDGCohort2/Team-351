@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import "../../styles/contact.css";
+
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -13,18 +15,15 @@ class Contact extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
- 
-  handleChange = (e) => {
 
+  handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
     });
-
-  
   };
-//  componentDidMount(){
-//    console.log(this.props)
-//  }
+  //  componentDidMount(){
+  //    console.log(this.props)
+  //  }
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -33,15 +32,15 @@ class Contact extends Component {
       email: this.state.email,
       message: this.state.message,
     };
-    
+
     axios.post("http://localhost:4000/contact", msg).then((data) => {
-      if(data){
+      if (data) {
         this.setState({
-          name : "",
-          email : "",
-          message : ""
-        })
-        this.props.history.push("/")
+          name: "",
+          email: "",
+          message: "",
+        });
+        this.props.history.push("/");
       }
     });
   };
@@ -49,9 +48,9 @@ class Contact extends Component {
     return (
       <div className="container">
         <div className="card card-contact mx-auto">
-          <div className="card-header contact-header">Contact Me</div>
+          <div className="card-header contact-header">Contact Us</div>
           <div className="card-body contact-body">
-            <form type="form" className="form" onSubmit={this.handleSubmit} >
+            <form type="form" className="form" onSubmit={this.handleSubmit}>
               <div className="row">
                 <div className="col-md-6 mx-auto">
                   <div className="form-group">
