@@ -9,14 +9,14 @@ class Product extends Component {
           <main className="col ">
             <article className="card card-product">
               <div className="card-body">
-                <table class="table">
+                <table className="table">
                   <thead>
                     <tr>
                       <th scope="col">S/N</th>
                       <th scope="col">Product Category</th>
                       <th scope="col">Product Name</th>
                       <th scope="col">Amount in Stock</th>
-                      {/* <th scope="col">Availabilty</th> */}
+                      {/* <th scope="col">Availabilty</th> */}  
                     </tr>
                   </thead>
                   <tbody>

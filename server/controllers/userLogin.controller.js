@@ -12,13 +12,13 @@ const userLogIn = async (req, res) => {
     //   $and: [{ email: req.body.email }, { password: req.body.password }],
     // },
     {email : req.body.email},
-    (err, data) => {
+    (err, response) => {
       if (err) {
         return res.status(500).json({
           message: "Error ",
         });
       }
-      if (!data) {
+      if (!response) {
         return res.status(401).json({
           message: "User not found",
         });
@@ -26,19 +26,21 @@ const userLogIn = async (req, res) => {
 
       let comparePassword = bcrypt.compareSync(
         req.body.password,
-        data.password
+        response.password
       );
       if (comparePassword !== true) {
         return res.status(401).json({
           status: "false",
         });
       }
-      let payload = { subject: data };
-      let token = jwt.sign(payload, secretKey, {
-        expiresIn: "2d",
-      });
+      // let payload = { subject: data };
+      // let token = jwt.sign(payload, secretKey, {
+      //   expiresIn: "2d",
+      // });
 
-      return res.status(200).json({ status: "success", token });
+      // return res.status(200).json({ status: "success", token });
+
+      return res.status(200).json({ status: "success", response });
     }
   );
 };
