@@ -32,16 +32,21 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    axios.post("http://localhost:4000/login", user).then((response) => {
-      if (response) {
-        
+    axios.post("http://localhost:4000/login", user).then((data) => {
+      if (data) {
+        let user = data.data;
+        let userDetails = user.response;
+
+        userDetails.userType === "Farmer"
+          ? this.props.history.push("/farmer")
+          : this.props.history.push("/products");
+
         this.setState({
           email: "",
           password: "",
         });
 
-        this.props.history.push("/products")
-        this.props.hide()
+        this.props.hide();
       }
     });
   };

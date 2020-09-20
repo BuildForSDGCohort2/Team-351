@@ -1,44 +1,87 @@
 import React, { Component } from "react";
+import axios from "axios"
 
 class NewProduct extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      productCategory: "",
+      productName: "",
+      productType: "",
+      quantity: "",
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.addProduct = this.handleSubmit.bind(this)
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e)=>{
+    e.preventDefault()
+
+    let product ={
+      productCategory: this.state.productCategory,
+      productName : this.state.productName,
+      productType : this.state.productType,
+      quantity : this.state.quantity
+    }
+
+    axios.post("http://localhost:4000/product", product).then((data)=>{
+      console.log(data)
+    })
+
+  }
+
   render() {
     return (
       <div className="container">
         <div className="card mx-auto">
           <div className="card-body">
-            <form type="form" className="form" onSubmit="">
+            <form type="form" className="form" onSubmit={this.addProduct}>
               <div className="row">
+                <div className="col-md-12">
+                  <div className="form-group">
+                    <label>Product Category</label>
+                    <select
+                      className="form-control"
+                      name="productCategory"
+                      value={this.state.productCategory}
+                      onChange={this.handleChange}
+                    >
+                      <option>Select</option>
+                      <option>Crop</option>
+                      <option>Livestock</option>
+                    </select>
+                  </div>
+                </div>
                 <div className="col-md-12 mx-auto">
                   <div className="form-group">
                     <label>Product Name</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="name"
-                      value=""
-                      onChange=""
+                      name="productName"
+                      value={this.state.productName}
+                      onChange={this.handleChange}
                     />
                   </div>
                 </div>
-                <div className="col-md-12">
-                  <div className="form-group">
-                    <label>Product Category</label>
-                    <select class="form-control">
-                      <option>Select</option>
-                      <option>Vegitable</option>
-                      <option>Grains</option>
-                    </select>
-                  </div>
-                </div>
+
                 <div className="col-md-6 mx-auto">
                   <div className="form-group">
                     <label>Type</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="ptype"
-                      value=""
-                      onChange=""
+                      name="productType"
+                      value={this.state.productType}
+                      onChange={this.handleChange}
                     />
                   </div>
                 </div>
@@ -48,9 +91,9 @@ class NewProduct extends Component {
                     <input
                       type="text"
                       className="form-control"
-                      id="quantity"
-                      value=""
-                      onChange=""
+                      name="quantity"
+                      value={this.state.quantity}
+                      onChange={this.handleChange}
                     />
                   </div>
                 </div>

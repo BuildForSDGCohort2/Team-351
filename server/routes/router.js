@@ -24,7 +24,7 @@ router.post("/login", userLogIn);
 //farmers routes
 router.get("/farmers", getAllFarmers);
 router.put("/farmer-edit", UpdateFarmer);
-
+  
 //consumers routes
 router.get("/consumers", getAllConsumers);
 router.put("/consumers-edit", UpdateConsumer);

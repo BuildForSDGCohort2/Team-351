@@ -9,6 +9,7 @@ import Register from "./components/header/register";
 import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
 import PageNotFound from "./components/landingPage";
+import Contact from "./components/header/contact";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/contact" component={Contact} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/farmer" component={Farmer} />
         <Route exact path="/products" component={Products} />
