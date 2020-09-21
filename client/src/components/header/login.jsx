@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-
 import "../../styles/login.css";
 
 import Backdrop from "./backdrop";
+import AuthService from "../../services/auth.service";
 
 class Login extends Component {
   constructor(props) {
@@ -27,28 +27,24 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    //console.log(this.state);
-    let user = {
-      email: this.state.email,
-      password: this.state.password,
-    };
-    axios.post("http://localhost:4000/login", user).then((data) => {
-      if (data) {
-        let user = data.data;
-        let userDetails = user.response;
+    AuthService.login(this.state.email, this.state.password).then(
+      (response) => {
+        if (response) {
+          let user = response.data;
+          console.log(user)
+          user.response.userType === "Farmer"
+            ? this.props.history.push("/farmer")
+            : this.props.history.push("/products");
 
-        userDetails.userType === "Farmer"
-          ? this.props.history.push("/farmer")
-          : this.props.history.push("/products");
+          this.setState({
+            email: "",
+            password: "",
+          });
 
-        this.setState({
-          email: "",
-          password: "",
-        });
-
-        this.props.hide();
+          this.props.hide();
+        }
       }
-    });
+    );
   };
   render() {
     return (
