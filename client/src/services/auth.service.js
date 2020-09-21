@@ -3,7 +3,7 @@ import axios from "axios";
 const URI = "http://localhost:4000/";
 
 class AuthService {
-  login(email, password) {
+  login = (email, password) => {
     return axios
       .post(URI + "login", {
         email,
@@ -15,11 +15,15 @@ class AuthService {
         // }
         if (result.data) {
           let userData = result.data.response;
-          localStorage.setItem("data", JSON.stringify(userData.email));
+          localStorage.setItem("email", JSON.stringify(userData.email));
         }
         return result;
       });
-  }
+  };
+
+  logout = () => {
+    localStorage.removeItem("user");
+  };
 }
 
 export default new AuthService();

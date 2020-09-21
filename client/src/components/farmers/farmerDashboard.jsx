@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "../../styles/farmerDashboard.css";
 
-import Product from "../products";
+import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
 
@@ -117,7 +117,7 @@ class Farmer extends Component {
           )}
           {this.state.isProducts && (
             <div className="col-md-9 mt-5">
-              <Product />
+              <Products />
             </div>
           )}
           {this.state.isNewProduct && (

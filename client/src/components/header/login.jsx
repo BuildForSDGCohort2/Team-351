@@ -30,8 +30,8 @@ class Login extends Component {
     AuthService.login(this.state.email, this.state.password).then(
       (response) => {
         if (response) {
+          //Check user type and redirect to user component
           let user = response.data;
-          console.log(user)
           user.response.userType === "Farmer"
             ? this.props.history.push("/farmer")
             : this.props.history.push("/products");
@@ -41,6 +41,7 @@ class Login extends Component {
             password: "",
           });
 
+          //Hide login modal
           this.props.hide();
         }
       }
