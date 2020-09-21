@@ -5,7 +5,7 @@ const product = mongoose.Schema(
     productId: {
       type: String,
     },
-    userId: {
+    userId: {  
       type: String,
     },
     category: {
@@ -18,6 +18,7 @@ const product = mongoose.Schema(
       type: Number,
     },   
   },
+  
   { timestamps: true }
 );
 
