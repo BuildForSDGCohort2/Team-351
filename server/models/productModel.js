@@ -8,7 +8,7 @@ const product = mongoose.Schema(
     userId: {  
       type: String,
     },
-    category: {
+    productCategory: {
       type: String,
     },
     productName: {

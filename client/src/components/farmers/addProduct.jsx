@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios"
+import axios from "axios";
+
+import URL from "../../services/user.service";
 
 class NewProduct extends Component {
   constructor(props) {
@@ -10,11 +12,21 @@ class NewProduct extends Component {
       productName: "",
       productType: "",
       quantity: "",
+      userId: "",
+      id: "",
+      idNum: Number,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.addProduct = this.handleSubmit.bind(this)
+    this.addProduct = this.handleSubmit.bind(this);
   }
+
+  // componentDidMount() {
+  //   const id = localStorage.getItem("user");
+  //   this.setState({ userId: id });
+  //   const uId = this.state.uId
+  //   console.log(uId);
+  // }
 
   handleChange = (e) => {
     this.setState({
@@ -22,23 +34,22 @@ class NewProduct extends Component {
     });
   };
 
-  handleSubmit = (e)=>{
-    e.preventDefault()
-
-    let product ={
-      productId : Math.floor(Math.random() * 100000) + 1,
-      userId : Math.floor(Math.random() * 100000) + 1,
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const id = localStorage.getItem("user");
+    let product = {
+      productId: Math.floor(Math.random() * 100000) + 1,
+      userId: id,
       productCategory: this.state.productCategory,
-      productName : this.state.productName,
-      productType : this.state.productType,
-      quantity : this.state.quantity
-    }
+      productName: this.state.productName,
+      productType: this.state.productType,
+      quantity: this.state.quantity,
+    };
 
-    axios.post("http://localhost:4000/product", product).then((data)=>{
-      console.log(data)
-    })
-
-  }
+    axios.post("http://localhost:4000/product", product).then((data) => {
+      //console.log(data)
+    });
+  };
 
   render() {
     return (

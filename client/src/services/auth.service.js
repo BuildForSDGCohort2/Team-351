@@ -15,11 +15,20 @@ class AuthService {
         // }
         if (result.data) {
           let userData = result.data.response;
-          localStorage.setItem("email", JSON.stringify(userData.email));
+          let id = parseInt(userData.userId);
+          localStorage.setItem("user", id);
         }
         return result;
       });
   };
+
+  register(username, email, password) {
+    return axios.post(URI + "signup", {
+      username,
+      email,
+      password,
+    });
+  }
 
   logout = () => {
     localStorage.removeItem("user");

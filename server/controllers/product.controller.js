@@ -1,12 +1,12 @@
 const Product = require("../models/productModel");
-   
+
 const addProduct = async (req, res) => {
   await Product.findOne({ productId: req.body.productId }, (err, result) => {
     if (err) {
       return res.status(500).json({
         message: err.message,
-      });  
-    }   
+      });
+    }
 
     if (result) {
       return res.status(400).json({
@@ -28,6 +28,7 @@ const addProduct = async (req, res) => {
   });
 };
 
+// get all products
 const getProduct = async (req, res) => {
   await Product.find((err, result) => {
     if (err) {
@@ -42,4 +43,16 @@ const getProduct = async (req, res) => {
     });
   });
 };
-module.exports = { addProduct, getProduct };
+
+const productFilter = async (req, res) => {
+  await Product.find({ userId: req.body.userId }, (err, result) => {
+    if (err) {
+      return res.status(500).json({ message: "error" });
+    }
+
+    return result
+      ? res.status(200).json({ status: "ok", result })
+      : res.status(400).json({ message: "record not found" });
+  });
+};
+module.exports = { addProduct, getProduct, productFilter };

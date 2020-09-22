@@ -6,7 +6,7 @@ const Login = require("../models/userlogModel");
 
 //Login user
 const userLogIn = async (req, res) => {
-  //const pwd = req.body.password;
+  
   await Login.findOne(
     // {
     //   $and: [{ email: req.body.email }, { password: req.body.password }],

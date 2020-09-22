@@ -15,6 +15,7 @@ class Farmer extends Component {
       isNewProduct: false,
       isProducts: true,
       isPreserve: false,
+      user: "",
     };
     this.showProducts = this.showProducts.bind(this);
     this.showNewProduct = this.showNewProduct.bind(this);
@@ -22,7 +23,15 @@ class Farmer extends Component {
     this.showTransactions = this.showTransactions.bind(this);
   }
   showProducts = () => {
-    this.setState({ isProducts: true, isNewProduct: false, isPreserve: false });
+    this.setState({
+      isProducts: true,
+      isNewProduct: false,
+      isPreserve: false,
+      user: localStorage.getItem("user"),
+    });
+    let currentUser = this.state.user;
+
+    
   };
   showNewProduct = () => {
     this.setState({ isProducts: false, isPreserve: false, isNewProduct: true });

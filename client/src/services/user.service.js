@@ -2,12 +2,15 @@ import axios from "axios"
 
 const URI = "http://localhost:4000/";
 
-class getProduct{
+class FarmerProducts{
     products=()=>{
         axios.get(URI + "products").then(response=>{
-            //products by user id
+            
         })
     }
 }
 
-export default new getProduct()
+
+export default new FarmerProducts()
+
+// export default  URL = "http://localhost:4000/";
