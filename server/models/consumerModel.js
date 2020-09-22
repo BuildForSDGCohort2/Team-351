@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const consumer = mongoose.Schema(
   {
+    userId: {
+      type: String,
+    },
     fullName: {
       type: String,
       required: true,

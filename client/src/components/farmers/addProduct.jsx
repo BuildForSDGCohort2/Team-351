@@ -26,6 +26,8 @@ class NewProduct extends Component {
     e.preventDefault()
 
     let product ={
+      productId : Math.floor(Math.random() * 100000) + 1,
+      userId : Math.floor(Math.random() * 100000) + 1,
       productCategory: this.state.productCategory,
       productName : this.state.productName,
       productType : this.state.productType,

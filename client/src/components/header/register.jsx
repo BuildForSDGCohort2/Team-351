@@ -29,7 +29,8 @@ class Register extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    let msg = {
+    let user = {
+      userId : Math.floor(Math.random() * 100000) + 1,
       fullName: this.state.fullName,
       email: this.state.email,
       phoneNumber: this.state.phoneNumber,
@@ -38,10 +39,10 @@ class Register extends Component {
       password: this.state.confirmPassword,
     };
 
-    axios.post("http://localhost:4000/register", msg).then((response) => {
+    axios.post("http://localhost:4000/register", user).then((response) => {
       if (response) {
         let data = response.data;
-
+        
         //Redirect user
         if (data.userType === "Farmer") {
           this.props.history.push("/farmer");
