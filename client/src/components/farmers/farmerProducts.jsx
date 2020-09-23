@@ -56,22 +56,23 @@ class Products extends Component {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th scope="col"></th>
+                      <th scope="col">Product N0</th>
                       <th scope="col">Product Name</th>
                       <th scope="col">Amount in Stock</th>
                       <th scope="col">Product Category</th>
-                      {/* <th scope="col">Availabilty</th> */}
+                      <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.map((item, index) => {
                       return (
                         <tr key={index}>
-                          <th scope="row"></th>
+                          <th scope="row">{item.productId}</th>
                           <td>{item.productName}</td>
                           <td>{item.quantity + " kg"}</td>
                           <td>{item.productCategory}</td>
-                          <button className="btn-primary">View Details</button>
+                          <td>Available</td>
+                          {/* <button className="btn-primary">View Details</button> */}
                         </tr>
                       );
                     })}

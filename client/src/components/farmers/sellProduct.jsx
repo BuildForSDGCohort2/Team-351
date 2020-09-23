@@ -92,36 +92,36 @@ class SaleProducts extends Component {
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                  <div className="form-group">
-                    <label>State</label>
-                    <select
-                      className="form-control"
-                      name="productCategory"
-                      value={this.state.productCategory}
-                      onChange={this.handleChange}
-                    >
-                      <option>Select</option>
-                      <option>Crop</option>
-                      <option>Livestock</option>
-                    </select>  
-                  </div>
-                </div>
-                    
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <label>LGA</label>
-                    <select
-                      className="form-control"
-                      name="productCategory"
-                      value={this.state.productCategory}
-                      onChange={this.handleChange}
-                    >
-                      <option>Select</option>
-                      <option>Crop</option>
-                      <option>Livestock</option>
-                    </select>  
-                  </div>
-                </div>
+                      <div className="form-group">
+                        <label>State</label>
+                        <select
+                          className="form-control"
+                          name="productCategory"
+                          value={this.state.productCategory}
+                          onChange={this.handleChange}
+                        >
+                          <option>Select</option>
+                          <option>Crop</option>
+                          <option>Livestock</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label>LGA</label>
+                        <select
+                          className="form-control"
+                          name="productCategory"
+                          value={this.state.productCategory}
+                          onChange={this.handleChange}
+                        >
+                          <option>Select</option>
+                          <option>Crop</option>
+                          <option>Livestock</option>
+                        </select>
+                      </div>
+                    </div>
 
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
