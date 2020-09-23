@@ -105,6 +105,14 @@ class Farmer extends Component {
                       <li>
                         <button
                           className="btn-link"
+                          onClick={this.showPreserv}
+                        >
+                          Sale Products
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="btn-link"
                           onClick={this.showPreserve}
                         >
                           Preservation Methods

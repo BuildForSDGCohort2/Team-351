@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "../../styles/product.css";
 
 //import FarmerProducts from "../../services/user.service";
@@ -56,7 +56,7 @@ class Products extends Component {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th scope="col">S/N</th>
+                      <th scope="col"></th>
                       <th scope="col">Product Name</th>
                       <th scope="col">Amount in Stock</th>
                       <th scope="col">Product Category</th>
@@ -67,13 +67,11 @@ class Products extends Component {
                     {data.map((item, index) => {
                       return (
                         <tr key={index}>
-                          <th scope="row">1</th>
+                          <th scope="row"></th>
                           <td>{item.productName}</td>
                           <td>{item.quantity + " kg"}</td>
                           <td>{item.productCategory}</td>
-                          <Link to={`/view-project/${item.projectId}`}>
-                            View Details
-                          </Link>
+                          <button className="btn-primary">View Details</button>
                         </tr>
                       );
                     })}

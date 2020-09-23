@@ -12,10 +12,13 @@ class Navbar extends Component {
 
     this.state = {
       show: false,
+      isLogin: false,
     };
 
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   showModal = () => {
@@ -24,6 +27,13 @@ class Navbar extends Component {
 
   hideModal = () => {
     this.setState({ show: false });
+  };
+
+  handleLogin = () => {
+    this.setState({ isLogin: true });
+  };
+  handleLogout = () => {
+    this.setState({ isLogin: false });
   };
   render() {
     return (
@@ -48,6 +58,11 @@ class Navbar extends Component {
                 <li className="nav-item active">
                   <Link to="/" className="nav-link">
                     Home <span className="sr-only">(current)</span>
+                  </Link>
+                </li>
+                <li className="nav-item active">
+                  <Link to="/" className="nav-link">
+                    Products 
                   </Link>
                 </li>
                 <li className="nav-item">

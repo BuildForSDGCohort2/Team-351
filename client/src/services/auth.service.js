@@ -15,14 +15,14 @@ class AuthService {
         // }
         if (result.data) {
           let userData = result.data.response;
-          let id = parseInt(userData.userId);
+          let id = parseInt(userData.userId,10);
           localStorage.setItem("user", id);
         }
         return result;
       });
   };
 
-  register(username, email, password) {
+  register(username, email, password) {  
     return axios.post(URI + "signup", {
       username,
       email,
