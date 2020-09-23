@@ -5,6 +5,7 @@ import "../../styles/farmerDashboard.css";
 import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
+import SaleProducts from "./sellProduct";
 
 class Farmer extends Component {
   constructor(props) {
@@ -15,12 +16,14 @@ class Farmer extends Component {
       isNewProduct: false,
       isProducts: true,
       isPreserve: false,
+      isSales : false,
       user: "",
     };
     this.showProducts = this.showProducts.bind(this);
     this.showNewProduct = this.showNewProduct.bind(this);
     this.showPreserve = this.showPreserve.bind(this);
     this.showTransactions = this.showTransactions.bind(this);
+    this.showSales = this.showSales.bind(this);
   }
   showProducts = () => {
     this.setState({
@@ -34,18 +37,23 @@ class Farmer extends Component {
     
   };
   showNewProduct = () => {
-    this.setState({ isProducts: false, isPreserve: false, isNewProduct: true });
+    this.setState({ isProducts: false, isPreserve: false, isSales: false, isNewProduct: true });
   };
 
   showPreserve = () => {
-    this.setState({ isProducts: false, isNewProduct: false, isPreserve: true });
+    this.setState({ isProducts: false, isSales: false, isNewProduct: false, isPreserve: true });
   };
+
+  showSales = () =>{
+    this.setState({isProducts: false, isNewProduct: false, isPreserve: false, isSales: true })
+  }
 
   showTransactions = () => {
     this.setState({
       isProducts: false,
       isNewProduct: false,
       isPreserve: false,
+      isSales: false
     });
   };
 
@@ -105,7 +113,7 @@ class Farmer extends Component {
                       <li>
                         <button
                           className="btn-link"
-                          onClick={this.showPreserv}
+                          onClick={this.showSales}
                         >
                           Sale Products
                         </button>
@@ -140,6 +148,11 @@ class Farmer extends Component {
           {this.state.isNewProduct && (
             <div className="col-md-9 mt-5">
               <NewProduct />
+            </div>
+          )}
+          {this.state.isSales && (
+            <div className="col-md-9 mt-5">
+              <SaleProducts />
             </div>
           )}
           {this.state.isPreserve && (

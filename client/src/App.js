@@ -10,6 +10,7 @@ import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
 import PageNotFound from "./components/landingPage";
 import Contact from "./components/header/contact";
+import SaleProducts from "./components/farmers/sellProduct"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/farmer" component={Farmer} />
         <Route exact path="/products" component={Products} />
+        <Route exact path="/sales" component={SaleProducts} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
