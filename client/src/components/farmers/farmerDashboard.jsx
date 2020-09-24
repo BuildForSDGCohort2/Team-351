@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Route} from "react-router-dom";
 
 import "../../styles/farmerDashboard.css";
 
@@ -6,6 +7,8 @@ import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
 import SaleProducts from "./sellProduct";
+import Prods from "./productDetails";
+
 
 class Farmer extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ class Farmer extends Component {
       isPreserve: false,
       user: localStorage.getItem("user"),
     });
-    let currentUser = this.state.user;
+    
 
     
   };
@@ -160,6 +163,7 @@ class Farmer extends Component {
               <Preserve />
             </div>
           )}
+          {/* <Route exact path="farmer/:prod_id" component={Prods} /> */}
         </div>
       </div>
     );

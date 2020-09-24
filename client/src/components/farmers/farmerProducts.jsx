@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-//import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
 //import FarmerProducts from "../../services/user.service";
@@ -15,7 +15,7 @@ class Products extends Component {
       products: [],
       filteredProducts: [],
       userId: "",
-      aa: [],
+      id: null,
     };
 
     this.getProducts = this.getProducts.bind(this);
@@ -33,7 +33,7 @@ class Products extends Component {
       let uId = localStorage.getItem("user");
 
       //filter products by userId
-      let filterredProd = prod.filter(function (e) {
+      let filterredProd = prod.filter(function (e) {    
         return e.userId === uId;
       });
 
@@ -47,6 +47,7 @@ class Products extends Component {
 
   render() {
     const data = this.state.filteredProducts;
+    let match=this.props.match
     return (
       <div className="container">
         <div className="row ">
@@ -67,12 +68,13 @@ class Products extends Component {
                     {data.map((item, index) => {
                       return (
                         <tr key={index}>
-                          <th scope="row">{item.productId}</th>
+                          <td>{item.productId}</td>
                           <td>{item.productName}</td>
                           <td>{item.quantity + " kg"}</td>
                           <td>{item.productCategory}</td>
-                          <td>Available</td>
-                          {/* <button className="btn-primary">View Details</button> */}
+                          <td>
+                            <Link to={`${match.url}/${item.productId}`}>View Details</Link>
+                          </td>
                         </tr>
                       );
                     })}
@@ -87,4 +89,4 @@ class Products extends Component {
   }
 }
 
-export default Products;
+export default withRouter(Products);
