@@ -6,7 +6,7 @@ import "../../styles/farmerDashboard.css";
 import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
-import SaleProducts from "./sellProduct";
+// import SaleProducts from "./saleProduct";
 // import Prods from "./productDetails";
 
 class Farmer extends Component {
@@ -18,14 +18,14 @@ class Farmer extends Component {
       isNewProduct: false,
       isProducts: true,
       isPreserve: false,
-      isSales: false,
+      // isSales: false,
       user: "",
     };
     this.showProducts = this.showProducts.bind(this);
     this.showNewProduct = this.showNewProduct.bind(this);
     this.showPreserve = this.showPreserve.bind(this);
     this.showTransactions = this.showTransactions.bind(this);
-    this.showSales = this.showSales.bind(this);
+    // this.showSales = this.showSales.bind(this);
   }
   showProducts = () => {
     this.setState({
@@ -39,42 +39,42 @@ class Farmer extends Component {
     this.setState({
       isProducts: false,
       isPreserve: false,
-      isSales: false,
+      // isSales: false,
       isNewProduct: true,
     });
   };
-  componentDidMount(){
-    console.log(this.props)
-  }
+  // componentDidMount(){
+  //   console.log(this.props)
+  // }
   showPreserve = () => {
     this.setState({
       isProducts: false,
-      isSales: false,
+      // isSales: false,
       isNewProduct: false,
       isPreserve: true,
     });
   };
 
-  showSales = () => {
-    this.setState({
-      isProducts: false,
-      isNewProduct: false,
-      isPreserve: false,
-      isSales: true,
-    });
-  };
+  // showSales = () => {
+  //   this.setState({
+  //     isProducts: false,
+  //     isNewProduct: false,
+  //     isPreserve: false,
+  //     // isSales: true,
+  //   });
+  // };
 
   showTransactions = () => {
     this.setState({
       isProducts: false,
       isNewProduct: false,
       isPreserve: false,
-      isSales: false,
+      // isSales: false,
     });
   };
 
   render() {
-    // let match = this.props.match;
+    
     return (
       <div className="container">
         <div className="row">
@@ -127,11 +127,11 @@ class Farmer extends Component {
                           New Product
                         </button>
                       </li>
-                      <li>
+                      {/* <li>
                         <button className="btn-link" onClick={this.showSales}>
                           Sale Products
                         </button>
-                      </li>
+                      </li> */}
                       <li>
                         <button
                           className="btn-link"
@@ -164,17 +164,17 @@ class Farmer extends Component {
               <NewProduct />
             </div>
           )}
-          {this.state.isSales && (
+          {/* {this.state.isSales && (
             <div className="col-md-9 mt-5">
               <SaleProducts />
             </div>
-          )}
+          )} */}
           {this.state.isPreserve && (
             <div className="col-md-9 mt-5">
               <Preserve />
             </div>
           )}
-          {/* <Route exact path={`${match.path}/prod_id`} component={Prods} /> */}
+          
         </div>
       </div>
     );

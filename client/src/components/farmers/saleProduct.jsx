@@ -1,19 +1,80 @@
 import React, { Component } from "react";
-//import axios from "axios";
-//import { Link } from "react-router-dom";
-import "../../styles/product.css";
-
-//import FarmerProducts from "../../services/user.service";
-
-//const URI = "http://localhost:4000/";
-
-class SaleProducts extends Component {
+import axios from "axios";
+const URI = "http://localhost:4000/";
+class saleProduct extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
+    this.state = {
+      id: null,
+      products: [],
+      product: [],
 
+      saleQuantity: "",
+      price: "",
+      states: "",
+      lga: "",
+      address: "",
+      landmark: "",
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+  componentDidMount() {
+    this.getProductById();
+  }
+  getProductById = () => {
+    //Get product Id from props
+    let id = this.props.match.params.prod_id;
+
+    axios.get(URI + "products").then((res) => {
+      this.setState({ products: res.data.result });
+      const prod = this.state.products;
+
+      //Filter product with product Id
+      let filterProduct = prod.filter(function (e) {
+        return e.productId === id;
+      });
+
+      filterProduct.forEach((item) => {
+        this.setState({
+          product: item,
+        });
+      });
+
+      return this.state.product;
+    });
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const data = this.state.product;
+    let prod = {
+      productName: data.productName,
+      quantity: this.state.saleQuantity,
+      price: this.state.price,
+      location: {
+        states: this.state.states,
+        lga: this.state.lga,
+        address: this.state.address,
+        landmark: this.state.landmark,
+      },
+      farmer:{
+        
+      }
+    };
+    axios.post(URL + "", prod).then((response) => {
+      console.log(response);
+    });
+  };
   render() {
+    const data = this.state.product;
+
     return (
       <div className="container">
         <div className="row ">
@@ -22,73 +83,57 @@ class SaleProducts extends Component {
               <div className="card-body">
                 <form type="form" className="form">
                   <div className="row">
-                    {/* <div className="col-md-12">
-                  <div className="form-group">
-                    <label>Product Name</label>
-                    <select
-                      className="form-control"
-                      name="productCategory"
-                      value={this.state.productCategory}
-                      onChange={this.handleChange}
-                    >
-                      <option>Select</option>
-                      <option>Crop</option>
-                      <option>Livestock</option>
-                    </select>  
-                  </div>
-                </div> */}
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
-                        <label>Product Name</label>
+                        <label>Name of your product</label>
                         <input
                           type="text"
                           className="form-control"
                           name="productName"
-                          value={this.state.productName}
+                          defaultValue={data.productName}
                           onChange={this.handleChange}
                         />
                       </div>
                     </div>
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
-                        <label>Products in Stock</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="productName"
-                          value={this.state.productName}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-md-6 mx-auto">
-                      <div className="form-group">
-                        <label>Quantity for Sale</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="productType"
-                          value={this.state.productType}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6 mx-auto">
-                      <div className="form-group">
-                        <label>Price</label>
+                        <label>Total Products in Stock</label>
                         <input
                           type="text"
                           className="form-control"
                           name="quantity"
-                          value={this.state.quantity}
+                          defaultValue={data.quantity}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6 mx-auto">
+                      <div className="form-group">
+                        <label>How many do you want to Sale?</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="saleQuantity"
+                          value={this.state.saleQuantity}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6 mx-auto">
+                      <div className="form-group">
+                        <label>How much is your Product per kg</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="price"
+                          value={this.state.price}
                           onChange={this.handleChange}
                         />
                       </div>
                     </div>
                   </div>
                   <div className="d-flex justify-content-center">
-                    <span>Product Location</span>
+                    <span>Where is you product Located</span>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
@@ -96,8 +141,8 @@ class SaleProducts extends Component {
                         <label>State</label>
                         <select
                           className="form-control"
-                          name="productCategory"
-                          value={this.state.productCategory}
+                          name="states"
+                          value={this.state.states}
                           onChange={this.handleChange}
                         >
                           <option>Select</option>
@@ -106,14 +151,13 @@ class SaleProducts extends Component {
                         </select>
                       </div>
                     </div>
-
                     <div className="col-md-6">
                       <div className="form-group">
                         <label>LGA</label>
                         <select
                           className="form-control"
-                          name="productCategory"
-                          value={this.state.productCategory}
+                          name="lga"
+                          value={this.state.lga}
                           onChange={this.handleChange}
                         >
                           <option>Select</option>
@@ -129,8 +173,8 @@ class SaleProducts extends Component {
                         <input
                           type="text"
                           className="form-control"
-                          name="productType"
-                          value={this.state.productType}
+                          name="address"
+                          value={this.state.address}
                           onChange={this.handleChange}
                         />
                       </div>
@@ -141,8 +185,8 @@ class SaleProducts extends Component {
                         <input
                           type="text"
                           className="form-control"
-                          name="quantity"
-                          value={this.state.quantity}
+                          name="landmark"
+                          value={this.state.landmark}
                           onChange={this.handleChange}
                         />
                       </div>
@@ -163,4 +207,4 @@ class SaleProducts extends Component {
   }
 }
 
-export default SaleProducts;
+export default saleProduct;
