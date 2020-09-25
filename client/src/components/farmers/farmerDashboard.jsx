@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route} from "react-router-dom";
+// import { Route } from "react-router-dom";
 
 import "../../styles/farmerDashboard.css";
 
@@ -7,8 +7,7 @@ import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
 import SaleProducts from "./sellProduct";
-import Prods from "./productDetails";
-
+// import Prods from "./productDetails";
 
 class Farmer extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class Farmer extends Component {
       isNewProduct: false,
       isProducts: true,
       isPreserve: false,
-      isSales : false,
+      isSales: false,
       user: "",
     };
     this.showProducts = this.showProducts.bind(this);
@@ -35,32 +34,47 @@ class Farmer extends Component {
       isPreserve: false,
       user: localStorage.getItem("user"),
     });
-    
-
-    
   };
   showNewProduct = () => {
-    this.setState({ isProducts: false, isPreserve: false, isSales: false, isNewProduct: true });
+    this.setState({
+      isProducts: false,
+      isPreserve: false,
+      isSales: false,
+      isNewProduct: true,
+    });
   };
-
-  showPreserve = () => {
-    this.setState({ isProducts: false, isSales: false, isNewProduct: false, isPreserve: true });
-  };
-
-  showSales = () =>{
-    this.setState({isProducts: false, isNewProduct: false, isPreserve: false, isSales: true })
+  componentDidMount(){
+    console.log(this.props)
   }
+  showPreserve = () => {
+    this.setState({
+      isProducts: false,
+      isSales: false,
+      isNewProduct: false,
+      isPreserve: true,
+    });
+  };
+
+  showSales = () => {
+    this.setState({
+      isProducts: false,
+      isNewProduct: false,
+      isPreserve: false,
+      isSales: true,
+    });
+  };
 
   showTransactions = () => {
     this.setState({
       isProducts: false,
       isNewProduct: false,
       isPreserve: false,
-      isSales: false
+      isSales: false,
     });
   };
 
   render() {
+    // let match = this.props.match;
     return (
       <div className="container">
         <div className="row">
@@ -114,10 +128,7 @@ class Farmer extends Component {
                         </button>
                       </li>
                       <li>
-                        <button
-                          className="btn-link"
-                          onClick={this.showSales}
-                        >
+                        <button className="btn-link" onClick={this.showSales}>
                           Sale Products
                         </button>
                       </li>
@@ -163,7 +174,7 @@ class Farmer extends Component {
               <Preserve />
             </div>
           )}
-          {/* <Route exact path="farmer/:prod_id" component={Prods} /> */}
+          {/* <Route exact path={`${match.path}/prod_id`} component={Prods} /> */}
         </div>
       </div>
     );

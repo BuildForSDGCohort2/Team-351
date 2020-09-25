@@ -3,7 +3,12 @@ const router = express.Router();
 
 const signUp = require("../controllers/userSignup.controller");
 const { userLogIn } = require("../controllers/userLogin.controller");
-const { addProduct, getProduct } = require("../controllers/product.controller");
+const {
+  addProduct,
+  getProduct,
+  productFilter,
+  productDetails,
+} = require("../controllers/product.controller");
 
 const {
   UpdateFarmer,
@@ -24,7 +29,7 @@ router.post("/login", userLogIn);
 //farmers routes
 router.get("/farmers", getAllFarmers);
 router.put("/farmer-edit", UpdateFarmer);
-  
+
 //consumers routes
 router.get("/consumers", getAllConsumers);
 router.put("/consumers-edit", UpdateConsumer);
@@ -32,5 +37,7 @@ router.put("/consumers-edit", UpdateConsumer);
 //product routes
 router.post("/product", addProduct);
 router.get("/products", getProduct);
+router.get("/products/:userId", productFilter);
+router.get("/productId", productDetails);
 
 module.exports = router;

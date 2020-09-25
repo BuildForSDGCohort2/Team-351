@@ -14,7 +14,7 @@ class Products extends Component {
       user: "",
       products: [],
       filteredProducts: [],
-      userId: "",
+      userId: "44207",
       id: null,
     };
 
@@ -22,11 +22,14 @@ class Products extends Component {
   }
 
   componentDidMount = () => {
+    //console.log(this.props)
     this.getProducts();
   };
 
   getProducts = () => {
+    
     axios.get(URI + "products").then((response) => {
+      //console.log(response)
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 

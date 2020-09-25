@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {Link} from "react-router-dom"
 
 import "../../styles/footer.css";
 
@@ -9,30 +10,30 @@ class Footer extends Component {
       <div className=" d-flex justify-content-center pt-4 ">
         <div className="row footer">
           <div className="col-12 col-md">
-            <a href="#" className="dashboard-img" to="#">
+            {/* <Link to="/" className="dashboard-img" >
               <img src={"../logo.png"} alt="logo" />
-            </a>
-            <br></br>
+            </Link>
+            <br></br> */}
             <small className="-block mb-3 text-muted">&copy; 2020</small>
           </div>
           <div className="col-6 col-md">
             <h5>About</h5>
             <ul className="list-unstyled text-small">
               <li>
-                <a className="text-muted" href="#">
+                <Link to="/" className="text-muted">
                   Team
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a className="text-muted" href="#">
+                <Link to="/" className="text-muted" >
                   Privacy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-muted" href="#">
+                <Link to="/" className="text-muted" >
                   Terms
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,19 +41,19 @@ class Footer extends Component {
             <h5>Features</h5>
             <ul className="list-unstyled text-small">
               <li>
-                <a className="text-muted" href="#">
+                <Link to="/" className="text-muted" >
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-muted" href="#">
+                <Link className="text-muted" >
                   Testimonials
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-muted" href="#">
+                <Link className="text-muted" >
                   Careers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -61,32 +62,32 @@ class Footer extends Component {
             <h5>Follow Us</h5>
             <ul className="list-unstyled text-small">
               <li>
-                <a
-                  href="https://www.facebook.com/signup"
+                <Link
+                  to="https://www.facebook.com/signup"
                   target="_blank"
                   className="footer-img"
                 >
                   <FaFacebook />
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://twitter.com/i/flow/signup"
+                <Link
+                  to="https://twitter.com/i/flow/signup"
                   target="_blank"
                   className="footer-img"
                 >
                   <FaTwitter />
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="https://www.linkedin.com/signup"
+                <Link
+                  to="https://www.linkedin.com/signup"
                   target="_blank"
                   className="footer-img"
                 >
                   < FaLinkedin />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -21,12 +21,12 @@ class NewProduct extends Component {
     this.addProduct = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    // const id = localStorage.getItem("user");
-    // this.setState({ userId: id });
-    // const uId = this.state.uId
-    console.log(this.props);
-  }
+  // componentDidMount() {
+  //   const id = localStorage.getItem("user");
+  //   this.setState({ userId: id });
+  //   const uId = this.state.uId
+  //   console.log(this.props);
+  // }
 
   handleChange = (e) => {
     this.setState({

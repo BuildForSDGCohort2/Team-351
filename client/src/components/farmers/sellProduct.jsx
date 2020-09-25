@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
+//import axios from "axios";
 //import { Link } from "react-router-dom";
 import "../../styles/product.css";
 
 //import FarmerProducts from "../../services/user.service";
 
-const URI = "http://localhost:4000/";
+//const URI = "http://localhost:4000/";
 
 class SaleProducts extends Component {
   constructor(props) {

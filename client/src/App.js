@@ -11,7 +11,7 @@ import Products from "./components/products";
 import PageNotFound from "./components/landingPage";
 import Contact from "./components/header/contact";
 import SaleProducts from "./components/farmers/sellProduct"
-// import Prods from "./components/farmers/productDetails";
+import Prods from "./components/farmers/productDetails";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/farmer" component={Farmer} />
         <Route exact path="/products" component={Products} />
         <Route exact path="/sales" component={SaleProducts} />
-        {/* <Route exact path="/:prod_id" component={Prods} /> */}
+        <Route exact path="/farmer/:prod_id" component={Prods} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
