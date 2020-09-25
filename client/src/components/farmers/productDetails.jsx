@@ -64,7 +64,7 @@ class Prods extends Component {
       address: this.state.address,
       landmark: this.state.landmark,
     };
-    axios.post(URL + "").then((response) => {
+    axios.post(URL + "", prod).then((response) => {
       console.log(response);
     });
   };
