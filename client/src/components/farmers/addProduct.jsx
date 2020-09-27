@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom";
 import axios from "axios";
-
 
 class NewProduct extends Component {
   constructor(props) {
@@ -20,13 +19,6 @@ class NewProduct extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.addProduct = this.handleSubmit.bind(this);
   }
-
-  // componentDidMount() {
-  //   const id = localStorage.getItem("user");
-  //   this.setState({ userId: id });
-  //   const uId = this.state.uId
-  //   console.log(this.props);
-  // }
 
   handleChange = (e) => {
     this.setState({

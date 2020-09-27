@@ -18,15 +18,18 @@ class saleProduct extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     this.getProductById();
+    //console.log("Loaded");
   }
   getProductById = () => {
     //Get product Id from props
     let id = this.props.match.params.prod_id;
 
     axios.get(URI + "products").then((res) => {
+      //console.log(res)
       this.setState({ products: res.data.result });
       const prod = this.state.products;
 
@@ -55,20 +58,29 @@ class saleProduct extends Component {
     e.preventDefault();
     const data = this.state.product;
     let prod = {
-      productName: data.productName,
-      quantity: this.state.saleQuantity,
-      price: this.state.price,
+      salesId: "00001",
+
+      product: {
+        productId: data.productId,
+        productName: data.productName,
+        quantity: this.state.saleQuantity,
+        price: this.state.price,
+        productCategory: data.productCategory
+      },
       location: {
-        states: this.state.states,
+        state: this.state.states,
         lga: this.state.lga,
         address: this.state.address,
         landmark: this.state.landmark,
       },
-      farmer:{
-        
-      }
+      farmer: {
+        userId: "001",
+        farmerName: "ABC",
+        phoneN0: "09067678989",
+      },
+      date: "03/10/2020",
     };
-    axios.post(URL + "", prod).then((response) => {
+    axios.post("http://localhost:4000/product-sale", prod).then((response) => {
       console.log(response);
     });
   };
@@ -81,7 +93,7 @@ class saleProduct extends Component {
           <main className="col ">
             <div className="card card-product">
               <div className="card-body">
-                <form type="form" className="form">
+                <form type="form" className="form" onSubmit={this.handleSubmit}>
                   <div className="row">
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
@@ -146,8 +158,8 @@ class saleProduct extends Component {
                           onChange={this.handleChange}
                         >
                           <option>Select</option>
-                          <option>Crop</option>
-                          <option>Livestock</option>
+                          <option>Bauchi</option>
+                          <option>Gombe</option>
                         </select>
                       </div>
                     </div>
@@ -161,12 +173,11 @@ class saleProduct extends Component {
                           onChange={this.handleChange}
                         >
                           <option>Select</option>
-                          <option>Crop</option>
-                          <option>Livestock</option>
+                          <option>Bogoro</option>
+                          <option>Billiri</option>
                         </select>
                       </div>
                     </div>
-
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
                         <label>Address</label>
@@ -179,7 +190,7 @@ class saleProduct extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-md-6 mx-auto">
+                    {/* <div className="col-md-6 mx-auto">
                       <div className="form-group">
                         <label>Nearest Landmark</label>
                         <input
@@ -190,7 +201,7 @@ class saleProduct extends Component {
                           onChange={this.handleChange}
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="d-flex justify-content-end">
                     <button type="submit" className="btn-submit">

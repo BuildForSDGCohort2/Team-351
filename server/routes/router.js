@@ -8,6 +8,7 @@ const {
   getProduct,
   productFilter,
   productDetails,
+  saleProduct,
 } = require("../controllers/product.controller");
 
 const {
@@ -36,6 +37,7 @@ router.put("/consumers-edit", UpdateConsumer);
 
 //product routes
 router.post("/product", addProduct);
+router.post("/product-sale", saleProduct);
 router.get("/products", getProduct);
 router.get("/products/:userId", productFilter);
 router.get("/productId", productDetails);

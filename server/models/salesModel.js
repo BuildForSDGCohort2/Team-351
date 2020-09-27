@@ -1,6 +1,6 @@
-const mogoose = require("mongoose");
+const mongoose = require("mongoose");
 
-const sales = mogoose.Mongoose.schema({
+const saleProduct = mongoose.Schema({  
   salesId: {
     type: String,
   },
@@ -17,6 +17,9 @@ const sales = mogoose.Mongoose.schema({
     quantity: {
       type: String,
     },
+    productCategory: {
+      type: String,
+    },
   },
   location: {
     state: {
@@ -28,12 +31,12 @@ const sales = mogoose.Mongoose.schema({
     address: {
       type: String,
     },
-    nearestLandMark: {
-      type: String,
-    },
+    // nearestLandMark: {
+    //   type: String,
+    // },
   },
   farmer: {
-    farmerId: {
+    userId: {
       type: String,
     },
     farmerName: {
@@ -48,4 +51,4 @@ const sales = mogoose.Mongoose.schema({
   },
 });
 
-module.exports = mogoose.Mongoose.model("sale", sales);
+module.exports = mongoose.model("sale", saleProduct);
