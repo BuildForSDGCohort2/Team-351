@@ -14,7 +14,7 @@ class Products extends Component {
       user: "",
       products: [],
       filteredProducts: [],
-      userId: "44207",
+      
       id: null,
     };
 

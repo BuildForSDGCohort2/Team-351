@@ -1,8 +1,31 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "../styles/product.css";
 
 class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      prod: [],
+    };
+    this.getProducts = this.getProducts.bind(this);
+  }
+
+  componentDidMount() {
+    this.getProducts();
+  }
+  getProducts = () => {
+    axios.get("http://localhost:4000/products").then((response) => {
+      // let prod = response.data.result
+      this.setState({
+        prod: response.data.result,
+      });
+      console.log(this.state.prod);
+    });
+  };
+
   render() {
+    const data = this.state.prod;
     return (
       <div className="container">
         <div className="row ">
@@ -16,28 +39,20 @@ class Product extends Component {
                       <th scope="col">Product Category</th>
                       <th scope="col">Product Name</th>
                       <th scope="col">Amount in Stock</th>
-                      {/* <th scope="col">Availabilty</th> */}  
+                      {/* <th scope="col">Availabilty</th> */}
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                    {data.map((item, index) => {
+                      return (
+                        <tr key={index}>
+                          <td>{item.product.productName}</td>
+                          <td>{item.product.quantity}</td>
+                          <td>{item.product.price}</td>
+                          <td>{item.product.productCategory}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>

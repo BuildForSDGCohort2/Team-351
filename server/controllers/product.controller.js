@@ -30,7 +30,9 @@ const addProduct = async (req, res) => {
 };
 
 const saleProduct = async (req, res) => {
+
   const product = new SaleProduct(req.body);
+
   await product.save().then((data) => {
     if (!data) {
       return res.status(401).json({
@@ -46,13 +48,12 @@ const saleProduct = async (req, res) => {
 
 // get all products
 const getProduct = async (req, res) => {
-  await Product.find((err, result) => {
+  await SaleProduct.find((err, result) => {
     if (err) {
       return res.status(500).json({
         message: " server error",
       });
     }
-
     return res.status(200).json({
       status: "ok",
       result,
