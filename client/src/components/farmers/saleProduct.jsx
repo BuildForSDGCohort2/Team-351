@@ -81,7 +81,7 @@ class saleProduct extends Component {
       date: "03/10/2020",
     };
     axios.post("http://localhost:4000/product-sale", prod).then((response) => {
-      console.log(response);
+      //console.log(response);
     });
   };
   render() {

@@ -48,6 +48,21 @@ const saleProduct = async (req, res) => {
 
 // get all products
 const getProduct = async (req, res) => {
+  await Product.find((err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: " server error",
+      });
+    }
+    return res.status(200).json({
+      status: "ok",
+      result,
+    });
+  });
+};
+
+// get all products
+const listProduct = async (req, res) => {
   await SaleProduct.find((err, result) => {
     if (err) {
       return res.status(500).json({
@@ -61,33 +76,10 @@ const getProduct = async (req, res) => {
   });
 };
 
-const productFilter = async (req, res) => {
-  await Product.findOne({ userId: req.body.userId }, (err, result) => {
-    if (err) {
-      return res.status(500).json({ message: "error" });
-    }
 
-    return result
-      ? res.status(200).json({ status: "ok", result })
-      : res.status(400).json({ message: "record not found" });
-  });
-};
-
-const productDetails = async (req, res) => {
-  await Product.find({ productId: req.body.productId }, (err, result) => {
-    if (err) {
-      return res.status(500).json({ message: "error" });
-    }
-
-    return result
-      ? res.status(200).json({ status: "ok", result })
-      : res.status(400).json({ message: "record not found" });
-  });
-};
 module.exports = {
   addProduct,
   getProduct,
-  productFilter,
-  productDetails,
+  listProduct,
   saleProduct,
 };

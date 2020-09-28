@@ -6,8 +6,7 @@ const { userLogIn } = require("../controllers/userLogin.controller");
 const {
   addProduct,
   getProduct,
-  productFilter,
-  productDetails,
+  listProduct,
   saleProduct,
 } = require("../controllers/product.controller");
 
@@ -25,7 +24,7 @@ const {
 router.post("/register", signUp);
 
 //user login
-router.post("/login", userLogIn);
+router.post("/login", userLogIn);   
 
 //farmers routes
 router.get("/farmers", getAllFarmers);
@@ -39,7 +38,7 @@ router.put("/consumers-edit", UpdateConsumer);
 router.post("/product", addProduct);
 router.post("/product-sale", saleProduct);
 router.get("/products", getProduct);
-router.get("/products/:userId", productFilter);
-router.get("/productId", productDetails);
+router.get("/list-products", listProduct);
+
 
 module.exports = router;

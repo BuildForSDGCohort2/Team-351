@@ -46,12 +46,12 @@ class Footer extends Component {
                 </Link>
               </li>
               <li>
-                <Link className="text-muted" >
+                <Link to="/" className="text-muted" >
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link className="text-muted" >
+                <Link to="/" className="text-muted" >
                   Careers
                 </Link>
               </li>

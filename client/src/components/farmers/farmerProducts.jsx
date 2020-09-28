@@ -26,9 +26,9 @@ class Products extends Component {
     this.getProducts();
   };
 
-  getProducts = () => {
+  getProducts = async () => {
     
-    axios.get(URI + "products").then((response) => {
+    await axios.get(URI + "products").then((response) => {
       //console.log(response)
       this.setState({ products: response.data.result });
       const prod = this.state.products;

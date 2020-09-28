@@ -15,12 +15,12 @@ class Product extends Component {
     this.getProducts();
   }
   getProducts = () => {
-    axios.get("http://localhost:4000/products").then((response) => {
+    axios.get("http://localhost:4000/list-products").then((response) => {
       // let prod = response.data.result
       this.setState({
         prod: response.data.result,
       });
-      console.log(this.state.prod);
+      //console.log(this.state.prod);
     });
   };
 
