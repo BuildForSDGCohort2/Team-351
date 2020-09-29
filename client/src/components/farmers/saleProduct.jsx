@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 const URI = "http://localhost:4000/";
 class saleProduct extends Component {
@@ -8,6 +9,8 @@ class saleProduct extends Component {
       id: null,
       products: [],
       product: [],
+      farmer: [],
+      farma: {},
 
       saleQuantity: "",
       price: "",
@@ -22,14 +25,13 @@ class saleProduct extends Component {
   }
   componentDidMount() {
     this.getProductById();
-    //console.log("Loaded");
+    this.getFarmer();
   }
-  getProductById = () => {
+  getProductById = async () => {
     //Get product Id from props
     let id = this.props.match.params.prod_id;
 
-    axios.get(URI + "products").then((res) => {
-      //console.log(res)
+    await axios.get(URI + "products").then((res) => {
       this.setState({ products: res.data.result });
       const prod = this.state.products;
 
@@ -48,6 +50,25 @@ class saleProduct extends Component {
     });
   };
 
+  getFarmer = async () => {
+    let userId = localStorage.getItem("user");
+    await axios.get(URI + "farmers").then((fama) => {
+      this.setState({ farmer: fama.data.response });
+      const famaa = this.state.farmer;
+
+      // filter farmer by Id
+      let fam = famaa.filter(function (e) {
+        return e.userId === userId;
+      });
+
+      fam.forEach((element) => {
+        let farmerDetails = element;
+        this.setState({ farma: farmerDetails });
+      });
+    });
+    return this.state.farma;
+  };
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -57,15 +78,16 @@ class saleProduct extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const data = this.state.product;
+    const farmerData = this.state.farma;
     let prod = {
-      salesId: "00001",
+      salesId: Math.floor(Math.random() * 100000) + 1,
 
       product: {
         productId: data.productId,
         productName: data.productName,
         quantity: this.state.saleQuantity,
         price: this.state.price,
-        productCategory: data.productCategory
+        productCategory: data.productCategory,
       },
       location: {
         state: this.state.states,
@@ -74,14 +96,16 @@ class saleProduct extends Component {
         landmark: this.state.landmark,
       },
       farmer: {
-        userId: "001",
-        farmerName: "ABC",
-        phoneN0: "09067678989",
+        userId: farmerData.userId,
+        farmerName: farmerData.fullName,
+        phoneN0: farmerData.phoneNumber,
       },
-      date: "03/10/2020",
+      date: Date(),
     };
     axios.post("http://localhost:4000/product-sale", prod).then((response) => {
-      //console.log(response);
+      if (response) {
+        this.props.history.push("/farmer");
+      }
     });
   };
   render() {
@@ -178,7 +202,7 @@ class saleProduct extends Component {
                         </select>
                       </div>
                     </div>
-                    <div className="col-md-6 mx-auto">
+                    <div className="col-md-12 mx-auto">
                       <div className="form-group">
                         <label>Address</label>
                         <input
@@ -190,18 +214,6 @@ class saleProduct extends Component {
                         />
                       </div>
                     </div>
-                    {/* <div className="col-md-6 mx-auto">
-                      <div className="form-group">
-                        <label>Nearest Landmark</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="landmark"
-                          value={this.state.landmark}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div> */}
                   </div>
                   <div className="d-flex justify-content-end">
                     <button type="submit" className="btn-submit">
@@ -218,4 +230,4 @@ class saleProduct extends Component {
   }
 }
 
-export default saleProduct;
+export default withRouter(saleProduct);
