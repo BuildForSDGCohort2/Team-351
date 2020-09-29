@@ -52,7 +52,7 @@ class Navbar extends Component {
     const userLink = (
       <ul className="navbar-nav ml-auto">
         <li className="navbar-item">
-          <Link className="nav-link" to="/profile">
+          <Link className="nav-link" to="/farmer">
             User
           </Link>
         </li>
