@@ -1,5 +1,6 @@
 const Product = require("../models/productModel");
 const SaleProduct = require("../models/salesModel");
+const Transaction = require("../models/transactionModel")
 
 const addProduct = async (req, res) => {
   await Product.findOne((err, result) => {
@@ -71,9 +72,26 @@ const listProduct = async (req, res) => {
   });
 };
 
+transaction= async(req, res)=>{
+  const purchase = new Transaction(req.body);
+
+  await purchase.save().then((data) => {
+    if (!data) {
+      return res.status(401).json({
+        message: "Request is empty",
+      });
+    }
+    return res.status(200).json({
+      status: "ok",
+      data,
+    });
+  });
+}
+
 module.exports = {
   addProduct,
   getProduct,
   listProduct,
   saleProduct,
+  transaction,
 };

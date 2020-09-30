@@ -22,6 +22,9 @@ const Transaction = mongoose.Schema({
   price: {
     type: Number,
   },
+  transactionStatus: {
+    type: Boolean,
+  },
 });
 
-module.exports=mongoose.model("transaction", Transaction)
+module.exports = mongoose.model("transaction", Transaction);

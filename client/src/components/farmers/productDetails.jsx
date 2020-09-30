@@ -45,6 +45,7 @@ class productDetails extends Component {
         productName: data.product.productName,
         quantity: data.product.quantity,
         price: data.product.price,
+        transactionStatus:false
       };
       axios.post("http://localhost:4000/product-purchase", request).then((res)=>{
 
