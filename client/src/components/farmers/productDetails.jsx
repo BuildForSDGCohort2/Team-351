@@ -40,17 +40,17 @@ class productDetails extends Component {
       let data = element;
 
       let request = {
+        transactionId: Math.floor(Math.random() * 100000) + 1,
         userId: data.farmer.userId,
         salesId: data.salesId,
         productName: data.product.productName,
         quantity: data.product.quantity,
         price: data.product.price,
-        transactionStatus:false
+        transactionStatus: false,
       };
-      axios.post("http://localhost:4000/product-purchase", request).then((res)=>{
-
-      })
-      //console.log(request);  
+      axios.post("http://localhost:4000/purchase", request).then((res) => {
+        console.log(res);
+      });
     });
 
     //console.log(data.product.productName)

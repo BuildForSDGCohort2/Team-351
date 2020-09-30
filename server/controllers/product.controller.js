@@ -72,20 +72,52 @@ const listProduct = async (req, res) => {
   });
 };
 
+//Product purchase request
 transaction = async (req, res) => {
   const purchase = new Transaction(req.body);
 
-  await purchase.save().then((data) => {
-    if (!data) {
+  await purchase.save().then((response) => {
+    if (!response) {
       return res.status(401).json({
         message: "Request is empty",
       });
     }
     return res.status(200).json({
       status: "ok",
-      data,
+      response,
     });
   });
+};
+
+transactionStatus = async (req, res) => {
+  await Transaction.findOneAndUpdate(
+    { productId: req.body.productId },
+    {
+      $set: {
+        userId: req.body.userId,
+        salesId: req.body.salesId,
+        productName: req.body.producName,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        transactionStatus: req.body.transactionStatus,
+      },
+    },
+
+    (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: "Error Occurred" });
+        //console.log(err);
+      }
+      if (!result) {
+        return res.status(400).json({ message: "Record not found" });
+      }
+
+      return res.status(200).json({
+        status: "ok",
+        result,
+      });
+    }
+  );
 };
 
 module.exports = {
