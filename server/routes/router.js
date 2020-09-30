@@ -8,6 +8,7 @@ const {
   getProduct,
   listProduct,
   saleProduct,
+  transaction,
 } = require("../controllers/product.controller");
 
 const {
@@ -24,7 +25,7 @@ const {
 router.post("/register", signUp);
 
 //user login
-router.post("/login", userLogIn);   
+router.post("/login", userLogIn);
 
 //farmers routes
 router.get("/farmers", getAllFarmers);
@@ -32,7 +33,7 @@ router.put("/farmer-edit", UpdateFarmer);
 
 //consumers routes
 router.get("/consumers", getAllConsumers);
-router.put("/consumers-edit", UpdateConsumer);   
+router.put("/consumers-edit", UpdateConsumer);
 
 //product routes
 router.post("/product", addProduct);
@@ -40,5 +41,7 @@ router.post("/product-sale", saleProduct);
 router.get("/products", getProduct);
 router.get("/product-purchase", listProduct);
 
+//transaction routes
+router.post("/purchase", transaction);
 
 module.exports = router;
