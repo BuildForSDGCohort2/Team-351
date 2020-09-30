@@ -32,13 +32,13 @@ router.put("/farmer-edit", UpdateFarmer);
 
 //consumers routes
 router.get("/consumers", getAllConsumers);
-router.put("/consumers-edit", UpdateConsumer);
+router.put("/consumers-edit", UpdateConsumer);   
 
 //product routes
 router.post("/product", addProduct);
 router.post("/product-sale", saleProduct);
 router.get("/products", getProduct);
-router.get("/list-products", listProduct);
+router.get("/product-purchase", listProduct);
 
 
 module.exports = router;

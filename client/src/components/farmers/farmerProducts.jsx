@@ -22,14 +22,14 @@ class Products extends Component {
   }
 
   componentDidMount = () => {
-    //console.log(this.props)
+    
     this.getProducts();
   };
 
   getProducts = async () => {
     
     await axios.get(URI + "products").then((response) => {
-      //console.log(response)
+      
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 
@@ -43,7 +43,7 @@ class Products extends Component {
       this.setState({
         filteredProducts: filterredProd,
       });
-
+      
       return this.state.filterredProducts;
     });
   };
@@ -62,7 +62,7 @@ class Products extends Component {
                     <tr>
                       <th scope="col">ID N0</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Quantity</th>
+                      <th scope="col">Quantity (kg)</th>
                       <th scope="col">Category</th>
                       <th scope="col">Status</th>
                     </tr>
@@ -76,7 +76,7 @@ class Products extends Component {
                           <td>{item.quantity}</td>
                           <td>{item.productCategory}</td>
                           <td>
-                            <Link to={`${match.url}/${item.productId}`}>View Details</Link>
+                            <Link to={`${match.url}/${item.productId}`}>Sale Product</Link>
                           </td>
                         </tr>
                       );

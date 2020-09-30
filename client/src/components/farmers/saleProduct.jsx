@@ -52,6 +52,7 @@ class saleProduct extends Component {
     });
   };
 
+  
   getFarmer = async () => {
     let userId = localStorage.getItem("user");
     await axios.get(URI + "farmers").then((fama) => {

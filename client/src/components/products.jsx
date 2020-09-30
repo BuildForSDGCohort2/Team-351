@@ -16,10 +16,12 @@ class Product extends Component {
     this.getProducts();
   }
   getProducts = () => {
-    axios.get("http://localhost:4000/list-products").then((response) => {
+    axios.get("http://localhost:4000/product-purchase").then((response) => {
+      
       this.setState({
         prod: response.data.result,
       });
+      //console.log(this.state.prod)
     });
   };
 
@@ -30,11 +32,11 @@ class Product extends Component {
       <div className="container productContainer">
         {data.map((item, index) => {
           return (
-            <Link to={`${match.url}/${item.productId}`} className="product">
-              <div className="row" key={index}>
+            <Link to={`${match.url}/${item.salesId}`} className="product">
+              <div className="row" key={index} >
                 <div className="col ">
                   <div className="card card-product">
-                    <div className="card-body">
+                    <div className="card-body" key={index}>
                       <div className="row">
                         <div className="col-md-3">
                           <div className="image-wrap">
