@@ -60,10 +60,10 @@ class Products extends Component {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th scope="col">Product N0</th>
-                      <th scope="col">Product Name</th>
-                      <th scope="col">Amount in Stock</th>
-                      <th scope="col">Product Category</th>
+                      <th scope="col">ID N0</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Category</th>
                       <th scope="col">Status</th>
                     </tr>
                   </thead>
@@ -73,7 +73,7 @@ class Products extends Component {
                         <tr key={index}>
                           <td>{item.productId}</td>
                           <td>{item.productName}</td>
-                          <td>{item.quantity + " kg"}</td>
+                          <td>{item.quantity}</td>
                           <td>{item.productCategory}</td>
                           <td>
                             <Link to={`${match.url}/${item.productId}`}>View Details</Link>

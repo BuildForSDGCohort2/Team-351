@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../styles/product.css";
 
 class Product extends Component {
@@ -16,49 +17,71 @@ class Product extends Component {
   }
   getProducts = () => {
     axios.get("http://localhost:4000/list-products").then((response) => {
-      // let prod = response.data.result
       this.setState({
         prod: response.data.result,
       });
-      //console.log(this.state.prod);
     });
   };
 
   render() {
     const data = this.state.prod;
+    let match = this.props.match;
     return (
-      <div className="container">
-        <div className="row ">
-          <main className="col ">
-            <article className="card card-product">
-              <div className="card-body">
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">S/N</th>
-                      <th scope="col">Product Category</th>
-                      <th scope="col">Product Name</th>
-                      <th scope="col">Amount in Stock</th>
-                      {/* <th scope="col">Availabilty</th> */}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.map((item, index) => {
-                      return (
-                        <tr key={index}>
-                          <td>{item.product.productName}</td>
-                          <td>{item.product.quantity}</td>
-                          <td>{item.product.price}</td>
-                          <td>{item.product.productCategory}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+      <div className="container productContainer">
+        {data.map((item, index) => {
+          return (
+            <Link to={`${match.url}/${item.productId}`} className="product">
+              <div className="row" key={index}>
+                <div className="col ">
+                  <div className="card card-product">
+                    <div className="card-body">
+                      <div className="row">
+                        <div className="col-md-3">
+                          <div className="image-wrap">
+                            <img src="" alt="productImage" />
+                          </div>
+                        </div>
+                        <div className="col-md-3">
+                          <dl className="dlist-align">
+                            <dt>Product Name</dt>
+                            <dd>{item.product.productName}</dd>
+                          </dl>
+                          <dl className="dlist-align">
+                            <dt>Quantity</dt>
+                            <dd>{item.product.quantity} kg</dd>
+                          </dl>
+                          <dl className="dlist-align">
+                            <dt>Price (per kg)</dt>
+                            <dd>
+                              <span className="price">
+                                <del className="price-old">N</del>
+                                {item.product.price}
+                              </span>
+                            </dd>
+                          </dl>
+                          <dl className="dlist-align">
+                            <dt>Category</dt>
+                            <dd>{item.product.productCategory}</dd>
+                          </dl>
+                        </div>
+                        <div className="col-sm-5">
+                          <dl className="dlist-align">
+                            <dt>Product Location</dt>
+                            <dd> {item.location.state} </dd>
+                          </dl>
+                          <dl className="dlist-align">
+                            <dt>Farmer</dt>
+                            <dd> {item.farmer.farmerName} </dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </article>
-          </main>
-        </div>
+            </Link>
+          );
+        })}
       </div>
     );
   }

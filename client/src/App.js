@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/farmer" component={Farmer} />
         <Route exact path="/products" component={Products} />
         <Route exact path="/farmer/:prod_id" component={saleProduct} />
-        <Route component={PageNotFound} />
+        <Route component={PageNotFound} />  
       </Switch>
     </div>
   );

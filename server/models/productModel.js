@@ -16,7 +16,10 @@ const product = mongoose.Schema(
     },
     quantity: {
       type: Number,
-    },   
+    }, 
+    totalStock: {
+      type: Number,
+    },  
   },
   
   { timestamps: true }

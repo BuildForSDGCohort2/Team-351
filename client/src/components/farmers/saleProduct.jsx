@@ -27,8 +27,10 @@ class saleProduct extends Component {
     this.getProductById();
     this.getFarmer();
   }
+
+  //Retrieve product with a matching ID
   getProductById = async () => {
-    //Get product Id from props
+   
     let id = this.props.match.params.prod_id;
 
     await axios.get(URI + "products").then((res) => {

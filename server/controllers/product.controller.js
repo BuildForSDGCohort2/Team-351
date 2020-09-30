@@ -2,18 +2,13 @@ const Product = require("../models/productModel");
 const SaleProduct = require("../models/salesModel");
 
 const addProduct = async (req, res) => {
-  await Product.findOne({ productId: req.body.productId }, (err, result) => {
+  await Product.findOne((err, result) => {
     if (err) {
       return res.status(500).json({
         message: err.message,
       });
     }
 
-    if (result) {
-      return res.status(400).json({
-        message: "product already saved",
-      });
-    }
     const product = new Product(req.body);
     product.save().then((data) => {
       if (!data) {
@@ -29,8 +24,8 @@ const addProduct = async (req, res) => {
   });
 };
 
+//Post product for sale
 const saleProduct = async (req, res) => {
-
   const product = new SaleProduct(req.body);
 
   await product.save().then((data) => {
@@ -61,7 +56,7 @@ const getProduct = async (req, res) => {
   });
 };
 
-// get all products
+// Retrieve all products available for sale
 const listProduct = async (req, res) => {
   await SaleProduct.find((err, result) => {
     if (err) {
@@ -75,7 +70,6 @@ const listProduct = async (req, res) => {
     });
   });
 };
-
 
 module.exports = {
   addProduct,

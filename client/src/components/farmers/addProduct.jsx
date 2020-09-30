@@ -39,7 +39,14 @@ class NewProduct extends Component {
     };
 
     axios.post("http://localhost:4000/product", product).then((data) => {
-      //console.log(data)
+      if (data) {
+        this.setState({
+          productCategory: "",
+          productName: "",
+          productType: "",
+          quantity: "",
+        });
+      }
     });
   };
 
