@@ -15,6 +15,7 @@ class productDetails extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     this.getProducts();
   }
   getProducts = () => {
@@ -49,11 +50,12 @@ class productDetails extends Component {
         transactionStatus: false,
       };
       axios.post("http://localhost:4000/purchase", request).then((res) => {
+        if(res){
+          this.props.history.push("/products")
+        }
         console.log(res);
       });
     });
-
-    //console.log(data.product.productName)
   };
   render() {
     const data = this.state.product;

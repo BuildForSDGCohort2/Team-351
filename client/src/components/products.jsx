@@ -17,11 +17,9 @@ class Product extends Component {
   }
   getProducts = () => {
     axios.get("http://localhost:4000/product-purchase").then((response) => {
-      
       this.setState({
         prod: response.data.result,
       });
-      //console.log(this.state.prod)
     });
   };
 
@@ -33,7 +31,7 @@ class Product extends Component {
         {data.map((item, index) => {
           return (
             <Link to={`${match.url}/${item.salesId}`} className="product">
-              <div className="row" key={index} >
+              <div className="row" key={index}>
                 <div className="col ">
                   <div className="card card-product">
                     <div className="card-body" key={index}>

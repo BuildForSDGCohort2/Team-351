@@ -14,7 +14,7 @@ class Products extends Component {
       user: "",
       products: [],
       filteredProducts: [],
-      
+
       id: null,
     };
 
@@ -22,35 +22,32 @@ class Products extends Component {
   }
 
   componentDidMount = () => {
-    
     this.getProducts();
   };
 
   getProducts = async () => {
-    
     await axios.get(URI + "products").then((response) => {
-      
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 
       let uId = localStorage.getItem("user");
 
       //filter products by userId
-      let filterredProd = prod.filter(function (e) {    
+      let filterredProd = prod.filter(function (e) {
         return e.userId === uId;
       });
 
       this.setState({
         filteredProducts: filterredProd,
       });
-      
+
       return this.state.filterredProducts;
     });
   };
 
   render() {
     const data = this.state.filteredProducts;
-    let match=this.props.match
+    let match = this.props.match;
     return (
       <div className="container">
         <div className="row ">
@@ -76,7 +73,9 @@ class Products extends Component {
                           <td>{item.quantity}</td>
                           <td>{item.productCategory}</td>
                           <td>
-                            <Link to={`${match.url}/${item.productId}`}>Sale Product</Link>
+                            <Link to={`${match.url}/${item.productId}`}>
+                              Sale Product
+                            </Link>
                           </td>
                         </tr>
                       );

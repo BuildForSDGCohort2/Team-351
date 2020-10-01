@@ -30,7 +30,6 @@ class saleProduct extends Component {
 
   //Retrieve product with a matching ID
   getProductById = async () => {
-   
     let id = this.props.match.params.prod_id;
 
     await axios.get(URI + "products").then((res) => {
@@ -52,7 +51,6 @@ class saleProduct extends Component {
     });
   };
 
-  
   getFarmer = async () => {
     let userId = localStorage.getItem("user");
     await axios.get(URI + "farmers").then((fama) => {
