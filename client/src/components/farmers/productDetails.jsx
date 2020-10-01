@@ -9,13 +9,15 @@ class productDetails extends Component {
     this.state = {
       product: [],
       productData: {},
+      name: "",
+      phoneNumber: "",
     };
     this.getProducts = this.getProducts.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props);
     this.getProducts();
   }
   getProducts = () => {
@@ -34,6 +36,12 @@ class productDetails extends Component {
     });
   };
 
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   submitProduct = () => {
     const prod = this.state.product;
 
@@ -47,11 +55,13 @@ class productDetails extends Component {
         productName: data.product.productName,
         quantity: data.product.quantity,
         price: data.product.price,
+        buyerName: this.state.name,
+        buyerPhoneNumber: this.state.phoneNumber,
         transactionStatus: false,
       };
       axios.post("http://localhost:4000/purchase", request).then((res) => {
-        if(res){
-          this.props.history.push("/products")
+        if (res) {
+          this.props.history.push("/products");
         }
         console.log(res);
       });
@@ -127,9 +137,38 @@ class productDetails extends Component {
                         </dl>
                       </div>
                     </div>
+                    <form type="form" className="form">
+                      <div className="row">
+                        <div className="col-md-4 mx-auto">
+                          <div className="form-group">
+                            <label>Your Full Name</label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              name="name"
+                              value={this.state.name}
+                              onChange={this.handleChange}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-md-4 mx-auto">
+                          <div className="form-group">
+                            <label>Your Phone Number</label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              name="phoneNumber"
+                              value={this.state.phoneNumber}
+                              onChange={this.handleChange}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                     <div className="d-flex justify-content-end ">
                       <button
-                        className="btn-primary"
+                        className="btn-submit"
+                        type="submit"
                         onClick={this.submitProduct}
                       >
                         Submit
