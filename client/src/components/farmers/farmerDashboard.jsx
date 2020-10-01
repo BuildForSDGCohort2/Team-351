@@ -6,7 +6,7 @@ import "../../styles/farmerDashboard.css";
 import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
-// import SaleProducts from "./saleProduct";
+import Transactions from "./transaction";
 // import Prods from "./productDetails";
 
 class Farmer extends Component {
@@ -18,14 +18,14 @@ class Farmer extends Component {
       isNewProduct: false,
       isProducts: true,
       isPreserve: false,
-      // isSales: false,
+      isTransactions: false,
       user: "",
     };
     this.showProducts = this.showProducts.bind(this);
     this.showNewProduct = this.showNewProduct.bind(this);
     this.showPreserve = this.showPreserve.bind(this);
     this.showTransactions = this.showTransactions.bind(this);
-    // this.showSales = this.showSales.bind(this);
+    this.showTransactions = this.showTransactions.bind(this);
   }
   showProducts = () => {
     this.setState({
@@ -39,7 +39,7 @@ class Farmer extends Component {
     this.setState({
       isProducts: false,
       isPreserve: false,
-      // isSales: false,
+      isTransactions: false,
       isNewProduct: true,
     });
   };
@@ -49,18 +49,18 @@ class Farmer extends Component {
   showPreserve = () => {
     this.setState({
       isProducts: false,
-      // isSales: false,
+      isTransactions: false,
       isNewProduct: false,
       isPreserve: true,
     });
   };
 
-  // showSales = () => {
+  // showTransactions = () => {
   //   this.setState({
   //     isProducts: false,
   //     isNewProduct: false,
   //     isPreserve: false,
-  //     // isSales: true,
+  //     isTransactions: true,
   //   });
   // };
 
@@ -69,12 +69,11 @@ class Farmer extends Component {
       isProducts: false,
       isNewProduct: false,
       isPreserve: false,
-      // isSales: false,
+      isTransactions: true,
     });
   };
 
   render() {
-    
     return (
       <div className="container">
         <div className="row">
@@ -174,7 +173,11 @@ class Farmer extends Component {
               <Preserve />
             </div>
           )}
-          
+          {this.state.isTransactions && (
+            <div className="col-md-9 mt-5">
+              <Transactions />
+            </div>
+          )}
         </div>
       </div>
     );
