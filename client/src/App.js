@@ -8,8 +8,10 @@ import About from "./components/header/about";
 import Register from "./components/header/register";
 import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
-import PageNotFound from "./components/landingPage";
+import PageNotFound from "./components/pageNotFound";
 import Contact from "./components/header/contact";
+import saleProduct from "./components/farmers/saleProduct";
+import productDetails from "./components/farmers/productDetails"
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/farmer" component={Farmer} />
         <Route exact path="/products" component={Products} />
-        <Route component={PageNotFound} />
+        <Route exact path="/farmer/:prod_id" component={saleProduct} />
+        <Route exact path="/products/:id" component={productDetails} />
+        <Route component={PageNotFound} />  
       </Switch>
     </div>
   );

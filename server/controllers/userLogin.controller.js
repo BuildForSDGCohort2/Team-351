@@ -6,12 +6,12 @@ const Login = require("../models/userlogModel");
 
 //Login user
 const userLogIn = async (req, res) => {
-  //const pwd = req.body.password;
+  
   await Login.findOne(
     // {
     //   $and: [{ email: req.body.email }, { password: req.body.password }],
     // },
-    {email : req.body.email},
+    { email: req.body.email },
     (err, response) => {
       if (err) {
         return res.status(500).json({
@@ -33,7 +33,7 @@ const userLogIn = async (req, res) => {
           status: "false",
         });
       }
-      // let payload = { subject: data };
+      // let payload = { subject: response };
       // let token = jwt.sign(payload, secretKey, {
       //   expiresIn: "2d",
       // });

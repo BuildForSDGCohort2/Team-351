@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { FaAlignJustify } from "react-icons/fa";
 
 import Login from "./login";
@@ -12,10 +12,12 @@ class Navbar extends Component {
 
     this.state = {
       show: false,
+      isLogin: false,
     };
 
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   showModal = () => {
@@ -25,7 +27,42 @@ class Navbar extends Component {
   hideModal = () => {
     this.setState({ show: false });
   };
+
+  logout(e) {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    this.props.history.push("/");
+  }
   render() {
+    const loginLink = (
+      <ul className="navbar-nav ml-auto">
+        <li className="navbar-item">
+          <Link to="/login" className="nav-link" onClick={this.showModal}>
+            Login
+          </Link>
+        </li>
+        <li className="navbar-item">
+          <Link to="/register" className="nav-link">
+            Register
+          </Link>
+        </li>
+      </ul>
+    );
+
+    const userLink = (
+      <ul className="navbar-nav ml-auto">
+        <li className="navbar-item">
+          <Link className="nav-link" to="/farmer">
+            User
+          </Link>
+        </li>
+        <li className="navbar-item">
+          <Link className="nav-link" to="/" onClick={this.logout}>
+            Logout
+          </Link>
+        </li>
+      </ul>
+    );
     return (
       <>
         <nav className="navbar navbar-expand-lg ">
@@ -50,6 +87,11 @@ class Navbar extends Component {
                     Home <span className="sr-only">(current)</span>
                   </Link>
                 </li>
+                <li className="nav-item active">
+                  <Link to="/products" className="nav-link">
+                    Products
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link to="/about" className="nav-link">
                     About
@@ -61,22 +103,8 @@ class Navbar extends Component {
                   </Link>
                 </li>
               </ul>
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link to="/register" className="nav-link">
-                    Register
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/login"
-                    className="nav-link"
-                    onClick={this.showModal}
-                  >
-                    Login
-                  </Link>
-                </li>
-              </ul>
+              {/* render login/logout button if token exist in localStorage */}
+              {localStorage.user ? userLink : loginLink}
             </div>
           </div>
         </nav>
@@ -86,4 +114,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

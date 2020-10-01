@@ -1,18 +1,15 @@
 const Product = require("../models/productModel");
+const SaleProduct = require("../models/salesModel");
+const Transaction = require("../models/transactionModel");
 
 const addProduct = async (req, res) => {
-  await Product.findOne({ productId: req.body.productId }, (err, result) => {
+  await Product.findOne((err, result) => {
     if (err) {
       return res.status(500).json({
         message: err.message,
-      });  
-    }   
-
-    if (result) {
-      return res.status(400).json({
-        message: "product already saved",
       });
     }
+
     const product = new Product(req.body);
     product.save().then((data) => {
       if (!data) {
@@ -28,6 +25,24 @@ const addProduct = async (req, res) => {
   });
 };
 
+//Post product for sale
+const saleProduct = async (req, res) => {
+  const product = new SaleProduct(req.body);
+
+  await product.save().then((data) => {
+    if (!data) {
+      return res.status(401).json({
+        message: "Request is empty",
+      });
+    }
+    return res.status(200).json({
+      status: "ok",
+      data,
+    });
+  });
+};
+
+// get all products
 const getProduct = async (req, res) => {
   await Product.find((err, result) => {
     if (err) {
@@ -35,11 +50,80 @@ const getProduct = async (req, res) => {
         message: " server error",
       });
     }
-
     return res.status(200).json({
       status: "ok",
       result,
     });
   });
 };
-module.exports = { addProduct, getProduct };
+
+// Retrieve all products available for sale
+const listProduct = async (req, res) => {
+  await SaleProduct.find((err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: " server error",
+      });
+    }
+    return res.status(200).json({
+      status: "ok",
+      result,
+    });
+  });
+};
+
+//Product purchase request
+transaction = async (req, res) => {
+  const purchase = new Transaction(req.body);
+
+  await purchase.save().then((response) => {
+    if (!response) {
+      return res.status(401).json({
+        message: "Request is empty",
+      });
+    }
+    return res.status(200).json({
+      status: "ok",
+      response,
+    });
+  });
+};
+
+transactionStatus = async (req, res) => {
+  await Transaction.findOneAndUpdate(
+    { productId: req.body.productId },
+    {
+      $set: {
+        userId: req.body.userId,
+        salesId: req.body.salesId,
+        productName: req.body.producName,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        transactionStatus: req.body.transactionStatus,
+      },
+    },
+
+    (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: "Error Occurred" });
+        //console.log(err);
+      }
+      if (!result) {
+        return res.status(400).json({ message: "Record not found" });
+      }
+
+      return res.status(200).json({
+        status: "ok",
+        result,
+      });
+    }
+  );
+};
+
+module.exports = {
+  addProduct,
+  getProduct,
+  listProduct,
+  saleProduct,
+  transaction,
+};
