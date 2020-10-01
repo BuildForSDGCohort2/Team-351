@@ -3,8 +3,6 @@ import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
-//import FarmerProducts from "../../services/user.service";
-
 const URI = "http://localhost:4000/";
 
 class Products extends Component {
