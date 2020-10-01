@@ -89,9 +89,24 @@ transaction = async (req, res) => {
   });
 };
 
+// Retrieve all products available for sale
+const listTransactions = async (req, res) => {
+  await Transaction.find((err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: " server error",
+      });
+    }
+    return res.status(200).json({
+      status: "ok",
+      result,
+    });
+  });
+};
+
 transactionStatus = async (req, res) => {
   await Transaction.findOneAndUpdate(
-    { productId: req.body.productId },
+    { transactionId: req.body.transactionId },
     {
       $set: {
         userId: req.body.userId,
@@ -99,6 +114,8 @@ transactionStatus = async (req, res) => {
         productName: req.body.producName,
         quantity: req.body.quantity,
         price: req.body.price,
+        buyerName:req.body.buyerName,
+        buyerPhoneNumber: req.body.buyerPhoneNumber,
         transactionStatus: req.body.transactionStatus,
       },
     },
@@ -126,4 +143,6 @@ module.exports = {
   listProduct,
   saleProduct,
   transaction,
+  listTransactions,
+  transactionStatus
 };

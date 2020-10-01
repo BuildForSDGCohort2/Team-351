@@ -3,7 +3,7 @@ import axios from "axios";
 
 //import "../styles/product.css";
 
-class productDetails extends Component {
+class transactionStatus extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class productDetails extends Component {
   }
   getProducts = () => {
     let id = this.props.match.params.id;
-    axios.get("http://localhost:4000/product-purchase").then((response) => {
+    axios.get("http://localhost:4000/transactions").then((response) => {
       let prod = response.data.result;
 
       //Filter product with product Id
@@ -47,8 +47,6 @@ class productDetails extends Component {
 
     prod.forEach((element) => {
       let data = element;
-      let qnty = data.product.quantity;
-      let price1 = data.product.price;
 
       let request = {
         transactionId: Math.floor(Math.random() * 100000) + 1,
@@ -56,7 +54,7 @@ class productDetails extends Component {
         salesId: data.salesId,
         productName: data.product.productName,
         quantity: data.product.quantity,
-        price: price1 * qnty,
+        price: data.product.price,
         buyerName: this.state.name,
         buyerPhoneNumber: this.state.phoneNumber,
         transactionStatus: false,
@@ -187,4 +185,4 @@ class productDetails extends Component {
   }
 }
 
-export default productDetails;
+export default transactionStatus;

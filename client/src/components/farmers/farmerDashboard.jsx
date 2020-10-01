@@ -125,26 +125,21 @@ class Farmer extends Component {
                         >
                           New Product
                         </button>
-                      </li>
-                      {/* <li>
-                        <button className="btn-link" onClick={this.showSales}>
-                          Sale Products
-                        </button>
-                      </li> */}
-                      <li>
-                        <button
-                          className="btn-link"
-                          onClick={this.showPreserve}
-                        >
-                          Preservation Methods
-                        </button>
-                      </li>
+                      </li>                     
                       <li>
                         <button
                           className="btn-link"
                           onClick={this.showTransactions}
                         >
                           Transactions
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="btn-link"
+                          onClick={this.showPreserve}
+                        >
+                          Storage/Preservation
                         </button>
                       </li>
                     </ul>

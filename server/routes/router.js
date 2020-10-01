@@ -9,6 +9,8 @@ const {
   listProduct,
   saleProduct,
   transaction,
+  listTransactions,
+  transactionStatus,
 } = require("../controllers/product.controller");
 
 const {
@@ -43,5 +45,7 @@ router.get("/product-purchase", listProduct);
 
 //transaction routes
 router.post("/purchase", transaction);
+router.get("/transactions", listTransactions);
+router.put("/update", transactionStatus); 
 
 module.exports = router;
