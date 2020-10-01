@@ -12,10 +12,10 @@ class About extends Component {
                 <p>
                   AgroConnect is a platform that aims to bridge the gap between
                   farmers and consumers by eliminating exploitation and hoarding
-                  that brings about food scarcity and insecurity. We intend to
+                  that brings about food price inflation, scarcity and insecurity. We intend to
                   
                   use this platform to promote and provide availability and
-                  accessibility if food and cash crops, prevention of food
+                  accessibility of food and cash crops, prevention of food
                   wastage and other difficulties faced by farmers and consumers.
                 </p>
               </div>
