@@ -6,7 +6,8 @@ import "../../styles/product.css";
 const URL = "http://localhost:4000/";
 // const URL = "https://agroconnects.herokuapp.com/";
 
-class Products extends Component {
+
+class Transactions extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,15 +18,17 @@ class Products extends Component {
       id: null,
     };
 
-    this.getProducts = this.getProducts.bind(this);
+    this.getTransactions = this.getTransactions.bind(this);
+    this.updateStatus = this.updateStatus.bind(this);
   }
 
   componentDidMount = () => {
-    this.getProducts();
+    console.log(this.props);
+    this.getTransactions();
   };
 
-  getProducts = async () => {
-    await axios.get(URL + "products").then((response) => {
+  getTransactions = async () => {
+    await axios.get(URL + "transactions").then((response) => {
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 
@@ -44,9 +47,33 @@ class Products extends Component {
     });
   };
 
+  updateStatus() {
+    const data = this.state.filteredProducts;
+    data.forEach((element) => {
+      let item = element;
+      console.log(item)
+    //   let status = {
+    //     transactionId: item.transactionId,
+    //     userId: item.userId,
+    //     salesId: item.salesId,
+    //     productName: item.productName,
+    //     quantity: item.quantity,
+    //     price: item.price,
+    //     buyerName: item.name,
+    //     buyerPhoneNumber: item.phoneNumber,
+    //     transactionStatus: true,
+    //   };
+    //   axios.put("http://localhost:4000/update", status).then((data) => {
+    //     console.log(data);
+    //   });
+      
+    });
+    
+  }
+
   render() {
     const data = this.state.filteredProducts;
-    let match = this.props.match;
+    
     return (
       <div className="container">
         <div className="row ">
@@ -56,24 +83,25 @@ class Products extends Component {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th scope="col">ID N0</th>
-                      <th scope="col">Name</th>
+                      <th scope="col">Product Name</th>
                       <th scope="col">Quantity (kg)</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Amount </th>
+                      <th scope="col">Customer Name</th>
+                      <th scope="col">Phone Number</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.map((item, index) => {
                       return (
                         <tr key={index}>
-                          <td>{item.productId}</td>
                           <td>{item.productName}</td>
                           <td>{item.quantity}</td>
-                          <td>{item.productCategory}</td>
+                          <td>{item.price}</td>
+                          <td>{item.buyerName}</td>
+                          <td>{item.buyerPhoneNumber}</td>
                           <td>
-                            <Link to={`${match.url}/${item.productId}`}>
-                              Sale Product
+                            <Link to={`farmer`} onClick={this.updateStatus}>
+                              Status
                             </Link>
                           </td>
                         </tr>
@@ -90,4 +118,4 @@ class Products extends Component {
   }
 }
 
-export default withRouter(Products);
+export default withRouter(Transactions);

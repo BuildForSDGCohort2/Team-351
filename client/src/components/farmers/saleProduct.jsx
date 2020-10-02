@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-const URI = "http://localhost:4000/";
+
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
+
 class saleProduct extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +35,7 @@ class saleProduct extends Component {
   getProductById = async () => {
     let id = this.props.match.params.prod_id;
 
-    await axios.get(URI + "products").then((res) => {
+    await axios.get(URL + "products").then((res) => {
       this.setState({ products: res.data.result });
       const prod = this.state.products;
 
@@ -53,7 +56,7 @@ class saleProduct extends Component {
 
   getFarmer = async () => {
     let userId = localStorage.getItem("user");
-    await axios.get(URI + "farmers").then((fama) => {
+    await axios.get(URL + "farmers").then((fama) => {
       this.setState({ farmer: fama.data.response });
       const famaa = this.state.farmer;
 
@@ -103,7 +106,7 @@ class saleProduct extends Component {
       },
       date: Date(),
     };
-    axios.post("http://localhost:4000/product-sale", prod).then((response) => {
+    axios.post(URL + "product-sale", prod).then((response) => {
       if (response) {
         this.props.history.push("/farmer");
       }

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import "../../styles/register.css";
+
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class Register extends Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class Register extends Component {
     e.preventDefault();
 
     let user = {
-      userId : Math.floor(Math.random() * 100000) + 1,
+      userId: Math.floor(Math.random() * 100000) + 1,
       fullName: this.state.fullName,
       email: this.state.email,
       phoneNumber: this.state.phoneNumber,
@@ -39,15 +41,15 @@ class Register extends Component {
       password: this.state.confirmPassword,
     };
 
-    axios.post("http://localhost:4000/register", user).then((response) => {
+    axios.post(URL + "register", user).then((response) => {
       if (response) {
         let data = response.data;
         //console.log(data)
-        localStorage.setItem("user", data.userId)
+        localStorage.setItem("user", data.userId);
         //Redirect user
         if (data.userType === "Farmer") {
           this.props.history.push("/farmer");
-        }else{
+        } else {
           this.props.history.push("/products");
         }
       }

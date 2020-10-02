@@ -4,7 +4,7 @@ import axios from "axios";
 const URL = "http://localhost:4000/";
 // const URL = "https://agroconnects.herokuapp.com/";
 
-class productDetails extends Component {
+class transactionStatus extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class productDetails extends Component {
   getProducts = () => {
     let id = this.props.match.params.id;
 
-    axios.get(URL + "product-purchase").then((response) => {
+    axios.get(URL + "transactions").then((response) => {
       let prod = response.data.result;
 
       //Filter product with product Id
@@ -34,6 +34,7 @@ class productDetails extends Component {
       this.setState({
         product: filterProduct,
       });
+      //console.log(this.state.product);
     });
   };
 
@@ -48,8 +49,6 @@ class productDetails extends Component {
 
     prod.forEach((element) => {
       let data = element;
-      let qnty = data.product.quantity;
-      let price1 = data.product.price;
 
       let request = {
         transactionId: Math.floor(Math.random() * 100000) + 1,
@@ -57,13 +56,12 @@ class productDetails extends Component {
         salesId: data.salesId,
         productName: data.product.productName,
         quantity: data.product.quantity,
-        price: price1 * qnty,
+        price: data.product.price,
         buyerName: this.state.name,
         buyerPhoneNumber: this.state.phoneNumber,
         transactionStatus: false,
       };
-
-      axios.post(URL + "purchase", request).then((res) => {
+      axios.post("http://localhost:4000/purchase", request).then((res) => {
         if (res) {
           this.props.history.push("/products");
         }
@@ -189,4 +187,4 @@ class productDetails extends Component {
   }
 }
 
-export default productDetails;
+export default transactionStatus;
