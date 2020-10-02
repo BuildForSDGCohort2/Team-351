@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
+
 class NewProduct extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +41,7 @@ class NewProduct extends Component {
       quantity: this.state.quantity,
     };
 
-    axios.post("http://localhost:4000/product", product).then((data) => {
+    axios.post(URL + "product", product).then((data) => {
       if (data) {
         this.setState({
           productCategory: "",

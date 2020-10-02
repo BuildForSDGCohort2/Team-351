@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-//import "../styles/product.css";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class productDetails extends Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class productDetails extends Component {
   }
   getProducts = () => {
     let id = this.props.match.params.id;
-    axios.get("http://localhost:4000/product-purchase").then((response) => {
+
+    axios.get(URL + "product-purchase").then((response) => {
       let prod = response.data.result;
 
       //Filter product with product Id
@@ -32,7 +34,6 @@ class productDetails extends Component {
       this.setState({
         product: filterProduct,
       });
-      //console.log(this.state.product);
     });
   };
 
@@ -61,7 +62,8 @@ class productDetails extends Component {
         buyerPhoneNumber: this.state.phoneNumber,
         transactionStatus: false,
       };
-      axios.post("http://localhost:4000/purchase", request).then((res) => {
+
+      axios.post(URL + "purchase", request).then((res) => {
         if (res) {
           this.props.history.push("/products");
         }

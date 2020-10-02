@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Route } from "react-router-dom";
 
 import "../../styles/farmerDashboard.css";
 
@@ -7,7 +6,6 @@ import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
 import Preserve from "./preservation";
 import Transactions from "./transaction";
-// import Prods from "./productDetails";
 
 class Farmer extends Component {
   constructor(props) {
@@ -43,9 +41,7 @@ class Farmer extends Component {
       isNewProduct: true,
     });
   };
-  // componentDidMount(){
-  //   console.log(this.props)
-  // }
+
   showPreserve = () => {
     this.setState({
       isProducts: false,
@@ -54,15 +50,6 @@ class Farmer extends Component {
       isPreserve: true,
     });
   };
-
-  // showTransactions = () => {
-  //   this.setState({
-  //     isProducts: false,
-  //     isNewProduct: false,
-  //     isPreserve: false,
-  //     isTransactions: true,
-  //   });
-  // };
 
   showTransactions = () => {
     this.setState({
@@ -125,7 +112,7 @@ class Farmer extends Component {
                         >
                           New Product
                         </button>
-                      </li>                     
+                      </li>
                       <li>
                         <button
                           className="btn-link"
@@ -158,11 +145,6 @@ class Farmer extends Component {
               <NewProduct />
             </div>
           )}
-          {/* {this.state.isSales && (
-            <div className="col-md-9 mt-5">
-              <SaleProducts />
-            </div>
-          )} */}
           {this.state.isPreserve && (
             <div className="col-md-9 mt-5">
               <Preserve />

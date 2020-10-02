@@ -11,7 +11,7 @@ const app = express();
 
 //import environment variables
 require("dotenv").config();
-const port = process.env.PORT;  
+const port = process.env.PORT;
 
 //DB connection method
 dbInit();
@@ -20,8 +20,10 @@ dbInit();
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
-//enable cors for all http headers
+// Set CORS for all headers
+
 app.use(cors());
+//app.options("*", cors());
 //app.use('/uploads', express.static('uploads'));
 
 app.use(express.static(path.join(__dirname, "client/build")));

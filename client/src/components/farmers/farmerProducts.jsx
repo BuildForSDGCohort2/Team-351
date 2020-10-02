@@ -3,7 +3,8 @@ import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
-const URI = "http://localhost:4000/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class Products extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Products extends Component {
   };
 
   getProducts = async () => {
-    await axios.get(URI + "products").then((response) => {
+    await axios.get(URL + "products").then((response) => {
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 

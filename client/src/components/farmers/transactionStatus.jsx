@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-//import "../styles/product.css";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class transactionStatus extends Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class transactionStatus extends Component {
   }
   getProducts = () => {
     let id = this.props.match.params.id;
-    axios.get("http://localhost:4000/transactions").then((response) => {
+
+    axios.get(URL + "transactions").then((response) => {
       let prod = response.data.result;
 
       //Filter product with product Id

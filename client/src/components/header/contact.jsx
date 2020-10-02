@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import "../../styles/contact.css";
+
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class Contact extends Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class Contact extends Component {
       message: this.state.message,
     };
 
-    axios.post("http://localhost:4000/contact", msg).then((data) => {
+    axios.post(URL + "contact", msg).then((data) => {
       if (data) {
         this.setState({
           name: "",
