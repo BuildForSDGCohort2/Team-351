@@ -41,6 +41,7 @@ class NewProduct extends Component {
       quantity: this.state.quantity,
     };
 
+    //post product
     axios.post(URL + "product", product).then((data) => {
       if (data) {
         this.setState({
