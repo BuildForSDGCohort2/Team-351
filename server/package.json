@@ -13,9 +13,11 @@
     "mongoose": "^5.10.5",
     "nodemailer": "^6.4.11"
   },
-  "script":{
-     "script":"index.js"
-  },
+  
+  "scripts": {
+    "start": "node backend/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+},
   "devDependencies": {
     "dotenv": "^8.2.0"
   }
