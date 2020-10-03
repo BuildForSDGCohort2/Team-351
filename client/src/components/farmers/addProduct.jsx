@@ -71,8 +71,12 @@ class NewProduct extends Component {
                       onChange={this.handleChange}
                     >
                       <option>Select</option>
-                      <option>Crop</option>
-                      <option>Livestock</option>
+                      <option>Grains</option>
+                      <option>Fruits</option>
+                      <option>Spices</option>
+                      <option>Vegetables</option>
+                      <option>Oil Crops</option>
+                      <option>Livestocks</option>
                     </select>
                   </div>
                 </div>
