@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
 const URL = "http://localhost:4000/";
@@ -11,7 +11,7 @@ class Transactions extends Component {
     super(props);
     this.state = {
       user: "",
-      checked : false,
+      checked: false,
       unChacked: true,
       products: [],
       filteredProducts: [],
@@ -26,10 +26,10 @@ class Transactions extends Component {
   componentDidMount = () => {
     //console.log(this.props);
     this.getTransactions();
-    this.updateStatus()  
+    this.updateStatus();
   };
 
-  getTransactions = async () => {    
+  getTransactions = async () => {
     await axios.get(URL + "transactions").then((response) => {
       this.setState({ products: response.data.result });
       const prod = this.state.products;
@@ -50,9 +50,8 @@ class Transactions extends Component {
   };
 
   updateStatus() {
-
     const data = this.state.filteredProducts;
-    
+
     // data.forEach((element) => {
     //   let item = element;
     //   console.log(item);
@@ -103,16 +102,13 @@ class Transactions extends Component {
                           <td>{item.buyerName}</td>
                           <td>{item.buyerPhoneNumber}</td>
                           <td>
-                        
                             <input
                               className="form-check-input"
                               type="checkbox"
                               id="defaultCheck1"
                               onClick={this.updateStatus}
                             />
-                            <label className="form-check-label" >
-                              Sold
-                            </label>
+                            <label className="form-check-label">Sold</label>
                           </td>
                         </tr>
                       );
