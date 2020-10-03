@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
 const URL = "http://localhost:4000/";
 // const URL = "https://agroconnects.herokuapp.com/";
-
 
 class Transactions extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: "",
+      checked : false,
+      unChacked: true,
       products: [],
       filteredProducts: [],
 
@@ -23,11 +24,12 @@ class Transactions extends Component {
   }
 
   componentDidMount = () => {
-    console.log(this.props);
+    //console.log(this.props);
     this.getTransactions();
+    this.updateStatus()  
   };
 
-  getTransactions = async () => {
+  getTransactions = async () => {    
     await axios.get(URL + "transactions").then((response) => {
       this.setState({ products: response.data.result });
       const prod = this.state.products;
@@ -48,32 +50,32 @@ class Transactions extends Component {
   };
 
   updateStatus() {
+
     const data = this.state.filteredProducts;
-    data.forEach((element) => {
-      let item = element;
-      console.log(item)
-    //   let status = {
-    //     transactionId: item.transactionId,
-    //     userId: item.userId,
-    //     salesId: item.salesId,
-    //     productName: item.productName,
-    //     quantity: item.quantity,
-    //     price: item.price,
-    //     buyerName: item.name,
-    //     buyerPhoneNumber: item.phoneNumber,
-    //     transactionStatus: true,
-    //   };
-    //   axios.put("http://localhost:4000/update", status).then((data) => {
-    //     console.log(data);
-    //   });
-      
-    });
     
+    // data.forEach((element) => {
+    //   let item = element;
+    //   console.log(item);
+    //     let status = {
+    //       transactionId: item.transactionId,
+    //       userId: item.userId,
+    //       salesId: item.salesId,
+    //       productName: item.productName,
+    //       quantity: item.quantity,
+    //       price: item.price,
+    //       buyerName: item.name,
+    //       buyerPhoneNumber: item.phoneNumber,
+    //       transactionStatus: true,
+    //     };
+    //     axios.put("http://localhost:4000/update", status).then((data) => {
+    //       console.log(data);
+    //     });
+    // });
   }
 
   render() {
     const data = this.state.filteredProducts;
-    
+
     return (
       <div className="container">
         <div className="row ">
@@ -88,6 +90,7 @@ class Transactions extends Component {
                       <th scope="col">Amount </th>
                       <th scope="col">Customer Name</th>
                       <th scope="col">Phone Number</th>
+                      <th scope="col">Sales Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -100,9 +103,16 @@ class Transactions extends Component {
                           <td>{item.buyerName}</td>
                           <td>{item.buyerPhoneNumber}</td>
                           <td>
-                            <Link to={`farmer`} onClick={this.updateStatus}>
-                              Status
-                            </Link>
+                        
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="defaultCheck1"
+                              onClick={this.updateStatus}
+                            />
+                            <label className="form-check-label" >
+                              Sold
+                            </label>
                           </td>
                         </tr>
                       );
