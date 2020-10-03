@@ -85,7 +85,7 @@ class Products extends Component {
             </article>
           </main>
         </div>
-      </div>
+      </div>  
     );
   }
 }
