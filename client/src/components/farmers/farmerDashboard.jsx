@@ -23,14 +23,13 @@ class Farmer extends Component {
     this.showNewProduct = this.showNewProduct.bind(this);
     this.showPreserve = this.showPreserve.bind(this);
     this.showTransactions = this.showTransactions.bind(this);
-    
   }
   showProducts = () => {
     this.setState({
       isProducts: true,
       isNewProduct: false,
       isPreserve: false,
-      isTransactions:false,
+      isTransactions: false,
       user: localStorage.getItem("user"),
     });
   };
