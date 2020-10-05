@@ -74,7 +74,7 @@ const listProduct = async (req, res) => {
 
 //Product purchase request
 transaction = async (req, res) => {
-  const purchase = new Transaction(req.body);
+  const purchase = new Transaction(req.body);   
 
   await purchase.save().then((response) => {
     if (!response) {
