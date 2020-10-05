@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../styles/product.css";
+import "../styles/product.css";   
 
 const URL = "http://localhost:4000/";
 // const URL = "https://agroconnects.herokuapp.com/";
@@ -36,7 +36,7 @@ class Product extends Component {
             <Link to={`${match.url}/${item.salesId}`} className="product">
               <div className="row" key={index}>
                 <div className="col ">
-                  <div className="card card-product">
+                  <div className="card card-product mx-auto">
                     <div className="card-body" key={index}>
                       <div className="row">
                         <div className="col-md-3">

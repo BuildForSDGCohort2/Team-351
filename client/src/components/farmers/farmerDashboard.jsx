@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+//import {Link} from "react-router-dom"
 
 import "../../styles/farmerDashboard.css";
 
 import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
-import Preserve from "./preservation";
+import Preserve from "./storage";
 import Transactions from "./transaction";
 
 class Farmer extends Component {
@@ -49,6 +50,7 @@ class Farmer extends Component {
       isNewProduct: false,
       isPreserve: true,
     });
+   // this.props.history.push("/storage/:id")
   };
 
   showTransactions = () => {
@@ -128,6 +130,7 @@ class Farmer extends Component {
                         >
                           Storage/Preservation
                         </button>
+                        {/* <Link to="/storage/:id">Storage</Link> */}
                       </li>
                     </ul>
                   </div>
@@ -161,4 +164,4 @@ class Farmer extends Component {
   }
 }
 
-export default Farmer;
+export default Farmer;  

@@ -59,11 +59,11 @@ class Transactions extends Component {
     //       transactionId: item.transactionId,
     //       userId: item.userId,
     //       salesId: item.salesId,
-    //       productName: item.productName,
+    //       productName: item.productName,     
     //       quantity: item.quantity,
     //       price: item.price,
     //       buyerName: item.name,
-    //       buyerPhoneNumber: item.phoneNumber,
+    //       buyerPhoneNumber: item.phoneNumber,   
     //       transactionStatus: true,
     //     };
     //     axios.put("http://localhost:4000/update", status).then((data) => {
