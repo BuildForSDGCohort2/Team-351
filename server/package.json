@@ -14,8 +14,8 @@
     "mongoose": "^5.10.5",
     "nodemailer": "^6.4.11"
   },
-  "script":{
-     "script":"node index.js"
+  "scripts": {
+    "start": "node index.js"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
