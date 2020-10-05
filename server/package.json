@@ -15,8 +15,8 @@
   },
   
   "scripts": {
-    "start": "node server/index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+    "start": "node index.js"
+   
 },
   "devDependencies": {
     "dotenv": "^8.2.0"
