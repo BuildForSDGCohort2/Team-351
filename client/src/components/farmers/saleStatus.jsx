@@ -27,7 +27,7 @@ class saleStatus extends Component {
       this.setState({
         product: filterProduct,
       });
-      console.log(this.state.product);
+      
     });
   };
   render() {
