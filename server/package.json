@@ -16,8 +16,7 @@
   
   "scripts": {
     "start": "node index.js"
-   
-},
+  },
   "devDependencies": {
     "dotenv": "^8.2.0"
   }
