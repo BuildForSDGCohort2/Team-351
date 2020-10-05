@@ -164,4 +164,4 @@ class Farmer extends Component {
   }
 }
 
-export default Farmer;
+export default Farmer;  
