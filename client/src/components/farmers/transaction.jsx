@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
 const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
 
 class Transactions extends Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class Transactions extends Component {
   }
 
   componentDidMount = () => {
-    //console.log(this.props);
+    
     this.getTransactions();
     this.updateStatus();
   };
@@ -50,8 +49,7 @@ class Transactions extends Component {
   };
 
   updateStatus() {
-    const data = this.state.filteredProducts;
-
+    //const data = this.state.filteredProducts;
     // data.forEach((element) => {
     //   let item = element;
     //   console.log(item);
@@ -59,11 +57,11 @@ class Transactions extends Component {
     //       transactionId: item.transactionId,
     //       userId: item.userId,
     //       salesId: item.salesId,
-    //       productName: item.productName,     
+    //       productName: item.productName,
     //       quantity: item.quantity,
     //       price: item.price,
     //       buyerName: item.name,
-    //       buyerPhoneNumber: item.phoneNumber,   
+    //       buyerPhoneNumber: item.phoneNumber,
     //       transactionStatus: true,
     //     };
     //     axios.put("http://localhost:4000/update", status).then((data) => {
@@ -74,7 +72,7 @@ class Transactions extends Component {
 
   render() {
     const data = this.state.filteredProducts;
-
+    let match = this.props.match;
     return (
       <div className="container">
         <div className="row ">
@@ -89,7 +87,7 @@ class Transactions extends Component {
                       <th scope="col">Amount </th>
                       <th scope="col">Customer Name</th>
                       <th scope="col">Phone Number</th>
-                      <th scope="col">Sales Status</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -101,15 +99,11 @@ class Transactions extends Component {
                           <td>{item.price}</td>
                           <td>{item.buyerName}</td>
                           <td>{item.buyerPhoneNumber}</td>
-                          <td>
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="defaultCheck1"
-                              onClick={this.updateStatus}
-                            />
-                            <label className="form-check-label">Sold</label>
-                          </td>
+                          <Link
+                            to={`${match.url}/sales/${item.transactionId}`}
+                          >
+                            Status
+                          </Link>
                         </tr>
                       );
                     })}

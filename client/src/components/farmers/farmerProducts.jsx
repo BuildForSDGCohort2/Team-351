@@ -76,7 +76,7 @@ class Products extends Component {
                               Sale Product
                             </Link>
                           </td>
-                        </tr>
+                        </tr> 
                       );
                     })}
                   </tbody>
