@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom"
+//import {Link} from "react-router-dom"
 
 import "../../styles/farmerDashboard.css";
 
 import Products from "./farmerProducts";
 import NewProduct from "./addProduct";
-import Preserve from "./preservation";
+import Preserve from "./storage";
 import Transactions from "./transaction";
 
 class Farmer extends Component {
@@ -44,13 +44,13 @@ class Farmer extends Component {
   };
 
   showPreserve = () => {
-    // this.setState({
-    //   isProducts: false,
-    //   isTransactions: false,
-    //   isNewProduct: false,
-    //   isPreserve: true,
-    // });
-    this.props.history.push("/storage/:id")
+    this.setState({
+      isProducts: false,
+      isTransactions: false,
+      isNewProduct: false,
+      isPreserve: true,
+    });
+   // this.props.history.push("/storage/:id")
   };
 
   showTransactions = () => {
@@ -124,13 +124,13 @@ class Farmer extends Component {
                         </button>
                       </li>
                       <li>
-                        {/* <button
+                        <button
                           className="btn-link"
                           onClick={this.showPreserve}
                         >
                           Storage/Preservation
-                        </button> */}
-                        <Link to="/storage/:id">Storage</Link>
+                        </button>
+                        {/* <Link to="/storage/:id">Storage</Link> */}
                       </li>
                     </ul>
                   </div>
