@@ -90,7 +90,7 @@ class saleStatus extends Component {
                             className="form-check-input"
                             type="checkbox"
                             value=""
-                            id="defaultCheck1"
+                            name="check1"
                           />
                         </dd>
                       </dl>
@@ -103,7 +103,7 @@ class saleStatus extends Component {
                             className="form-check-input"
                             type="checkbox"
                             value=""
-                            id="defaultCheck1"
+                            name="check2"
                           />
                         </dd>
                       </dl>
