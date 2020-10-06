@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import "../../styles/footer.css";
 
@@ -10,10 +10,6 @@ class Footer extends Component {
       <div className=" d-flex justify-content-center pt-4 ">
         <div className="row footer">
           <div className="col-12 col-md">
-            {/* <Link to="/" className="dashboard-img" >
-              <img src={"../logo.png"} alt="logo" />
-            </Link>
-            <br></br> */}
             <small className="-block mb-3 text-muted">&copy; 2020</small>
           </div>
           <div className="col-6 col-md">
@@ -26,12 +22,12 @@ class Footer extends Component {
               </li>
 
               <li>
-                <Link to="/" className="text-muted" >
+                <Link to="/" className="text-muted">
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-muted" >
+                <Link to="/" className="text-muted">
                   Terms
                 </Link>
               </li>
@@ -41,17 +37,17 @@ class Footer extends Component {
             <h5>Features</h5>
             <ul className="list-unstyled text-small">
               <li>
-                <Link to="/" className="text-muted" >
+                <Link to="/" className="text-muted">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-muted" >
+                <Link to="/" className="text-muted">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-muted" >
+                <Link to="/" className="text-muted">
                   Careers
                 </Link>
               </li>
@@ -86,7 +82,7 @@ class Footer extends Component {
                   target="_blank"
                   className="footer-img"
                 >
-                  < FaLinkedin />
+                  <FaLinkedin />
                 </Link>
               </li>
             </ul>

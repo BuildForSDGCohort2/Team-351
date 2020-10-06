@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const { success, error } = require("consola");
 
 require("dotenv").config();
-//const URI = process.env.CONNECTION_STRING;
-const conn =
-  "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
+const URI = process.env.CONNECTION_STRING;
+// const conn =
+//   "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
 const dbInit = async () => {
   await mongoose
-    .connect(conn, {
+    .connect(URI, {
       useNewUrlParser: true,
       useFindAndModify: false,
       useUnifiedTopology: true,

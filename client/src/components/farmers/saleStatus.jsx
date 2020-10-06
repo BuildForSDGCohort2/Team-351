@@ -11,13 +11,13 @@ class saleStatus extends Component {
     };
   }
   componentDidMount() {
-    //console.log(this.props);
+    
     this.getDetails();
   }
   getDetails = async () => {
     let id = this.props.match.params.id;
     await axios.get(URL + "transactions").then((response) => {
-      //console.log(response);
+     
       let prod = response.data.result;
 
       //Filter product with product Id

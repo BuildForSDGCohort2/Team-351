@@ -14,17 +14,14 @@ require("dotenv").config();
 const port = process.env.PORT || 4000;
 
 //DB connection method
-dbInit();
+dbInit();   
 
 // perse request
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 // Set CORS for all headers
-
 app.use(cors());
-//app.options("*", cors());
-//app.use('/uploads', express.static('uploads'));
 
 app.use(express.static(path.join(__dirname, "build")));
 app.get((req, res) => {
@@ -32,7 +29,7 @@ app.get((req, res) => {
 });
 
 //App routes
-const api = require("./routes/router");
+const api = require("./routes/router");   
 app.use("/", api);
 
 app.listen(port, () => success({ message: `Server start on PORT ${port}` }));

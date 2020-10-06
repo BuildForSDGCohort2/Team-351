@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../styles/contact.css";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
 
 class Contact extends Component {
   constructor(props) {
