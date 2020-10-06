@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import {withRouter} from "react-router-dom";
 import axios from "axios";
 
 const URL = "http://localhost:4000/";
@@ -9,29 +10,83 @@ class saleStatus extends Component {
     this.state = {
       product: [],
     };
+
+    this.updateStatus = this.updateStatus.bind(this);
   }
+
   componentDidMount() {
-    
     this.getDetails();
   }
+
   getDetails = async () => {
     let id = this.props.match.params.id;
     await axios.get(URL + "transactions").then((response) => {
-     
       let prod = response.data.result;
 
       //Filter product with product Id
       let filterProduct = prod.filter(function (e) {
         return e.transactionId === id;
       });
+
       this.setState({
         product: filterProduct,
       });
       
+      return this.state.product;
     });
   };
+
+  updateProduct() {
+    let d = this.state.product;
+    d.forEach((item) => {
+      //console.log(item);
+      let prod = {
+        productId: item.productId,
+        userId: item.userId,
+        productCategory: item.productCategory,
+        productName: item.productName,
+        quantity: item.quantity,
+      };
+
+      //update product document
+      // axios.put(URL + "update-product", prod).then((res) => {
+      //   console.log(res);
+      // });
+    });
+  }
+
+  updateStatus() {
+    const data = this.state.product;
+
+    data.forEach((element) => {
+      let item = element;
+
+      let status = {
+        transactionId: item.transactionId,
+        userId: item.userId,
+        salesId: item.salesId,
+        productName: item.productName,
+        quantity: item.quantity,
+        price: item.price,
+        buyerName: item.buyerName,
+        buyerPhoneNumber: item.buyerPhoneNumber,
+        transactionStatus: "Sold",
+      };
+      axios.put("http://localhost:4000/update", status).then((data) => {
+        if (data) {
+          //update product quantity in product table
+          this.updateProduct()
+          
+          //route user
+          this.props.history.push("/farmer");
+        }
+      });
+    });
+  }
+
   render() {
     const data = this.state.product;
+
     return (
       <div className="container productContainer">
         {data.map((item, index) => {
@@ -59,11 +114,11 @@ class saleStatus extends Component {
                           <dd>{item.quantity} kg</dd>
                         </dl>
                         <dl className="dlist-align">
-                          <dt>Price (per kg)</dt>
+                          <dt>Total Price</dt>
                           <dd>
                             <span className="price">
                               <del className="price-old">N</del>
-                              {item.price}
+                              {item.totalPrice}
                             </span>
                           </dd>
                         </dl>
@@ -91,6 +146,7 @@ class saleStatus extends Component {
                             type="checkbox"
                             value=""
                             name="check1"
+                            onChange={this.updateStatus}
                           />
                         </dd>
                       </dl>

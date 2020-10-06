@@ -12,7 +12,6 @@ class Products extends Component {
       user: "",
       products: [],
       filteredProducts: [],
-
       id: null,
     };
 
@@ -38,7 +37,7 @@ class Products extends Component {
       this.setState({
         filteredProducts: filterredProd,
       });
-
+      
       return this.state.filterredProducts;
     });
   };
@@ -59,7 +58,7 @@ class Products extends Component {
                       <th scope="col">Name</th>
                       <th scope="col">Quantity (kg)</th>
                       <th scope="col">Category</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>

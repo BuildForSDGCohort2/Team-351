@@ -11,6 +11,7 @@ const {
   transaction,
   listTransactions,
   transactionStatus,
+  productUpdate,
 } = require("../controllers/product.controller");
 
 const {
@@ -47,5 +48,6 @@ router.get("/product-purchase", listProduct);
 router.post("/purchase", transaction);
 router.get("/transactions", listTransactions);
 router.put("/update", transactionStatus); 
+router.put("/update-product", productUpdate); 
 
 module.exports = router;

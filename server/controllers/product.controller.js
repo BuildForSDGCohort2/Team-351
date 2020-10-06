@@ -74,7 +74,7 @@ const listProduct = async (req, res) => {
 
 //Product purchase request
 transaction = async (req, res) => {
-  const purchase = new Transaction(req.body);   
+  const purchase = new Transaction(req.body);
 
   await purchase.save().then((response) => {
     if (!response) {
@@ -111,12 +111,43 @@ transactionStatus = async (req, res) => {
       $set: {
         userId: req.body.userId,
         salesId: req.body.salesId,
-        productName: req.body.producName,
+        productName: req.body.productName,
         quantity: req.body.quantity,
         price: req.body.price,
-        buyerName:req.body.buyerName,
+        buyerName: req.body.buyerName,
         buyerPhoneNumber: req.body.buyerPhoneNumber,
         transactionStatus: req.body.transactionStatus,
+      },
+    },
+
+    (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: "Error Occurred" });
+        //console.log(err);
+      }
+      if (!result) {
+        return res.status(400).json({ message: "Record not found" });
+      }
+
+      return res.status(200).json({
+        status: "ok",
+        result,
+      });
+    }
+  );
+};
+
+//Update product quantity
+productUpdate = async (req, res) => {
+  await Product.findOneAndUpdate(
+    { productId: req.body.productId },
+    {
+      $set: {
+        productId: req.body.productId,
+        userId: req.body.userId,
+        productCategory: req.body.productCategory,
+        productName: req.body.productName,
+        quantity: req.body.quantity,
       },
     },
 
@@ -144,5 +175,6 @@ module.exports = {
   saleProduct,
   transaction,
   listTransactions,
-  transactionStatus
+  transactionStatus,
+  productUpdate,
 };

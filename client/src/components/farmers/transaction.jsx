@@ -19,13 +19,10 @@ class Transactions extends Component {
     };
 
     this.getTransactions = this.getTransactions.bind(this);
-    this.updateStatus = this.updateStatus.bind(this);
   }
 
   componentDidMount = () => {
-    
     this.getTransactions();
-    this.updateStatus();
   };
 
   getTransactions = async () => {
@@ -48,28 +45,6 @@ class Transactions extends Component {
     });
   };
 
-  updateStatus() {
-    //const data = this.state.filteredProducts;
-    // data.forEach((element) => {
-    //   let item = element;
-    //   console.log(item);
-    //     let status = {
-    //       transactionId: item.transactionId,
-    //       userId: item.userId,
-    //       salesId: item.salesId,
-    //       productName: item.productName,
-    //       quantity: item.quantity,
-    //       price: item.price,
-    //       buyerName: item.name,
-    //       buyerPhoneNumber: item.phoneNumber,
-    //       transactionStatus: true,
-    //     };
-    //     axios.put("http://localhost:4000/update", status).then((data) => {
-    //       console.log(data);
-    //     });
-    // });
-  }
-
   render() {
     const data = this.state.filteredProducts;
     let match = this.props.match;
@@ -82,12 +57,13 @@ class Transactions extends Component {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th scope="col">Product Name</th>
-                      <th scope="col">Quantity (kg)</th>
-                      <th scope="col">Amount </th>
-                      <th scope="col">Customer Name</th>
-                      <th scope="col">Phone Number</th>
-                      <th scope="col"></th>
+                      <th>Product Name</th>
+                      <th>Quantity (kg)</th>
+                      <th>Amount </th>
+                      <th>Customer Name</th>
+                      <th>Phone Number</th>
+                      <th></th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -96,14 +72,17 @@ class Transactions extends Component {
                         <tr key={index}>
                           <td>{item.productName}</td>
                           <td>{item.quantity}</td>
-                          <td>{item.price}</td>
+                          <td>{item.totalPrice}</td>
                           <td>{item.buyerName}</td>
                           <td>{item.buyerPhoneNumber}</td>
-                          <Link
-                            to={`${match.url}/sales/${item.transactionId}`}
-                          >
-                            Status
-                          </Link>
+                          <td>
+                            <Link
+                              to={`${match.url}/sales/${item.transactionId}`}
+                            >
+                              Confirm
+                            </Link>
+                          </td>
+                          <td> {item.transactionStatus} </td>
                         </tr>
                       );
                     })}

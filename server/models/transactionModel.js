@@ -22,6 +22,12 @@ const Transaction = mongoose.Schema({
   price: {
     type: Number,
   },
+  totalPrice: {
+    type: Number,
+  },
+  productCategory :{
+    type : String,
+  },
   buyerName:{
     type: String
   },
@@ -29,7 +35,7 @@ const Transaction = mongoose.Schema({
     type: String
   },
   transactionStatus: {
-    type: Boolean,
+    type: String,
   },
 });
 
