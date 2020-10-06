@@ -49,7 +49,7 @@ class productDetails extends Component {
       let data = element;
       let qnty = data.product.quantity;
       let price1 = data.product.price;
-      let totalPrice = price1 * qnty
+      let totalPrice = price1 * qnty;
       let request = {
         transactionId: Math.floor(Math.random() * 100000) + 1,
         userId: data.farmer.userId,
@@ -64,7 +64,7 @@ class productDetails extends Component {
         buyerPhoneNumber: this.state.phoneNumber,
         transactionStatus: "Pending",
       };
-      
+
       axios.post(URL + "purchase", request).then((res) => {
         if (res) {
           this.props.history.push("/products");

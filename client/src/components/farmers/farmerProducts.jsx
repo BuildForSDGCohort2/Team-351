@@ -37,7 +37,7 @@ class Products extends Component {
       this.setState({
         filteredProducts: filterredProd,
       });
-      
+
       return this.state.filterredProducts;
     });
   };

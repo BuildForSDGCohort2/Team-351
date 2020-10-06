@@ -47,7 +47,7 @@ router.get("/product-purchase", listProduct);
 //transaction routes
 router.post("/purchase", transaction);
 router.get("/transactions", listTransactions);
-router.put("/update", transactionStatus); 
-router.put("/update-product", productUpdate); 
+router.put("/update", transactionStatus);
+router.put("/update-product", productUpdate);
 
 module.exports = router;

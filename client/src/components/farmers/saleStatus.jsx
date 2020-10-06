@@ -31,7 +31,7 @@ class saleStatus extends Component {
       this.setState({
         product: filterProduct,
       });
-      
+
       return this.state.product;
     });
   };
@@ -75,8 +75,8 @@ class saleStatus extends Component {
       axios.put("http://localhost:4000/update", status).then((data) => {
         if (data) {
           //update product quantity in product table
-          this.updateProduct()
-          
+          this.updateProduct();
+
           //route user
           this.props.history.push("/farmer");
         }
