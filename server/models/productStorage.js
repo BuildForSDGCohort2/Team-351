@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
 const storageSchema = mongoose.Schema({
-    categoriId : {
-        type : String
-    },
-    productCategory : {
-        type : String
-    },
-    storageDetail:{
-        type : String
-    }
-})
+  categoriId: {
+    type: String,
+  },
+  productCategory: {
+    type: String,
+  },
+  storageDetail: {
+    type: String,
+  },
+});
 
-module.exports = mongoose.model("storagetip", storageSchema)
+module.exports = mongoose.model("storagetip", storageSchema);
