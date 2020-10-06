@@ -3,9 +3,9 @@ const { success, error } = require("consola");
 
 require("dotenv").config();
 //const URI = process.env.CONNECTION_STRING;
-const conn = "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect"
+const conn =
+  "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
 const dbInit = async () => {
-
   await mongoose
     .connect(conn, {
       useNewUrlParser: true,
