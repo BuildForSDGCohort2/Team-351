@@ -51,7 +51,7 @@ updateStoragetips = async (req, res) => {
     (err, result) => {
       if (err) {
         return res.status(500).json({ message: "Error Occurred" });
-        //console.log(err);
+       
       }
       if (!result) {
         return res.status(400).json({ message: "Record not found" });
@@ -64,4 +64,4 @@ updateStoragetips = async (req, res) => {
     }
   );
 };
-module.exports = { storageTips, getStorageTips };
+module.exports = { storageTips, getStorageTips, updateStorageTips };
