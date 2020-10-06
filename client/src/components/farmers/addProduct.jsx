@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
 
 class NewProduct extends Component {
   constructor(props) {
@@ -72,6 +71,7 @@ class NewProduct extends Component {
                     >
                       <option>Select</option>
                       <option>Grains</option>
+                      <option>Tubers</option>
                       <option>Fruits</option>
                       <option>Spices</option>
                       <option>Vegetables</option>

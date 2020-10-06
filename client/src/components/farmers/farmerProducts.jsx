@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
 const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
 
 class Products extends Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class Products extends Component {
       user: "",
       products: [],
       filteredProducts: [],
-
       id: null,
     };
 
@@ -60,7 +58,7 @@ class Products extends Component {
                       <th scope="col">Name</th>
                       <th scope="col">Quantity (kg)</th>
                       <th scope="col">Category</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -76,7 +74,7 @@ class Products extends Component {
                               Sale Product
                             </Link>
                           </td>
-                        </tr> 
+                        </tr>
                       );
                     })}
                   </tbody>
@@ -85,7 +83,7 @@ class Products extends Component {
             </article>
           </main>
         </div>
-      </div>  
+      </div>
     );
   }
 }

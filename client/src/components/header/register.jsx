@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../styles/register.css";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
 
 class Register extends Component {
   constructor(props) {
@@ -59,11 +58,11 @@ class Register extends Component {
     return (
       <div className="container">
         <div className="card card-main mx-auto">
-          <div className="d-flex justify-content-center">
+          {/* <div className="d-flex justify-content-center">
             <button type="submit" className="btn-primary btn-fb">
               Register with Facebook
             </button>
-          </div>
+          </div> */}
           <div className="card-body contact-body">
             <form type="form" className="form" onSubmit={this.handleSubmit}>
               <div className="row">

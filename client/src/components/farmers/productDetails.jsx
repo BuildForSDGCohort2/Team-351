@@ -17,7 +17,6 @@ class productDetails extends Component {
   }
 
   componentDidMount() {
-    
     this.getProducts();
   }
   getProducts = () => {
@@ -42,6 +41,7 @@ class productDetails extends Component {
     });
   };
 
+  //Post to transaction table
   submitProduct = () => {
     const prod = this.state.product;
 
@@ -49,27 +49,30 @@ class productDetails extends Component {
       let data = element;
       let qnty = data.product.quantity;
       let price1 = data.product.price;
-
+      let tPrice = price1 * qnty;
       let request = {
         transactionId: Math.floor(Math.random() * 100000) + 1,
         userId: data.farmer.userId,
         salesId: data.salesId,
+        productId: data.product.productId,
         productName: data.product.productName,
         quantity: data.product.quantity,
-        price: price1 * qnty,
+        price: data.product.price,
+        totalPrice: tPrice,
+        productCategory: data.product.productCategory,
         buyerName: this.state.name,
         buyerPhoneNumber: this.state.phoneNumber,
-        transactionStatus: false,
+        transactionStatus: "Pending",
       };
 
       axios.post(URL + "purchase", request).then((res) => {
         if (res) {
           this.props.history.push("/products");
         }
-        //console.log(res);
       });
     });
   };
+
   render() {
     const data = this.state.product;
 

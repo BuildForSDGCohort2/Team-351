@@ -60,11 +60,11 @@ class Login extends Component {
           }}
         >
           <div className="modal-content">
-            <div className="modal-header d-flex justify-content-center">
+            {/* <div className="modal-header d-flex justify-content-center">
               <button className="btn-primary fb-btn">
                 Login with Facebook
               </button>
-            </div>
+            </div> */}
             <div className="modal-body">
               <form type="form" onSubmit={this.handleSubmit}>
                 <div className="form-group">

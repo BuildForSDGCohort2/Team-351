@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
 
 class transactionStatus extends Component {
   constructor(props) {
@@ -54,12 +53,14 @@ class transactionStatus extends Component {
         transactionId: Math.floor(Math.random() * 100000) + 1,
         userId: data.farmer.userId,
         salesId: data.salesId,
+        productId : data.product.productId,
         productName: data.product.productName,
+        productCategory : data.productCategory,
         quantity: data.product.quantity,
         price: data.product.price,
         buyerName: this.state.name,
         buyerPhoneNumber: this.state.phoneNumber,
-        transactionStatus: false,
+        transactionStatus: "Pending",
       };
       axios.post("http://localhost:4000/purchase", request).then((res) => {
         if (res) {

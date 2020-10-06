@@ -10,6 +10,7 @@
 
 .card-product {
   margin-bottom: 5px;
+  width: 90%;
 }
 
 .card-product::after {
@@ -60,7 +61,7 @@
   margin-top: 0;
 }
 
-.card-product .btn-overlay {
+/* .card-product .btn-overlay {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
@@ -74,9 +75,9 @@
   position: absolute;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.5);
-}
+} */
 
-.card-product:hover .btn-overlay {
+/* .card-product:hover .btn-overlay {
   opacity: 1;
 }
 
@@ -85,7 +86,7 @@
   box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
   -webkit-transition: 0.5s;
   transition: 0.5s;
-}
+} */
 
 .card-md .img-wrap {
   height: 180px;
