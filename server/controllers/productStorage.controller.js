@@ -24,7 +24,7 @@ const addStorageTips = async (req, res) => {
 };
 
 const getStorageTips = async (req, res) => {
-  await Storage.find((err, result) => {
+  await Storage.find( {productCategory : req.body.productCategory}, (err, result) => {
     if (err) {
       return res.status(500).json({
         message: " server error",
