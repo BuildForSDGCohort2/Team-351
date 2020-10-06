@@ -4,14 +4,9 @@
   background: #fff;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
-  /* -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-  box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
-  -webkit-transition: 0.5s;
-  opacity: 1;
-  transition: 0.5s; */
 }
 
-.select{
+.select {
   width: 80%;
 }
 
