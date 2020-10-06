@@ -44,7 +44,7 @@ class productStorage extends Component {
       <div className="container productContainer">
         <div className="row">
           <div className="col ">
-            <div className="">
+            <div className="select mx-auto">
               <form type="form">
                 <div className="form-gorup">
                   <select
@@ -65,7 +65,7 @@ class productStorage extends Component {
                 </div>
               </form>
             </div>
-            <div className="card card-product">
+            <div className="card  card-main mx-auto">
               <div className="card-body">
                 <div className="row">
                   <div className="m-10">
@@ -74,7 +74,7 @@ class productStorage extends Component {
                     })}
                   </div>
                 </div>
-                <div className="d-flex justify-content-end ">
+                <div className="d-flex justify-content-end">
                   <button
                     className="btn-submit"
                     type="submit"

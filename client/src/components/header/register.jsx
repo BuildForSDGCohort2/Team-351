@@ -58,11 +58,11 @@ class Register extends Component {
     return (
       <div className="container">
         <div className="card card-main mx-auto">
-          <div className="d-flex justify-content-center">
+          {/* <div className="d-flex justify-content-center">
             <button type="submit" className="btn-primary btn-fb">
               Register with Facebook
             </button>
-          </div>
+          </div> */}
           <div className="card-body contact-body">
             <form type="form" className="form" onSubmit={this.handleSubmit}>
               <div className="row">
