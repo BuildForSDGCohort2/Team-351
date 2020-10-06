@@ -49,7 +49,7 @@ class productDetails extends Component {
       let data = element;
       let qnty = data.product.quantity;
       let price1 = data.product.price;
-      let totalPrice = price1 * qnty;
+      let tPrice = price1 * qnty;
       let request = {
         transactionId: Math.floor(Math.random() * 100000) + 1,
         userId: data.farmer.userId,
@@ -58,7 +58,7 @@ class productDetails extends Component {
         productName: data.product.productName,
         quantity: data.product.quantity,
         price: data.product.price,
-        totalPrice: totalPrice,
+        totalPrice: tPrice,
         productCategory: data.product.productCategory,
         buyerName: this.state.name,
         buyerPhoneNumber: this.state.phoneNumber,
