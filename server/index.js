@@ -11,7 +11,7 @@ const app = express();
 
 //import environment variables
 require("dotenv").config();
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 //DB connection method
 dbInit();
