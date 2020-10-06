@@ -24,6 +24,8 @@ const {
   getAllConsumers,
 } = require("../controllers/consumer.controller");
 
+const { addStorageTips, getStorageTips, updateStorage}= require("../controllers/productStorage.controller")
+
 //Register user
 router.post("/register", signUp);
 
@@ -49,5 +51,10 @@ router.post("/purchase", transaction);
 router.get("/transactions", listTransactions);
 router.put("/update", transactionStatus);
 router.put("/update-product", productUpdate);
+
+//Product storage tips
+router.post("/add-tips", addStorageTips)
+router.get("/storage-tips", getStorageTips)
+router.put("/update-tips", updateStorage)
 
 module.exports = router;

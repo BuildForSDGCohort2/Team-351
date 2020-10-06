@@ -1,6 +1,6 @@
 const Storage = require("../models/productStorage");
 
-const storageTips = async (req, res) => {
+const addStorageTips = async (req, res) => {
   await Storage.findOne((err, result) => {
     if (err) {
       return res.status(500).json({
@@ -37,7 +37,7 @@ const getStorageTips = async (req, res) => {
   });
 };
 
-updateStoragetips = async (req, res) => {
+updateStorage = async (req, res) => {
   await Storage.findOneAndUpdate(
     { categoryId: req.body.categoryId },
     {
@@ -51,7 +51,6 @@ updateStoragetips = async (req, res) => {
     (err, result) => {
       if (err) {
         return res.status(500).json({ message: "Error Occurred" });
-       
       }
       if (!result) {
         return res.status(400).json({ message: "Record not found" });
@@ -64,4 +63,5 @@ updateStoragetips = async (req, res) => {
     }
   );
 };
-module.exports = { storageTips, getStorageTips, updateStorageTips };
+
+module.exports = { addStorageTips, getStorageTips, updateStorage };
