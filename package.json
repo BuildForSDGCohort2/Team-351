@@ -1,5 +1,5 @@
 {
-  "name": "agroconnect",   
+  "name": "agroconnect",
   "version": "1.0.0",
   "description": "This application is aimed at bringing farmers and consumers together",
   "main": "index.js",
@@ -7,12 +7,15 @@
   "author": "victoryohanna <victoryohanna@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["client", "server"],
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "client": "cd client && yarn start",
     "server": "cd server && yarn start",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
-    
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "dependencies": {
     "concurrently": "^5.3.0"
