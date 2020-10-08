@@ -32,7 +32,7 @@ class StorageTips extends Component {
       content: this.state.content,
     };
 
-    axios.post(URL + "register", storageTips).then((response) => {
+    axios.post(URL + "add-tips", storageTips).then((response) => {
       console.log(response);
     });
   };
