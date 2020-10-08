@@ -14,6 +14,7 @@ import saleProduct from "./components/farmers/saleProduct";
 import productDetails from "./components/farmers/productDetails";
 import productStorage from "./components/productStorage";
 import saleStatus from "./components/farmers/saleStatus";
+import StorageTips from "./components/productStorageTips";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/farmer/sales/:id" component={saleStatus} />
         <Route exact path="/products/:id" component={productDetails} />
         <Route exact path="/storage" component={productStorage} />
+        <Route exact path="/add-tips" component={StorageTips} />
         <Route component={PageNotFound} />
       </Switch>
     </div>

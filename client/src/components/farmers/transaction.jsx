@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import "../../styles/product.css";
 
 // const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/"
+const URL = "https://agroconnects.herokuapp.com/";
 
 class Transactions extends Component {
   constructor(props) {

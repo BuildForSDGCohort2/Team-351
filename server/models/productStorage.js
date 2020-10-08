@@ -8,7 +8,12 @@ const storageSchema = mongoose.Schema({
     type: String,
   },
   storageDetail: {
-    type: String,
+    title: {
+      type: String,
+    },
+    content: {
+      type: String,
+    },
   },
 });
 

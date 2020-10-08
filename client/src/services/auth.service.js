@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/"
+const URL = "https://agroconnects.herokuapp.com/";
 
 class AuthService {
   login = (email, password) => {
@@ -16,14 +16,14 @@ class AuthService {
         // }
         if (result.data) {
           let userData = result.data.response;
-          let id = parseInt(userData.userId,10);
+          let id = parseInt(userData.userId, 10);
           localStorage.setItem("user", id);
         }
         return result;
       });
   };
 
-  register(username, email, password) {  
+  register(username, email, password) {
     return axios.post(URL + "signup", {
       username,
       email,

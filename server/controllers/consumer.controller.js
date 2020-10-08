@@ -39,6 +39,6 @@ const UpdateConsumer = async (req, res) => {
       });
     }
   );
-};
+};    
 
-module.exports = { getAllConsumers, UpdateConsumer };
+module.exports = { getAllConsumers, UpdateConsumer };   

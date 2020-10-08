@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../styles/product.css";   
+import "../styles/product.css";
 
 // const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/"
+const URL = "https://agroconnects.herokuapp.com/";
 
 class Product extends Component {
   constructor(props) {
