@@ -37,7 +37,7 @@ class Navbar extends Component {
     const loginLink = (
       <ul className="navbar-nav ml-auto">
         <li className="navbar-item">
-          <Link to="/login" className="nav-link" onClick={this.showModal}>
+          <Link to="/" className="nav-link" onClick={this.showModal}>
             Login
           </Link>
         </li>
