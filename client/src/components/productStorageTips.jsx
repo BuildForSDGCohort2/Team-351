@@ -35,7 +35,7 @@ class StorageTips extends Component {
     };
 
     axios.post(URL + "add-tips", storageTips).then((response) => {
-      console.log(response);
+      //console.log(response);
     });
   };
   render() {
