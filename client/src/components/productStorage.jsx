@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 // const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/"
+const URL = "https://agroconnects.herokuapp.com/";
 
 class productStorage extends Component {
   constructor(props) {
@@ -71,7 +71,16 @@ class productStorage extends Component {
                 <div className="row">
                   <div className="m-10">
                     {data.map((item, index) => {
-                      return <div key={index}> {item.storageDetail} </div>;
+                      return (
+                        <div key={index}>
+                          <div className=" textTitle d-flex justify-content-center">
+                            <h4>{item.storageDetail.title}</h4>
+                          </div>
+                          <div className="textBody">
+                            <span>{item.storageDetail.content}</span>
+                          </div>
+                        </div>
+                      );
                     })}
                   </div>
                 </div>

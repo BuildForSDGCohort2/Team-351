@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { success, error } = require("consola");
 
 require("dotenv").config();
-// const URI = process.env.CONNECTION_STRING;
+// const conn = "mongodb://localhost:27017/agroconnect";
 const conn =
   "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
 const dbInit = async () => {
@@ -15,7 +15,7 @@ const dbInit = async () => {
     .then(() => {
       success({ message: `Database Connected` });
     })
-    .catch(() => {
+    .catch(() => {  
       error({ message: `Failed to connect database` });
     });
 };
