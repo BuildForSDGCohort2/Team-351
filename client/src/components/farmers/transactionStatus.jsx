@@ -63,7 +63,7 @@ class transactionStatus extends Component {
         buyerPhoneNumber: this.state.phoneNumber,
         transactionStatus: "Pending",
       };
-      axios.post("http://localhost:4000/purchase", request).then((res) => {
+      axios.post(URL + "purchase", request).then((res) => {
         if (res) {
           this.props.history.push("/products");
         }
