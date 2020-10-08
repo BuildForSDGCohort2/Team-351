@@ -28,8 +28,10 @@ class StorageTips extends Component {
 
     let storageTips = {
       categoryId: Math.floor(Math.random() * 100000) + 1,
-      title: this.state.title,
-      content: this.state.content,
+      storageDetail: {
+        title: this.state.title,
+        content: this.state.content,
+      },
     };
 
     axios.post(URL + "add-tips", storageTips).then((response) => {
@@ -55,7 +57,6 @@ class StorageTips extends Component {
                     />
                   </div>
                 </div>
-
                 <div className="col-md-12 mx-auto">
                   <div className="form-group">
                     <label>Content</label>
