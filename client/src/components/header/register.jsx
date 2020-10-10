@@ -120,8 +120,10 @@ class Register extends Component {
       //send validation notification
       this.setState({
         formInvalid: "Please fill required values in form fields",
-      });
-      // this.props.history.push("/register");
+      }).setTimeout(() => {
+        //formInvalid
+      }, 2000);;
+     
     }
   };
   render() {
