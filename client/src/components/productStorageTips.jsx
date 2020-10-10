@@ -10,6 +10,8 @@ class StorageTips extends Component {
     super(props);
 
     this.state = {
+      productCategory: "",
+      productName: "",
       title: "",
       content: "",
     };
@@ -28,6 +30,8 @@ class StorageTips extends Component {
 
     let storageTips = {
       categoryId: Math.floor(Math.random() * 100000) + 1,
+      productCategory: this.state.productCategory,
+      productName: this.state.productName,
       storageDetail: {
         title: this.state.title,
         content: this.state.content,
@@ -35,7 +39,14 @@ class StorageTips extends Component {
     };
 
     axios.post(URL + "add-tips", storageTips).then((response) => {
-      console.log(response);
+      if (response) {
+        this.setState({
+          productCategory: "",
+          productName: "",
+          title: "",
+          content: "",
+        });
+      }
     });
   };
   render() {
@@ -46,6 +57,38 @@ class StorageTips extends Component {
             <form type="form" className="form" onSubmit={this.handleSubmit}>
               <div className="row">
                 <div className="col-md mx-auto">
+                  <div className="form-gorup">
+                    <label>Product Category</label>
+                    <select
+                      className="form-control"
+                      name="productCategory"
+                      value={this.state.productCategory}
+                      onChange={this.handleChange}
+                    >
+                      <option>Select</option>
+                      <option>Grains</option>
+                      <option>Tubers</option>
+                      <option>Fruits</option>
+                      <option>Spices</option>
+                      <option>Vegetables</option>
+                      <option>Oil Crops</option>
+                      <option>Livestocks</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="col-md-6 mx-auto">
+                  <div className="form-group">
+                    <label>Product Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="productName"
+                      value={this.state.productName}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-md-12 mx-auto">
                   <div className="form-group">
                     <label>Title</label>
                     <input

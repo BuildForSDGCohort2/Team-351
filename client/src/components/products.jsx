@@ -28,7 +28,7 @@ class Product extends Component {
 
   render() {
     const data = this.state.prod;
-    let match = this.props.match;
+    let match = this.props.match;    
     return (
       <div className="container productContainer">
         {data.map((item, index) => {

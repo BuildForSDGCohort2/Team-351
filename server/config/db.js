@@ -13,10 +13,10 @@ const dbInit = async () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      success({ message: `Database Connected` });
+      success({ message: `Database Connected`, badge: true });
     })
-    .catch(() => {  
-      error({ message: `Failed to connect database` });
+    .catch(() => {
+      error({ message: `Failed to connect database`, badge : true });
     });
 };
 

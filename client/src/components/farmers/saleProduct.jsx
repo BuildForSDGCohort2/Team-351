@@ -149,7 +149,7 @@ class saleProduct extends Component {
                     </div>
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
-                        <label>How many do you want to Sale?</label>
+                        <label>How many kg do you want to Sale?</label>
                         <input
                           type="text"
                           className="form-control"

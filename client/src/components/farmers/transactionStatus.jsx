@@ -13,14 +13,15 @@ class transactionStatus extends Component {
       name: "",
       phoneNumber: "",
     };
+    
     this.getProducts = this.getProducts.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.getProducts();
   }
+
   getProducts = () => {
     let id = this.props.match.params.id;
 
@@ -34,7 +35,6 @@ class transactionStatus extends Component {
       this.setState({
         product: filterProduct,
       });
-      //console.log(this.state.product);
     });
   };
 
@@ -67,7 +67,7 @@ class transactionStatus extends Component {
         if (res) {
           this.props.history.push("/products");
         }
-        //console.log(res);
+       
       });
     });
   };

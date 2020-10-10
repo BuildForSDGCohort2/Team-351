@@ -10,3 +10,11 @@
 .nav-icon {
   color: #fff;
 }
+
+.tips {
+  color: #008000;
+}
+
+.tips:hover {
+  color: #008000;
+}

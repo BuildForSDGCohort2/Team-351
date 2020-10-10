@@ -63,7 +63,7 @@ class Transactions extends Component {
                       <th>Amount </th>
                       <th>Customer Name</th>
                       <th>Phone Number</th>
-                      <th></th>
+                      <th>Confirm Payment</th>
                       <th>Status</th>
                     </tr>
                   </thead>
@@ -80,7 +80,7 @@ class Transactions extends Component {
                             <Link
                               to={`${match.url}/sales/${item.transactionId}`}
                             >
-                              Confirm
+                              Confirm 
                             </Link>
                           </td>
                           <td> {item.transactionStatus} </td>

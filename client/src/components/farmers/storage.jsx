@@ -54,7 +54,7 @@ class preserve extends Component {
                     value={this.state.productCategory}
                     onChange={this.handleChange}
                   >
-                    <option>Select</option>
+                    <option>Select</option>    
                     <option>Grains</option>
                     <option>Tubers</option>
                     <option>Fruits</option>
@@ -66,7 +66,7 @@ class preserve extends Component {
                 </div>
               </form>
             </div>
-            <div className="card  card-main mx-auto">
+            {/* <div className="card  card-main mx-auto">
               <div className="card-body">
                 <div className="row">
                   <div className="m-10">
@@ -81,11 +81,11 @@ class preserve extends Component {
                     type="submit"
                     onClick={this.submitProduct}
                   >
-                    Submit
+                    Back
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

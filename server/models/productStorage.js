@@ -7,6 +7,9 @@ const storageSchema = mongoose.Schema({
   productCategory: {
     type: String,
   },
+  productName: {
+    type: String,
+  },
   storageDetail: {
     title: {
       type: String,

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FacebookLogin from "react-facebook-login";
 import { withRouter } from "react-router-dom";
 
 import "../../styles/login.css";
@@ -6,6 +7,13 @@ import "../../styles/login.css";
 import Backdrop from "./backdrop";
 import AuthService from "../../services/auth.service";
 
+const responseFacebook = (response) => {
+  //console.log(response);
+};
+
+const componentClicked = () => {
+  //console.log("Clicked!");
+};
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -65,6 +73,17 @@ class Login extends Component {
                 Login with Facebook
               </button>
             </div> */}
+            <div className="modal-header d-flex justify-content-center">
+              <FacebookLogin
+                appId="2110401162426787"
+                autoLoad
+                fields="name,email"
+                onClick={componentClicked}
+                callback={responseFacebook}
+                icon="fa-facebook"
+              />
+            </div>
+
             <div className="modal-body">
               <form type="form" onSubmit={this.handleSubmit}>
                 <div className="form-group">

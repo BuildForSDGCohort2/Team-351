@@ -33,9 +33,13 @@ class productStorage extends Component {
       this.setState({
         product: store,
       });
-      //console.log(this.state.product);
+
       return this.state.product;
     });
+  };
+
+  goBack = () => {
+    this.props.history.push("/farmer");
   };
 
   render() {
@@ -47,22 +51,39 @@ class productStorage extends Component {
           <div className="col ">
             <div className="select mx-auto">
               <form type="form">
-                <div className="form-gorup">
-                  <select
-                    className="form-control"
-                    name="productCategory"
-                    value={this.state.productCategory}
-                    onChange={this.handleChange}
-                  >
-                    <option>Select</option>
-                    <option>Grains</option>
-                    <option>Tubers</option>
-                    <option>Fruits</option>
-                    <option>Spices</option>
-                    <option>Vegetables</option>
-                    <option>Oil Crops</option>
-                    <option>Livestocks</option>
-                  </select>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="form-gorup">
+                      <label>Product Category</label>
+                      <select
+                        className="form-control"
+                        name="productCategory"
+                        value={this.state.productCategory}
+                        onChange={this.handleChange}
+                      >
+                        <option>Select</option>
+                        <option>Grains</option>
+                        <option>Tubers</option>
+                        <option>Fruits</option>
+                        <option>Spices</option>
+                        <option>Vegetables</option>
+                        <option>Oil Crops</option>
+                        <option>Livestocks</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-md-6 mx-auto">
+                    <div className="form-group">
+                      <label>Product Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="productName"
+                        value={this.state.productName}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -88,9 +109,9 @@ class productStorage extends Component {
                   <button
                     className="btn-submit"
                     type="submit"
-                    onClick={this.submitProduct}
+                    onClick={this.goBack}
                   >
-                    Submit
+                    Back
                   </button>
                 </div>
               </div>
