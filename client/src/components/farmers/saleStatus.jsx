@@ -2,8 +2,8 @@ import React, { Component } from "react";
 //import {withRouter} from "react-router-dom";
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class saleStatus extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class saleStatus extends Component {
     };
 
     this.updateStatus = this.updateStatus.bind(this);
+    this.unPaid = this.unPaid.bind(this);
   }
 
   componentDidMount() {
@@ -73,7 +74,7 @@ class saleStatus extends Component {
         buyerPhoneNumber: item.buyerPhoneNumber,
         transactionStatus: "Sold",
       };
-      axios.put("http://localhost:4000/update", status).then((data) => {
+      axios.put(URL + "update", status).then((data) => {
         if (data) {
           //update product quantity in product table
           this.updateProduct();
@@ -84,6 +85,11 @@ class saleStatus extends Component {
       });
     });
   }
+
+  unPaid = () => {
+    //route user
+    this.props.history.push("/farmer");
+  };
 
   render() {
     const data = this.state.product;
@@ -161,6 +167,7 @@ class saleStatus extends Component {
                             type="checkbox"
                             value=""
                             name="check2"
+                            onClick={this.unPaid}
                           />
                         </dd>
                       </dl>
