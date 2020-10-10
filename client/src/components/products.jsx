@@ -11,7 +11,7 @@ class Product extends Component {
     super(props);
     this.state = {
       prod: [],
-      isLoading: "",
+      isLoading: true,
     };
     this.getProducts = this.getProducts.bind(this);
   }
@@ -23,6 +23,7 @@ class Product extends Component {
     axios.get(URL + "product-purchase").then((response) => {
       this.setState({
         prod: response.data.result,
+        isLoading: false,
       });
     });
   };
