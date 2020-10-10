@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ReactLoading from 'react-loading';
 import "../styles/product.css";
 
 // const URL = "http://localhost:4000/";
@@ -35,7 +36,7 @@ class Product extends Component {
       <div className="container productContainer">
         {this.state.isLoading ? (
           <div>
-            <p>Data loading...</p>
+            <ReactLoading type={"bars"} color={"grey"} />
           </div>
         ) : (
           <div>
