@@ -7,7 +7,7 @@ const {
   addProduct,
   getProduct,
   listProduct,
-  saleProduct,
+  saleProduct,  
   transaction,
   listTransactions,
   transactionStatus,

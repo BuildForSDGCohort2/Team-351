@@ -14,7 +14,7 @@ require("dotenv").config();
 const port = process.env.PORT || 4000;
 
 //DB connection method
-dbInit();   
+dbInit();
 
 // perse request
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -29,7 +29,9 @@ app.get((req, res) => {
 });
 
 //App routes
-const api = require("./routes/router");   
+const api = require("./routes/router");
 app.use("/", api);
 
-app.listen(port, () => success({ message: `Server start on PORT ${port}` }));
+app.listen(port, () =>
+  success({ message: `Server start on PORT ${port}`, badge: true })
+);

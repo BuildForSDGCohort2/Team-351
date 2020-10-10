@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const { success, error } = require("consola");
 
 require("dotenv").config();
-// const conn = "mongodb://localhost:27017/agroconnect";
-const conn =
-  "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
+const conn = "mongodb://localhost:27017/agroConnect";
+// const conn =
+//   "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
 const dbInit = async () => {
   await mongoose
     .connect(conn, {
@@ -13,10 +13,10 @@ const dbInit = async () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      success({ message: `Database Connected` });
+      success({ message: `Database Connected`, badge: true });
     })
-    .catch(() => {  
-      error({ message: `Failed to connect database` });
+    .catch(() => {
+      error({ message: `Failed to connect database`, badge : true });
     });
 };
 

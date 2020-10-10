@@ -124,14 +124,8 @@ class Farmer extends Component {
                         </button>
                       </li>
                       <li>
-                        {/* <button
-                          className="btn-link"
-                          onClick={this.showPreserve}
-                        >
-                          Storage/Preservation
-                        </button> */}
                         <Link to="/storage" className="link">
-                          Storage/Preservation
+                          Storage/Preservations
                         </Link>
                       </li>
                     </ul>

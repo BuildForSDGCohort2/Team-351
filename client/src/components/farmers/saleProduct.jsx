@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class saleProduct extends Component {
   constructor(props) {
@@ -149,7 +149,7 @@ class saleProduct extends Component {
                     </div>
                     <div className="col-md-6 mx-auto">
                       <div className="form-group">
-                        <label>How many do you want to Sale?</label>
+                        <label>How many kg do you want to Sale?</label>
                         <input
                           type="text"
                           className="form-control"

@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../styles/product.css";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class Product extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Product extends Component {
 
   render() {
     const data = this.state.prod;
-    let match = this.props.match;
+    let match = this.props.match;    
     return (
       <div className="container productContainer">
         {data.map((item, index) => {
