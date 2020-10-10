@@ -11,6 +11,7 @@ class Product extends Component {
     super(props);
     this.state = {
       prod: [],
+      isLoading : ""
     };
     this.getProducts = this.getProducts.bind(this);
   }
@@ -70,11 +71,11 @@ class Product extends Component {
                         <div className="col-sm-5">
                           <dl className="dlist-align">
                             <dt>Product Location</dt>
-                            <dd> {item.location.state} </dd>
+                            <dd>{item.location.state}</dd>
                           </dl>
                           <dl className="dlist-align">
                             <dt>Farmer</dt>
-                            <dd> {item.farmer.farmerName} </dd>
+                            <dd>{item.farmer.farmerName}</dd>
                           </dl>
                         </div>
                       </div>
