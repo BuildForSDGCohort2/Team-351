@@ -73,17 +73,17 @@ class productStorage extends Component {
                     </div>
                   </div>
                   <div className="col-md-6 mx-auto">
-                  <div className="form-group">
-                    <label>Product Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="productName"
-                      value={this.state.productName}
-                      onChange={this.handleChange}
-                    />
+                    <div className="form-group">
+                      <label>Product Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="productName"
+                        value={this.state.productName}
+                        onChange={this.handleChange}
+                      />
+                    </div>
                   </div>
-                </div>
                 </div>
               </form>
             </div>

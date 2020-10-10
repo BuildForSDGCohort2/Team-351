@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/storage" component={productStorage} />
         <Route exact path="/add-tips" component={StorageTips} />
         <Route component={PageNotFound} />
-      </Switch>  
+      </Switch>
     </div>
   );
 }
