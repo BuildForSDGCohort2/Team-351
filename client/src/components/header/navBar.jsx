@@ -100,7 +100,7 @@ class Navbar extends Component {
                 <li className="nav-item">
                   <Link to="/about" className="nav-link">
                     About
-                  </Link>
+                  </Link>    
                 </li>
                 <li className="nav-item">
                   <Link to="/contact" className="nav-link">
