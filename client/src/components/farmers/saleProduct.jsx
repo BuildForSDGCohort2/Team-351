@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class saleProduct extends Component {
   constructor(props) {
@@ -119,7 +119,7 @@ class saleProduct extends Component {
       <div className="container">
         <div className="row ">
           <main className="col ">
-            <div className="card card-product">
+            <div className="card card-product max-auto mt-30">
               <div className="card-body">
                 <form type="form" className="form" onSubmit={this.handleSubmit}>
                   <div className="row">

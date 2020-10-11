@@ -7,7 +7,7 @@ const {
   addProduct,
   getProduct,
   listProduct,
-  saleProduct,  
+  saleProduct,
   transaction,
   listTransactions,
   transactionStatus,
@@ -29,6 +29,7 @@ const {
   getStorageTips,
   updateStorage,
 } = require("../controllers/productStorage.controller");
+const sendMail = require("../controllers/contact.controller");
 
 //Register user
 router.post("/register", signUp);
@@ -60,5 +61,7 @@ router.put("/update-product", productUpdate);
 router.post("/add-tips", addStorageTips);
 router.get("/storage-tips", getStorageTips);
 router.put("/update-tips", updateStorage);
+
+router.post("/contact", sendMail);
 
 module.exports = router;

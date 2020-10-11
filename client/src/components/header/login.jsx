@@ -8,7 +8,7 @@ import Backdrop from "./backdrop";
 import AuthService from "../../services/auth.service";
 
 const responseFacebook = (response) => {
-  //console.log(response);
+  console.log(response);
 };
 
 const componentClicked = () => {
@@ -21,6 +21,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      inValid: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,7 +38,7 @@ class Login extends Component {
 
     AuthService.login(this.state.email, this.state.password).then(
       (response) => {
-        if (response) {
+        if (response.status === 200) {
           //Check user type and redirect to user component
           let user = response.data;
           user.response.userType === "Farmer"
@@ -57,6 +58,7 @@ class Login extends Component {
   };
 
   render() {
+    const valide = this.state.inValid;
     return (
       <>
         <Backdrop show={this.props.show} hide={this.props.hide} />
@@ -68,11 +70,6 @@ class Login extends Component {
           }}
         >
           <div className="modal-content">
-            {/* <div className="modal-header d-flex justify-content-center">
-              <button className="btn-primary fb-btn">
-                Login with Facebook
-              </button>
-            </div> */}
             <div className="modal-header d-flex justify-content-center">
               <FacebookLogin
                 appId="619143948759544"
@@ -83,9 +80,10 @@ class Login extends Component {
                 icon="fa-facebook"
               />
             </div>
-
             <div className="modal-body">
+            
               <form type="form" onSubmit={this.handleSubmit}>
+              <span>{valide}</span>
                 <div className="form-group">
                   <label htmlFor="">Email</label>
                   <input
