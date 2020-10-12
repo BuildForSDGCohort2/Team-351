@@ -7,7 +7,7 @@ import "../../styles/footer.css";
 class Footer extends Component {
   render() {
     return (
-      <div className=" d-flex justify-content-center pt-4 ">
+      <div className=" d-flex justify-content-center pt-4 my-md-5 pt-md-5">
         <div className="row footer">
           <div className="col-12 col-md">
             <small className="-block mb-3 text-muted">&copy; 2020</small>
