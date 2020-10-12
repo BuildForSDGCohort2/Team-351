@@ -30,12 +30,14 @@ class saleProduct extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getStates = this.getStates.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
   }
   componentDidMount() {
     this.setState({ states: States });
     this.getProductById();
     this.getFarmer();
+    this.getStates();
     //console.log(LGA)
   }
 
@@ -60,7 +62,7 @@ class saleProduct extends Component {
 
       return this.state.product;
     });
-  };
+  };   
 
   getFarmer = async () => {
     let userId = localStorage.getItem("user");
@@ -86,6 +88,23 @@ class saleProduct extends Component {
       [e.target.name]: e.target.value,
     });
   };
+
+
+  getStates=()=>{
+    axios.get(URL + "states").then((response)=>{
+      return response.data;
+    })
+    .then(data => {
+      let statesFromApi = data.map((stat, i) => {
+        return {value: stat, display: stat}
+      });
+      this.setState({
+        states: [{value: '', display: '(Select your favourite team)'}].concat(statesFromApi)
+      });
+    }).catch((error) => {
+      return error;
+    });
+  }
 
   onValueChange = (e) => {
     const nam = e.target.value;
@@ -128,7 +147,7 @@ class saleProduct extends Component {
 
   render() {
     const data = this.state.product;
-    const stat = this.state.states;
+    const stateList = this.state.states;
 
     return (
       <div className="container">
@@ -158,7 +177,7 @@ class saleProduct extends Component {
                           className="form-control"
                           name="quantity"
                           defaultValue={data.quantity}
-                          onChange={this.handleChange}
+                          onChange={this.onValueChange}
                         />
                       </div>
                     </div>
@@ -194,15 +213,63 @@ class saleProduct extends Component {
                     <div className="col-md-6">
                       <div className="form-group">
                         <label>State</label>
-                        <select
+                         <select
                           className="form-control"
                           name="states"
-                          onChange={this.onValueChange}
+                          onChange={this.handleChange}
                         >
-                          {stat.map((item, i) => {
+                          <option>Select</option>
+                      <option value="Abia">Abia</option>
+                      <option value="Abuja">Abuja</option>
+                      <option value="Adamawa">Adamawa</option>
+                      <option value="Akwa Ibom">Akwa Ibom</option>
+                      <option value="Anambra">Anambra</option>
+                      <option value="Bauchi">Bauchi</option>
+                      <option value="Bayelsa">Bayelsa</option>
+                      <option value="Benue">Benue</option>
+                      <option value="Borno">Borno</option>
+                      <option value="Cross River">Cross River</option>
+                      <option value="Delta">Delta</option>
+                      <option value="Ebonyi">Ebonyi</option>
+                      <option value="Enugu">Enugu</option>
+                      <option value="Edo">Edo</option>
+                      <option value="Ekiti">Ekiti</option>
+                      <option value="Gombe">Gombe</option>
+                      <option value="Imo">Imo</option>
+                      <option value="Jigawa">Jigawa</option>
+                      <option value="Kaduna">Kaduna</option>
+                      <option value="Kano">Kano</option>
+                      <option value="Katsina">Katsina</option>
+                      <option value="Kebbi">Kebbi</option>
+                      <option value="Kogi">Kogi</option>
+                      <option value="Kebbi">Kebbi</option>
+                      <option value="Lagos">Lagos</option>
+                      <option value="Nasarawa">Nasarawa</option>
+                      <option value="Niger">Niger</option>
+                      <option value="Ogun">Ogun</option>
+                      <option value="Ondo">Ondo</option>
+                      <option value="Osun">Osun</option>
+                      <option value="Oyo">Oyo</option>
+                      <option value="Plateau">Plateau</option>
+                      <option value="Rivers">Rivers</option>
+                      <option value="Taraba">Taraba</option>
+                      <option value="Yobe">Yobe</option>
+                      <option value="Zamfara">Zamfara</option>
+                        </select>
+                        {/* <select
+                          className="form-control"
+                          name="states"
+                          onChange={this.handleChange}
+                        >
+                          {stateList.map((item, i) => {
                             return <option key={i}>{item} </option>;
                           })}
-                        </select>
+                        </select> */}
+                        {/* <select className="form-control"
+                          name="states">
+                        {stateList.map((item, i) => <option key={i} value={item.value}>{item.display}</option>)}
+                        </select> */}
+
                       </div>
                     </div>
                     <div className="col-md-6">
