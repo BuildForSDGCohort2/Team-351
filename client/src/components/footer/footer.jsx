@@ -57,7 +57,7 @@ class Footer extends Component {
           <div className="col-6 col-md">
             <h5>Follow Us</h5>
             <ul className="list-unstyled text-small">
-              <li>
+              <li>  
                 <Link
                   to="https://www.facebook.com/signup"
                   target="_blank"

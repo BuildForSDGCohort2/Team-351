@@ -36,6 +36,7 @@ class Register extends Component {
         confirmPassword: "",
       },
       formInvalid: "",
+      states: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -122,10 +123,11 @@ class Register extends Component {
         formInvalid: "Please fill required values in form fields",
       }).setTimeout(() => {
         //formInvalid
-      }, 2000);;
-     
+      }, 2000);
     }
   };
+
+
   render() {
     const { errors } = this.state;
     return (

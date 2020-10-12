@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class preserve extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class preserve extends Component {
   };
 
   render() {
-    const data = this.state.product;
+    // const data = this.state.product;
 
     return (
       <div className="container productContainer">

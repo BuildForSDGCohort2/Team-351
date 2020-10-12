@@ -2,8 +2,8 @@ import React, { Component } from "react";
 //import {withRouter} from "react-router-dom";
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class saleStatus extends Component {
   constructor(props) {
@@ -42,13 +42,13 @@ class saleStatus extends Component {
     let d = this.state.product;
     d.forEach((item) => {
       //console.log(item);
-      let prod = {
-        productId: item.productId,
-        userId: item.userId,
-        productCategory: item.productCategory,
-        productName: item.productName,
-        quantity: item.quantity,
-      };
+      // let prod = {
+      //   productId: item.productId,
+      //   userId: item.userId,
+      //   productCategory: item.productCategory,
+      //   productName: item.productName,
+      //   quantity: item.quantity,
+      // };
 
       //update product document
       // axios.put(URL + "update-product", prod).then((res) => {

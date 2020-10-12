@@ -27,7 +27,7 @@ class About extends Component {
           <br/>
           <div className="row">
             <div className="col-md-4 content-left">
-              <img src="./img/Vic.png" alt="profile picture" />
+              <img src="./img/Vic.png" alt="Victor Yohanna" />
               <br />
               <div className="d-flex justify-content-center">
                 <h5>Victor Yohanna</h5>

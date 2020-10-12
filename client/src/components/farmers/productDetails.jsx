@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class productDetails extends Component {
   constructor(props) {
@@ -172,13 +172,13 @@ class productDetails extends Component {
                         </div>
                       </div>
                     </form>
-                    <div className="d-flex justify-content-end ">
+                    <div className="d-flex justify-content-center ">
                       <button
-                        className="btn-submit"
+                        className="btn-order"
                         type="submit"
                         onClick={this.submitProduct}
                       >
-                        Submit
+                        Place Order
                       </button>
                     </div>
                   </div>

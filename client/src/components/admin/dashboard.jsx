@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 import "../../styles/farmerDashboard.css";
 
-import Products from "./farmerProducts";
-import NewProduct from "./addProduct";
-import Preserve from "./storage";
-import Transactions from "./transaction";
+// import Products from "../farmers/farmerProducts";
+// import NewProduct from "../farmers/addProduct";
+// import Preserve from "../farmers/storage";
+// import Transactions from "../farmers/transaction";   
+import StorageTips from "./productStorageTips";
 
-class Farmer extends Component {
+class Admin extends Component {
   constructor(props) {
     super(props);
 
@@ -24,12 +25,13 @@ class Farmer extends Component {
     this.showNewProduct = this.showNewProduct.bind(this);
     this.showPreserve = this.showPreserve.bind(this);
     this.showTransactions = this.showTransactions.bind(this);
+    this.showStorageTips = this.showStorageTips.bind(this);
   }
   showProducts = () => {
     this.setState({
       isProducts: true,
       isNewProduct: false,
-      isPreserve: false,
+      isStorage: false,
       isTransactions: false,
       user: localStorage.getItem("user"),
     });
@@ -43,13 +45,13 @@ class Farmer extends Component {
     });
   };
 
-  showPreserve = () => {
-    // this.setState({
-    //   isProducts: false,
-    //   isTransactions: false,
-    //   isNewProduct: false,
-    //   isPreserve: true,
-    // });
+  showStorageTips = () => {
+    this.setState({
+      isProducts: false,
+      isTransactions: false,
+      isNewProduct: false,
+      isStorage: true,
+    });
     //  this.props.history.push("/storage")
   };
 
@@ -104,7 +106,7 @@ class Farmer extends Component {
                           className="btn-link"
                           onClick={this.showProducts}
                         >
-                          Products
+                          Users
                         </button>
                       </li>
                       <li>
@@ -112,7 +114,7 @@ class Farmer extends Component {
                           className="btn-link"
                           onClick={this.showNewProduct}
                         >
-                          New Product
+                           Products
                         </button>
                       </li>
                       <li>
@@ -123,12 +125,18 @@ class Farmer extends Component {
                           Transactions
                         </button>
                       </li>
-                      <li>
-                        <Link
-                          to="/storage"
-                          className="link d-flex justify-content-center"
+                      <button
+                          className="btn-link"
+                          onClick={this.showStorageTips}
                         >
                           Storage Tips
+                        </button>
+                      <li>
+                        <Link
+                          to="/settings"
+                          className="link d-flex justify-content-center"
+                        >
+                          Settings
                         </Link>
                       </li>
                     </ul>
@@ -139,22 +147,22 @@ class Farmer extends Component {
           )}
           {this.state.isProducts && (
             <div className="col-md-9 mt-5">
-              <Products />
+              {/* <Products /> */}
             </div>
           )}
           {this.state.isNewProduct && (
             <div className="col-md-9 mt-5">
-              <NewProduct />
+              {/* <NewProduct /> */}
             </div>
           )}
-          {this.state.isPreserve && (
+          {this.state.isStorage && (
             <div className="col-md-9 mt-5">
-              <Preserve />
+              {/* <Preserve /> */}
             </div>
           )}
           {this.state.isTransactions && (
             <div className="col-md-9 mt-5">
-              <Transactions />
+              <StorageTips />
             </div>
           )}
         </div>
@@ -163,4 +171,4 @@ class Farmer extends Component {
   }
 }
 
-export default Farmer;
+export default Admin;
