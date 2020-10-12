@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
+import States from "../header/state";
+//import LGA from "../header/lga"
+
+import doSomeThing from "../../services/user.service";
+
 // const URL = "http://localhost:4000/";
 const URL = "https://agroconnects.herokuapp.com/";
 
@@ -17,18 +22,21 @@ class saleProduct extends Component {
 
       saleQuantity: "",
       price: "",
-      states: "",
-      lga: "",
+      states: [],
+      lga: [],
       address: "",
       landmark: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onValueChange = this.onValueChange.bind(this);
   }
   componentDidMount() {
+    this.setState({ states: States });
     this.getProductById();
     this.getFarmer();
+    //console.log(LGA)
   }
 
   //Retrieve product with a matching ID
@@ -79,6 +87,11 @@ class saleProduct extends Component {
     });
   };
 
+  onValueChange = (e) => {
+    const nam = e.target.value;
+    doSomeThing(nam);
+    // console.log(this.state.lga)
+  };
   handleSubmit = (e) => {
     e.preventDefault();
     const data = this.state.product;
@@ -112,14 +125,16 @@ class saleProduct extends Component {
       }
     });
   };
+
   render() {
     const data = this.state.product;
+    const stat = this.state.states;
 
     return (
       <div className="container">
         <div className="row ">
           <main className="col ">
-            <div className="card card-product">
+            <div className="card card-product-sale mx-auto ">
               <div className="card-body">
                 <form type="form" className="form" onSubmit={this.handleSubmit}>
                   <div className="row">
@@ -172,8 +187,8 @@ class saleProduct extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-center">
-                    <span>Where is you product Located</span>
+                  <div className="d-flex justify-content-center tit">
+                    <span>Where is your product Located</span>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
@@ -182,12 +197,11 @@ class saleProduct extends Component {
                         <select
                           className="form-control"
                           name="states"
-                          value={this.state.states}
-                          onChange={this.handleChange}
+                          onChange={this.onValueChange}
                         >
-                          <option>Select</option>
-                          <option>Bauchi</option>
-                          <option>Gombe</option>
+                          {stat.map((item, i) => {
+                            return <option key={i}>{item} </option>;
+                          })}
                         </select>
                       </div>
                     </div>
@@ -197,6 +211,7 @@ class saleProduct extends Component {
                         <select
                           className="form-control"
                           name="lga"
+                          ref={this.props.lga}
                           value={this.state.lga}
                           onChange={this.handleChange}
                         >

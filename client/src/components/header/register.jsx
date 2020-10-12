@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../styles/register.css";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 const validEmailRegex = RegExp(
   /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
@@ -36,6 +36,7 @@ class Register extends Component {
         confirmPassword: "",
       },
       formInvalid: "",
+      states: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -122,10 +123,11 @@ class Register extends Component {
         formInvalid: "Please fill required values in form fields",
       }).setTimeout(() => {
         //formInvalid
-      }, 2000);;
-     
+      }, 2000);
     }
   };
+
+
   render() {
     const { errors } = this.state;
     return (

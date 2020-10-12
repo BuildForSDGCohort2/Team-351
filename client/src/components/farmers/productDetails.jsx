@@ -172,13 +172,13 @@ class productDetails extends Component {
                         </div>
                       </div>
                     </form>
-                    <div className="d-flex justify-content-end ">
+                    <div className="d-flex justify-content-center ">
                       <button
-                        className="btn-submit"
+                        className="btn-order"
                         type="submit"
                         onClick={this.submitProduct}
                       >
-                        Submit
+                        Place Order
                       </button>
                     </div>
                   </div>

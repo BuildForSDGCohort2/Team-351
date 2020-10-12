@@ -16,6 +16,7 @@
   background: #fff;
   color: #000;
   font-size: 18px;
+  border-style: dotted;
   font-family: "Courier New", Courier, monospace, serif;
   place-content: center;
 }
@@ -27,6 +28,34 @@
 .about-title {
   text-align: center;
   font-family: "Times New Roman", Times, serif;
+}
+
+.card-product-sale {
+  width: 70%;
+  margin-top: 30px;
+}
+
+.tit span {
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.form-control:focus{
+  background: #f8f8f8;
+  border-bottom-color: #008000;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+  outline: 0px !important;
+
+}
+
+.btn-order{
+  width: 30%;
+  background: #080;
+  color: #fff;
+  font-size: 18px;
+  
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 900px) {

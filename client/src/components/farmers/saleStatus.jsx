@@ -42,13 +42,13 @@ class saleStatus extends Component {
     let d = this.state.product;
     d.forEach((item) => {
       //console.log(item);
-      let prod = {
-        productId: item.productId,
-        userId: item.userId,
-        productCategory: item.productCategory,
-        productName: item.productName,
-        quantity: item.quantity,
-      };
+      // let prod = {
+      //   productId: item.productId,
+      //   userId: item.userId,
+      //   productCategory: item.productCategory,
+      //   productName: item.productName,
+      //   quantity: item.quantity,
+      // };
 
       //update product document
       // axios.put(URL + "update-product", prod).then((res) => {

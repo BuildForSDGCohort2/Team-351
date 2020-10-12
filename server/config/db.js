@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 const { success, error } = require("consola");
 
 require("dotenv").config();
-// const conn = "mongodb://localhost:27017/agroconnect";
-const conn =
-  "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
+// const conn = process.env.CONN
+const conn = process.env.CONN_STRING
 const dbInit = async () => {
   await mongoose
     .connect(conn, {

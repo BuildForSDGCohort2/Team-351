@@ -39,7 +39,7 @@ class preserve extends Component {
   };
 
   render() {
-    const data = this.state.product;
+    // const data = this.state.product;
 
     return (
       <div className="container productContainer">

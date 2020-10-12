@@ -11,9 +11,6 @@ class AuthService {
         password,
       })
       .then((result) => {
-        // if (response.data.token) {
-        //   localStorage.setItem("user", JSON.stringify(response.data)); //store in localtring
-        // }
         if (result.data) {
           let userData = result.data.response;
           let id = parseInt(userData.userId, 10);

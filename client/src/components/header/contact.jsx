@@ -10,8 +10,8 @@ class Contact extends Component {
     super(props);
 
     this.state = {
-      name: "",
       email: "",
+      subject: "",
       message: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,26 +20,24 @@ class Contact extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
-  //  componentDidMount(){
-  //    console.log(this.props)
-  //  }
+
   handleSubmit = (e) => {
     e.preventDefault();
 
     let msg = {
-      name: this.state.name,
       email: this.state.email,
+      subject: this.state.subject,
       message: this.state.message,
     };
 
     axios.post(URL + "contact", msg).then((data) => {
       if (data) {
         this.setState({
-          name: "",
           email: "",
+          subject: "",
           message: "",
         });
         this.props.history.push("/");
@@ -56,24 +54,24 @@ class Contact extends Component {
               <div className="row">
                 <div className="col-md-6 mx-auto">
                   <div className="form-group">
-                    <label>Full Name</label>
+                    <label>Email</label>
                     <input
-                      type="text"
+                      type="email"
                       className="form-control"
-                      id="name"
-                      value={this.state.name}
+                      name="email"
+                      value={this.state.email}
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 <div className="col-md-6 mx-auto">
                   <div className="form-group">
-                    <label>Email</label>
+                    <label>Subject</label>
                     <input
-                      type="email"
+                      type="text"
                       className="form-control"
-                      id="email"
-                      value={this.state.email}
+                      name="subject"
+                      value={this.state.subject}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -86,7 +84,7 @@ class Contact extends Component {
                       rows="7"
                       cols=""
                       className="form-control"
-                      id="message"
+                      name="message"
                       value={this.state.message}
                       onChange={this.handleChange}
                     />

@@ -28,7 +28,7 @@ const userLogIn = async (req, res) => {
         req.body.password,
         response.password
       );
-      if (comparePassword !== true) {
+      if (comparePassword !== true) {  
         return res.status(401).json({
           status: "false",
         });

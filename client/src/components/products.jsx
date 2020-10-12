@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 import "../styles/product.css";
 
 // const URL = "http://localhost:4000/";
@@ -35,8 +35,13 @@ class Product extends Component {
     return (
       <div className="container productContainer">
         {this.state.isLoading ? (
-          <div>
-            <ReactLoading type={"bars"} color={"grey"} />
+          <div className="d-flex justify-content-center">
+            <ReactLoading
+              type={"spinningBubbles"}
+              color={"grey"}
+              height={"10%"}
+              width={"10%"}
+            />
           </div>
         ) : (
           <div>

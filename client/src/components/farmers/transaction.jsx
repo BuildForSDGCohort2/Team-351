@@ -28,6 +28,7 @@ class Transactions extends Component {
 
   getTransactions = async () => {
     await axios.get(URL + "transactions").then((response) => {
+      
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 

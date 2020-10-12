@@ -5,6 +5,7 @@ import "./styles/main.css";
 import Home from "./components/landingPage";
 import Navbar from "./components/header/navBar";
 import About from "./components/header/about";
+import Admin from "./components/admin/dashboard";
 import Register from "./components/header/register";
 import Farmer from "./components/farmers/farmerDashboard";
 import Products from "./components/products";
@@ -14,7 +15,6 @@ import saleProduct from "./components/farmers/saleProduct";
 import productDetails from "./components/farmers/productDetails";
 import productStorage from "./components/productStorage";
 import saleStatus from "./components/farmers/saleStatus";
-import StorageTips from "./components/productStorageTips";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/admin" component={Admin} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/register" component={Register} />
@@ -31,7 +32,6 @@ function App() {
         <Route exact path="/farmer/sales/:id" component={saleStatus} />
         <Route exact path="/products/:id" component={productDetails} />
         <Route exact path="/storage" component={productStorage} />
-        <Route exact path="/add-tips" component={StorageTips} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
