@@ -68,7 +68,7 @@ class Footer extends Component {
               </li>
               <li>
                 <Link
-                  to="https://twitter.com/i/flow/signup"
+                  to="https://twitter.com/i/flow/signup"    
                   target="_blank"
                   className="footer-img"
                 >
