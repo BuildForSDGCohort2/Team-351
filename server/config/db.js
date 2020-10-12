@@ -3,7 +3,7 @@ const { success, error } = require("consola");
 
 require("dotenv").config();
 // const conn = process.env.CONN
-const conn = process.env.CONN_STRING
+const conn = "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect"
 const dbInit = async () => {
   await mongoose
     .connect(conn, {
