@@ -30,7 +30,7 @@ const {
   updateStorage,
 } = require("../controllers/productStorage.controller");
 const sendMail = require("../controllers/contact.controller");
-const {addLga, getLga} =  require("../controllers/lga.controller");
+const {addLga, getLga, addState, getState} =  require("../controllers/lga.controller");
 
 //Register user
 router.post("/register", signUp);
@@ -67,7 +67,9 @@ router.put("/update-tips", updateStorage);
 router.post("/contact", sendMail);
 
 //Post and Retrieve States and LGAs
+router.post("/state", addState);
 router.post("/lga", addLga);
+router.get("/states", getState);
 router.get("/lga-list", getLga);
 
 
