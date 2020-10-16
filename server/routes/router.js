@@ -70,7 +70,7 @@ router.post("/contact", sendMail);
 router.post("/state", addState);
 router.post("/lga", addLga);
 router.get("/states", getState);
-router.get("/lga-list", getLga);
+router.get("/lga-list", getLga);  
 
 
 module.exports = router;

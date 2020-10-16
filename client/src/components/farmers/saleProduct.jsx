@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-import States from "../header/state";
-//import LGA from "../header/lga"
+//import States from "../header/state";
+import LGA from "../header/lga"
 
-import doSomeThing from "../../services/user.service";
+//import getLGA from "../../services/user.service"
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 class saleProduct extends Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class saleProduct extends Component {
       price: "",
       states: [],
       lga: [],
+      stat : "",
       address: "",
       landmark: "",
     };
@@ -32,13 +33,14 @@ class saleProduct extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getStates = this.getStates.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
+    this.selectLGA = this.selectLGA.bind(this);
   }
+
   componentDidMount() {
-    this.setState({ states: States });
+    
     this.getProductById();
     this.getFarmer();
     this.getStates();
-    //console.log(LGA)
   }
 
   //Retrieve product with a matching ID
@@ -89,28 +91,144 @@ class saleProduct extends Component {
     });
   };
 
-
   getStates=()=>{
     axios.get(URL + "states").then((response)=>{
-      return response.data;
+      let stateArray = response.data.result
+      stateArray.forEach(stat => {
+        this.setState({states : stat.states})
+      });
     })
-    .then(data => {
-      let statesFromApi = data.map((stat, i) => {
-        return {value: stat, display: stat}
-      });
-      this.setState({
-        states: [{value: '', display: '(Select your favourite team)'}].concat(statesFromApi)
-      });
-    }).catch((error) => {
-      return error;
-    });
+  }
+    //Toggle selected states 
+  onValueChange = async (e)=>{
+    const selectedState =  e.target.value
+    
+    this.getLGA(selectedState)
+    this.setState({ stat : selectedState })
   }
 
-  onValueChange = (e) => {
-    const nam = e.target.value;
-    doSomeThing(nam);
-    // console.log(this.state.lga)
-  };
+  selectLGA = (e) =>{
+    const selectedLGA = e.target.value
+
+    console.log(selectedLGA)
+  }
+
+  getLGA=(selectedState)=>{
+    
+    switch (selectedState) {
+      case "Abia":
+        this.setState({lga : LGA.Abia})
+        break;
+      case "Abuja":
+        this.setState({lga : LGA.Abuja})
+        break;
+      case "Adamawa":
+        this.setState({lga : LGA.Adamawa})
+        break;
+      case "Akwa-Ibom":
+        this.setState({lga : LGA.AkwaIbom})
+        break;
+      case "Anambra":
+        this.setState({lga : LGA.Anambra})
+        break;
+      case "Bauchi":
+        this.setState({lga : LGA.Bauchi})
+        break;
+      case "Bayelsa":
+        this.setState({lga : LGA.Bayelsa})
+        break;
+      case "Benue":
+        this.setState({lga : LGA.Benue})
+        break;
+      case "Borno":
+        this.setState({lga : LGA.Borno})
+        break;
+      case "Cross-River":
+        this.setState({lga : LGA.CrossRiver})
+        break;
+      case "Delta":
+        this.setState({lga : LGA.Delta})
+        break;
+      case "Ebonyi":
+        this.setState({lga : LGA.Ebonyi})
+        break;
+      case "Enugu":
+        this.setState({lga : LGA.Enugu})
+        break;
+      case "Edo":
+        this.setState({lga : LGA.Edo})
+        break;
+      case "Ekiti":
+        this.setState({lga : LGA.Ekiti})
+        break;
+      case "Gombe":
+        this.setState({lga : LGA.Gombe})
+        break;
+      case "Imo":
+        this.setState({lga : LGA.Imo})
+        break;
+      case "Jigawa":
+        this.setState({lga : LGA.Jigawa})
+        break;
+      case "Kaduna":
+        this.setState({lga : LGA.Kaduna})
+        break;
+      case "Kano":
+        this.setState({lga : LGA.Kano})
+        break;
+      case "Katsina":
+        this.setState({lga : LGA.Katsina})
+        break;
+      case "Kebbi":
+        this.setState({lga : LGA.Kebbi})
+        break;
+      case "Kogi":
+        this.setState({lga : LGA.Kogi})
+        break;
+      case "Lagos":
+        this.setState({lga : LGA.Lagos})
+        break;
+      case "Nasarawa":
+        this.setState({lga : LGA.Nasarawa})
+        break;
+      case "Niger":
+        this.setState({lga : LGA.Niger})
+        break;
+      case "Ogun":
+        this.setState({lga : LGA.Ogun})
+        break;
+      case "Ondo":
+        this.setState({lga : LGA.Ondo})
+        break;
+      case "Osun":
+        this.setState({lga : LGA.Osun})
+        break;
+      case "Oyo":
+        this.setState({lga : LGA.Oyo})
+        break;
+      case "Plateau":
+        this.setState({lga : LGA.Plateau})
+        break;
+      case "Rivers":
+        this.setState({lga : LGA.Rivers})
+        break;
+      case "Sokoto":
+        this.setState({lga : LGA.Sokoto})
+        break;
+      case "Taraba":
+        this.setState({lga : LGA.Taraba})
+        break;
+      case "Yobe":
+        this.setState({lga : LGA.Yobe})
+        break;
+      case "Zamfara":
+        this.setState({lga : LGA.Zamfara})
+        break;
+      default:
+        break;
+    }
+  }
+  
   handleSubmit = (e) => {
     e.preventDefault();
     const data = this.state.product;
@@ -126,7 +244,7 @@ class saleProduct extends Component {
         productCategory: data.productCategory,
       },
       location: {
-        state: this.state.states,
+        state: this.state.stat,
         lga: this.state.lga,
         address: this.state.address,
         landmark: this.state.landmark,
@@ -148,6 +266,7 @@ class saleProduct extends Component {
   render() {
     const data = this.state.product;
     const stateList = this.state.states;
+    const lgaList = this.state.lga
 
     return (
       <div className="container">
@@ -177,7 +296,7 @@ class saleProduct extends Component {
                           className="form-control"
                           name="quantity"
                           defaultValue={data.quantity}
-                          onChange={this.onValueChange}
+                          onChange={this.handleChange}
                         />
                       </div>
                     </div>
@@ -212,64 +331,16 @@ class saleProduct extends Component {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label>State</label>
-                         <select
+                        <label>State</label>                       
+                        <select
                           className="form-control"
                           name="states"
-                          onChange={this.handleChange}
-                        >
-                          <option>Select</option>
-                      <option value="Abia">Abia</option>
-                      <option value="Abuja">Abuja</option>
-                      <option value="Adamawa">Adamawa</option>
-                      <option value="Akwa Ibom">Akwa Ibom</option>
-                      <option value="Anambra">Anambra</option>
-                      <option value="Bauchi">Bauchi</option>
-                      <option value="Bayelsa">Bayelsa</option>
-                      <option value="Benue">Benue</option>
-                      <option value="Borno">Borno</option>
-                      <option value="Cross River">Cross River</option>
-                      <option value="Delta">Delta</option>
-                      <option value="Ebonyi">Ebonyi</option>
-                      <option value="Enugu">Enugu</option>
-                      <option value="Edo">Edo</option>
-                      <option value="Ekiti">Ekiti</option>
-                      <option value="Gombe">Gombe</option>
-                      <option value="Imo">Imo</option>
-                      <option value="Jigawa">Jigawa</option>
-                      <option value="Kaduna">Kaduna</option>
-                      <option value="Kano">Kano</option>
-                      <option value="Katsina">Katsina</option>
-                      <option value="Kebbi">Kebbi</option>
-                      <option value="Kogi">Kogi</option>
-                      <option value="Kebbi">Kebbi</option>
-                      <option value="Lagos">Lagos</option>
-                      <option value="Nasarawa">Nasarawa</option>
-                      <option value="Niger">Niger</option>
-                      <option value="Ogun">Ogun</option>
-                      <option value="Ondo">Ondo</option>
-                      <option value="Osun">Osun</option>
-                      <option value="Oyo">Oyo</option>
-                      <option value="Plateau">Plateau</option>
-                      <option value="Rivers">Rivers</option>
-                      <option value="Taraba">Taraba</option>
-                      <option value="Yobe">Yobe</option>
-                      <option value="Zamfara">Zamfara</option>
-                        </select>
-                        {/* <select
-                          className="form-control"
-                          name="states"
-                          onChange={this.handleChange}
+                          onChange={this.onValueChange}
                         >
                           {stateList.map((item, i) => {
-                            return <option key={i}>{item} </option>;
+                            return <option key={i} value={item}>{item}</option>;
                           })}
-                        </select> */}
-                        {/* <select className="form-control"
-                          name="states">
-                        {stateList.map((item, i) => <option key={i} value={item.value}>{item.display}</option>)}
-                        </select> */}
-
+                        </select>                        
                       </div>
                     </div>
                     <div className="col-md-6">
@@ -278,13 +349,11 @@ class saleProduct extends Component {
                         <select
                           className="form-control"
                           name="lga"
-                          ref={this.props.lga}
-                          value={this.state.lga}
-                          onChange={this.handleChange}
+                          onChange={this.selectLGA}
                         >
-                          <option>Select</option>
-                          <option>Bogoro</option>
-                          <option>Billiri</option>
+                           {lgaList.map((item, i) => {
+                            return <option key={i} value={item}>{item}</option>;
+                          })}
                         </select>
                       </div>
                     </div>

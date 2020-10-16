@@ -9,7 +9,7 @@
     "Bayelsa",
     "Benue",
     "Borno",
-    "Cross River",
+    "Cross-River",
     "Delta",
     "Ebonyi",
     "Enugu",

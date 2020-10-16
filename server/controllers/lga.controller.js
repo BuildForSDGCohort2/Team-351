@@ -1,4 +1,5 @@
-const States = require("../models/statemodel")
+const States = require("../models/statemodel");
+const Lga = require("../models/lga")
 
 const addState = async (req, res) => {
   
@@ -32,11 +33,11 @@ const addLga = async (req, res) => {
     });
   };
 
-// get all products
+// get all States
 const getState = async (req, res) => {
   await States.find((err, result) => {
    if (err) {
-     return res.status(500).json({
+     return res.status(500).json({   
        message: " server error",
      });
    }
@@ -47,20 +48,31 @@ const getState = async (req, res) => {
  });
 };
 
-// get all products
+// get all LGA
 const getLga = async (req, res) => {
-   await Lga.findOne({state : req.body.state}, (err, result) => {
+  //console.log(req.body)
+   await Lga.find((err, result) => { 
+
+    console.log(result)
+
     if (err) {
-      return res.status(500).json({
-        message: " server error",
+      return res.status(500).json({    
+        message: " server error",  
       });
     }
+
+    if (!result) {
+      return res.status(401).json({
+        message: " Not found",
+      });
+    }
+
     return res.status(200).json({
       status: "ok",
-      result,
+      result,       
     });
   });
 };
 
-  module.exports = {addLga, getLga, addState, getState}
+module.exports = {addLga, getLga, addState, getState}
   
