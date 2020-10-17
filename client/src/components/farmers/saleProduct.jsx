@@ -25,6 +25,7 @@ class saleProduct extends Component {
       states: [],
       lga: [],
       stat : "",
+      lgaSelected : "",
       address: "",
       landmark: "",
     };
@@ -57,6 +58,7 @@ class saleProduct extends Component {
       });
 
       filterProduct.forEach((item) => {
+        console.log(item)
         this.setState({
           product: item,
         });
@@ -66,6 +68,7 @@ class saleProduct extends Component {
     });
   };   
 
+  // Retrieve product owner details
   getFarmer = async () => {
     let userId = localStorage.getItem("user");
     await axios.get(URL + "farmers").then((fama) => {
@@ -109,8 +112,9 @@ class saleProduct extends Component {
 
   selectLGA = (e) =>{
     const selectedLGA = e.target.value
+    this.setState({lgaSelected : selectedLGA })
 
-    console.log(selectedLGA)
+    //console.log(selectedLGA)
   }
 
   getLGA=(selectedState)=>{
@@ -239,13 +243,14 @@ class saleProduct extends Component {
       product: {
         productId: data.productId,
         productName: data.productName,
+        totalQuantity : data.quantity,
         quantity: this.state.saleQuantity,
         price: this.state.price,
         productCategory: data.productCategory,
       },
       location: {
         state: this.state.stat,
-        lga: this.state.lga,
+        lga: this.state.lgaSelected,
         address: this.state.address,
         landmark: this.state.landmark,
       },

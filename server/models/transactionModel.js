@@ -16,6 +16,9 @@ const Transaction = mongoose.Schema({
   productName: {
     type: String,
   },
+  totalQuantity: {
+    type : Number,
+  },
   quantity: {
     type: Number,
   },

@@ -30,6 +30,7 @@ class productDetails extends Component {
       let filterProduct = prod.filter(function (e) {
         return e.salesId === id;
       });
+      //console.log(filterProduct)
       this.setState({
         product: filterProduct,
       });
@@ -57,7 +58,8 @@ class productDetails extends Component {
         salesId: data.salesId,
         productId: data.product.productId,
         productName: data.product.productName,
-        quantity: data.product.quantity,
+        totalQuantity : data.product.totalQuantity, //Total amount of product in stock
+        quantity: data.product.quantity, //Amount of product available for sale
         price: data.product.price,
         totalPrice: tPrice,
         productCategory: data.product.productCategory,

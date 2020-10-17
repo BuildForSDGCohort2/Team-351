@@ -17,6 +17,7 @@ class saleStatus extends Component {
   }
 
   componentDidMount() {
+    //console.log(this.props)
     this.getDetails();
   }
 
@@ -36,27 +37,37 @@ class saleStatus extends Component {
 
       return this.state.product;
     });
+
+   
   };
 
-  updateProduct() {
-    let d = this.state.product;
-    d.forEach((item) => {
-      //console.log(item);
-      // let prod = {
-      //   productId: item.productId,
-      //   userId: item.userId,
-      //   productCategory: item.productCategory,
-      //   productName: item.productName,
-      //   quantity: item.quantity,
-      // };
+  updateProduct= async ()=> {
+    
 
+   let prod = this.state.product
+
+   prod.forEach(element => {
+      let item = element
+      let qnt = item.totalQuantity - item.quantity
+
+      //
+      let updatedProduct ={
+        productId : item.productId,
+        userId : localStorage.getItem("user"),
+        productCategory : item.productCategory,
+        productName : item.productName,
+        quantity : qnt,     
+      }
       //update product document
-      // axios.put(URL + "update-product", prod).then((res) => {
-      //   console.log(res);
-      // });
-    });
+      axios.put(URL + "update-product", updatedProduct).then((res) => {
+        console.log(res);
+      });
+     
+   });
+   
   }
 
+  //Update Transaction status
   updateStatus() {
     const data = this.state.product;
 
@@ -76,7 +87,8 @@ class saleStatus extends Component {
       };
       axios.put(URL + "update", status).then((data) => {
         if (data) {
-          //update product quantity in product table
+
+          // Deduct number of product sold from total number product in db
           this.updateProduct();
 
           //route user
@@ -84,16 +96,14 @@ class saleStatus extends Component {
         }
       });
     });
-  }
 
+  }
   unPaid = () => {
     //route user
     this.props.history.push("/farmer");
   };
-
   render() {
     const data = this.state.product;
-
     return (
       <div className="container productContainer">
         {data.map((item, index) => {
