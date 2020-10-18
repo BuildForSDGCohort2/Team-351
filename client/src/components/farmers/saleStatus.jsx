@@ -2,14 +2,14 @@ import React, { Component } from "react";
 //import {withRouter} from "react-router-dom";
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class saleStatus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: [],
+      product: [],  
     };
 
     this.updateStatus = this.updateStatus.bind(this);
@@ -41,9 +41,8 @@ class saleStatus extends Component {
    
   };
 
+  // Update products document
   updateProduct= async ()=> {
-    
-
    let prod = this.state.product
 
    prod.forEach(element => {
@@ -58,9 +57,9 @@ class saleStatus extends Component {
         productName : item.productName,
         quantity : qnt,     
       }
-      //update product document
-      axios.put(URL + "update-product", updatedProduct).then((res) => {
-        console.log(res);
+      
+       axios.put(URL + "update-product", updatedProduct).then((res) => {
+        //console.log(res);
       });
      
    });

@@ -7,8 +7,8 @@ import LGA from "../header/lga"
 
 //import getLGA from "../../services/user.service"
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class saleProduct extends Component {
   constructor(props) {
