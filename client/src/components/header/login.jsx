@@ -8,7 +8,7 @@ import Backdrop from "./backdrop";
 import AuthService from "../../services/auth.service";
 
 const responseFacebook = (response) => {
-  console.log(response);
+  //console.log(response);
 };
 
 const componentClicked = () => {

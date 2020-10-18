@@ -54,7 +54,7 @@ class preserve extends Component {
                     value={this.state.productCategory}
                     onChange={this.handleChange}
                   >
-                    <option>Select</option>    
+                    <option>Select</option>
                     <option>Grains</option>
                     <option>Tubers</option>
                     <option>Fruits</option>

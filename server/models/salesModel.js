@@ -14,8 +14,11 @@ const saleProduct = mongoose.Schema({
     price: {
       type: String,
     },
-    quantity: {
-      type: String,
+    totalQuantity: { //Available quantity
+      type : Number,
+    },
+    quantity: { // Quantity to be sold
+      type: Number,
     },
     productCategory: {
       type: String,

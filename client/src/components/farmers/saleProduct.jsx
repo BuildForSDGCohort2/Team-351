@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-import States from "../header/state";
-//import LGA from "../header/lga"
+//import States from "../header/state";
+import LGA from "../header/lga";
 
-import doSomeThing from "../../services/user.service";
+//import getLGA from "../../services/user.service"
 
 // const URL = "http://localhost:4000/";
 const URL = "https://agroconnects.herokuapp.com/";
@@ -24,19 +24,23 @@ class saleProduct extends Component {
       price: "",
       states: [],
       lga: [],
+      stat: "",
+      lgaSelected: "",
       address: "",
       landmark: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getStates = this.getStates.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
+    this.selectLGA = this.selectLGA.bind(this);
   }
+
   componentDidMount() {
-    this.setState({ states: States });
     this.getProductById();
     this.getFarmer();
-    //console.log(LGA)
+    this.getStates();
   }
 
   //Retrieve product with a matching ID
@@ -53,6 +57,7 @@ class saleProduct extends Component {
       });
 
       filterProduct.forEach((item) => {
+        //console.log(item)
         this.setState({
           product: item,
         });
@@ -62,6 +67,7 @@ class saleProduct extends Component {
     });
   };
 
+  // Retrieve product owner details
   getFarmer = async () => {
     let userId = localStorage.getItem("user");
     await axios.get(URL + "farmers").then((fama) => {
@@ -87,11 +93,144 @@ class saleProduct extends Component {
     });
   };
 
-  onValueChange = (e) => {
-    const nam = e.target.value;
-    doSomeThing(nam);
-    // console.log(this.state.lga)
+  getStates = async () => {
+    await axios.get(URL + "states").then((response) => {
+      let stateArray = response.data.result;
+      stateArray.forEach((stat) => {
+        this.setState({ states: stat.states });
+      });
+    });
   };
+  //Toggle selected states
+  onValueChange = async (e) => {
+    const selectedState = e.target.value;
+
+    this.getLGA(selectedState);
+    this.setState({ stat: selectedState });
+  };
+
+  selectLGA = (e) => {
+    const selectedLGA = e.target.value;
+    this.setState({ lgaSelected: selectedLGA });
+
+    //console.log(selectedLGA)
+  };
+
+  getLGA(selectedState) {
+    switch (selectedState) {
+      case "Abia":
+        this.setState({ lga: LGA.Abia });
+        break;
+      case "Abuja":
+        this.setState({ lga: LGA.Abuja });
+        break;
+      case "Adamawa":
+        this.setState({ lga: LGA.Adamawa });
+        break;
+      case "Akwa-Ibom":
+        this.setState({ lga: LGA.AkwaIbom });
+        break;
+      case "Anambra":
+        this.setState({ lga: LGA.Anambra });
+        break;
+      case "Bauchi":
+        this.setState({ lga: LGA.Bauchi });
+        break;
+      case "Bayelsa":
+        this.setState({ lga: LGA.Bayelsa });
+        break;
+      case "Benue":
+        this.setState({ lga: LGA.Benue });
+        break;
+      case "Borno":
+        this.setState({ lga: LGA.Borno });
+        break;
+      case "Cross-River":
+        this.setState({ lga: LGA.CrossRiver });
+        break;
+      case "Delta":
+        this.setState({ lga: LGA.Delta });
+        break;
+      case "Ebonyi":
+        this.setState({ lga: LGA.Ebonyi });
+        break;
+      case "Enugu":
+        this.setState({ lga: LGA.Enugu });
+        break;
+      case "Edo":
+        this.setState({ lga: LGA.Edo });
+        break;
+      case "Ekiti":
+        this.setState({ lga: LGA.Ekiti });
+        break;
+      case "Gombe":
+        this.setState({ lga: LGA.Gombe });
+        break;
+      case "Imo":
+        this.setState({ lga: LGA.Imo });
+        break;
+      case "Jigawa":
+        this.setState({ lga: LGA.Jigawa });
+        break;
+      case "Kaduna":
+        this.setState({ lga: LGA.Kaduna });
+        break;
+      case "Kano":
+        this.setState({ lga: LGA.Kano });
+        break;
+      case "Katsina":
+        this.setState({ lga: LGA.Katsina });
+        break;
+      case "Kebbi":
+        this.setState({ lga: LGA.Kebbi });
+        break;
+      case "Kogi":
+        this.setState({ lga: LGA.Kogi });
+        break;
+      case "Lagos":
+        this.setState({ lga: LGA.Lagos });
+        break;
+      case "Nasarawa":
+        this.setState({ lga: LGA.Nasarawa });
+        break;
+      case "Niger":
+        this.setState({ lga: LGA.Niger });
+        break;
+      case "Ogun":
+        this.setState({ lga: LGA.Ogun });
+        break;
+      case "Ondo":
+        this.setState({ lga: LGA.Ondo });
+        break;
+      case "Osun":
+        this.setState({ lga: LGA.Osun });
+        break;
+      case "Oyo":
+        this.setState({ lga: LGA.Oyo });
+        break;
+      case "Plateau":
+        this.setState({ lga: LGA.Plateau });
+        break;
+      case "Rivers":
+        this.setState({ lga: LGA.Rivers });
+        break;
+      case "Sokoto":
+        this.setState({ lga: LGA.Sokoto });
+        break;
+      case "Taraba":
+        this.setState({ lga: LGA.Taraba });
+        break;
+      case "Yobe":
+        this.setState({ lga: LGA.Yobe });
+        break;
+      case "Zamfara":
+        this.setState({ lga: LGA.Zamfara });
+        break;
+      default:
+        break;
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const data = this.state.product;
@@ -102,13 +241,14 @@ class saleProduct extends Component {
       product: {
         productId: data.productId,
         productName: data.productName,
+        totalQuantity: data.quantity,
         quantity: this.state.saleQuantity,
         price: this.state.price,
         productCategory: data.productCategory,
       },
       location: {
-        state: this.state.states,
-        lga: this.state.lga,
+        state: this.state.stat,
+        lga: this.state.lgaSelected,
         address: this.state.address,
         landmark: this.state.landmark,
       },
@@ -128,7 +268,8 @@ class saleProduct extends Component {
 
   render() {
     const data = this.state.product;
-    const stat = this.state.states;
+    const stateList = this.state.states;
+    const lgaList = this.state.lga;
 
     return (
       <div className="container">
@@ -199,8 +340,12 @@ class saleProduct extends Component {
                           name="states"
                           onChange={this.onValueChange}
                         >
-                          {stat.map((item, i) => {
-                            return <option key={i}>{item} </option>;
+                          {stateList.map((item, i) => {
+                            return (
+                              <option key={i} value={item}>
+                                {item}
+                              </option>
+                            );
                           })}
                         </select>
                       </div>
@@ -211,13 +356,15 @@ class saleProduct extends Component {
                         <select
                           className="form-control"
                           name="lga"
-                          ref={this.props.lga}
-                          value={this.state.lga}
-                          onChange={this.handleChange}
+                          onChange={this.selectLGA}
                         >
-                          <option>Select</option>
-                          <option>Bogoro</option>
-                          <option>Billiri</option>
+                          {lgaList.map((item, i) => {
+                            return (
+                              <option key={i} value={item}>
+                                {item}
+                              </option>
+                            );
+                          })}
                         </select>
                       </div>
                     </div>

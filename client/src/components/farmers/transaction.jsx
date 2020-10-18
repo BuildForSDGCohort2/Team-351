@@ -28,7 +28,6 @@ class Transactions extends Component {
 
   getTransactions = async () => {
     await axios.get(URL + "transactions").then((response) => {
-      
       this.setState({ products: response.data.result });
       const prod = this.state.products;
 
@@ -81,7 +80,7 @@ class Transactions extends Component {
                             <Link
                               to={`${match.url}/sales/${item.transactionId}`}
                             >
-                              Confirm 
+                              Confirm
                             </Link>
                           </td>
                           <td> {item.transactionStatus} </td>

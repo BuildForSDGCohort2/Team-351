@@ -93,7 +93,18 @@ class NewProduct extends Component {
                     />
                   </div>
                 </div>
-
+                <div className="col-md-6 mx-auto">
+                  <div className="form-group">
+                    <label>Quantity (kg)</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="quantity"
+                      value={this.state.quantity}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
                 <div className="col-md-6 mx-auto">
                   <div className="form-group">
                     <label>Type</label>
@@ -102,18 +113,6 @@ class NewProduct extends Component {
                       className="form-control"
                       name="productType"
                       value={this.state.productType}
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-md-6 mx-auto">
-                  <div className="form-group">
-                    <label>Quantity Per kg</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="quantity"
-                      value={this.state.quantity}
                       onChange={this.handleChange}
                     />
                   </div>

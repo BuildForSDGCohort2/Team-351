@@ -8,9 +8,7 @@ const Login = require("../models/userlogModel");
 const userLogIn = async (req, res) => {
   
   await Login.findOne(
-    // {
-    //   $and: [{ email: req.body.email }, { password: req.body.password }],
-    // },
+    
     { email: req.body.email },
     (err, response) => {
       if (err) {

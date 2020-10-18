@@ -138,7 +138,6 @@ transactionStatus = async (req, res) => {
 };
 
 //Update product quantity
-
 productUpdate = async (req, res) => {
   await Product.findOneAndUpdate(
     { productId: req.body.productId },
