@@ -9,7 +9,7 @@ class saleStatus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: [],  
+      product: [],
     };
 
     this.updateStatus = this.updateStatus.bind(this);
@@ -37,34 +37,30 @@ class saleStatus extends Component {
 
       return this.state.product;
     });
-
-   
   };
 
   // Update products document
-  updateProduct= async ()=> {
-   let prod = this.state.product
+  updateProduct = async () => {
+    let prod = this.state.product;
 
-   prod.forEach(element => {
-      let item = element
-      let qnt = item.totalQuantity - item.quantity
+    prod.forEach((element) => {
+      let item = element;
+      let qnt = item.totalQuantity - item.quantity;
 
       //
-      let updatedProduct ={
-        productId : item.productId,
-        userId : localStorage.getItem("user"),
-        productCategory : item.productCategory,
-        productName : item.productName,
-        quantity : qnt,     
-      }
-      
-       axios.put(URL + "update-product", updatedProduct).then((res) => {
+      let updatedProduct = {
+        productId: item.productId,
+        userId: localStorage.getItem("user"),
+        productCategory: item.productCategory,
+        productName: item.productName,
+        quantity: qnt,
+      };
+
+      axios.put(URL + "update-product", updatedProduct).then((res) => {
         //console.log(res);
       });
-     
-   });
-   
-  }
+    });
+  };
 
   //Update Transaction status
   updateStatus() {
@@ -86,7 +82,6 @@ class saleStatus extends Component {
       };
       axios.put(URL + "update", status).then((data) => {
         if (data) {
-
           // Deduct number of product sold from total number product in db
           this.updateProduct();
 
@@ -95,7 +90,6 @@ class saleStatus extends Component {
         }
       });
     });
-
   }
   unPaid = () => {
     //route user

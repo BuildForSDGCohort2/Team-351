@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const LGA = mongoose.Schema({
-    states : []
-})
+const lga = mongoose.Schema({
+  states: [],
+});
 
-module.exports = mongoose.model("state", LGA)
+module.exports = mongoose.model("state", lga);

@@ -13,7 +13,7 @@ class transactionStatus extends Component {
       name: "",
       phoneNumber: "",
     };
-    
+
     this.getProducts = this.getProducts.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
@@ -67,7 +67,6 @@ class transactionStatus extends Component {
         if (res) {
           this.props.history.push("/products");
         }
-       
       });
     });
   };

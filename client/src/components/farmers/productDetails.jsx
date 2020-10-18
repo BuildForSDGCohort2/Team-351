@@ -58,7 +58,7 @@ class productDetails extends Component {
         salesId: data.salesId,
         productId: data.product.productId,
         productName: data.product.productName,
-        totalQuantity : data.product.totalQuantity, //Total amount of product in stock
+        totalQuantity: data.product.totalQuantity, //Total amount of product in stock
         quantity: data.product.quantity, //Amount of product available for sale
         price: data.product.price,
         totalPrice: tPrice,
