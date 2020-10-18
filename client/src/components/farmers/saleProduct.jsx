@@ -116,7 +116,7 @@ class saleProduct extends Component {
     //console.log(selectedLGA)
   };
 
-  getLGA = (selectedState) => {
+  getLGA(selectedState) {
     switch (selectedState) {
       case "Abia":
         this.setState({ lga: LGA.Abia });
