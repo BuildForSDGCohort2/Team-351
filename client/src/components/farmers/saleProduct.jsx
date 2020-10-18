@@ -229,7 +229,7 @@ class saleProduct extends Component {
       default:
         break;
     }
-  };
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
