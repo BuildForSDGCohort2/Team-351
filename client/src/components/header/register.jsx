@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../styles/register.css";
 
-// const URL = "http://localhost:4000/";
-const URL = "https://agroconnects.herokuapp.com/";
+const URL = "http://localhost:4000/";
+// const URL = "https://agroconnects.herokuapp.com/";
 
 const validEmailRegex = RegExp(
   /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
@@ -108,7 +108,7 @@ class Register extends Component {
         if (response) {
           let data = response.data;
 
-          localStorage.setItem("user", data.userId);
+          localStorage.setItem("user", data);
           //Redirect user
           if (data.userType === "Farmer") {
             this.props.history.push("/farmer");
@@ -126,7 +126,6 @@ class Register extends Component {
       }, 2000);
     }
   };
-
 
   render() {
     const { errors } = this.state;
