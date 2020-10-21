@@ -41,7 +41,7 @@ const userLogIn = async (req, res) => {
 
 const facebookLogin = (req, res) => {
   const email = req.body;
-  Login.findOne({ email: email }, (err, response) => {
+  Login.findOne({ email }, (err, response) => {
     if (err) {
       return res.status(500).json({
         status: "error",

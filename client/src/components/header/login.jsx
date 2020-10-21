@@ -12,11 +12,10 @@ import AuthService from "../../services/auth.service";
 const URL = "https://agroconnects.herokuapp.com/";
 
 const responseFacebook = (response) => {
-  console.log(response.email);
-  const email = response.email
-  axios.post(URL + "facebooklogin", email).then((result)=>{
-    console.log(result)
-  })
+  const email = response.email;
+  axios.post(URL + "facebooklogin", email).then((result) => {
+    //console.log(result);
+  });
 };
 
 const componentClicked = () => {
@@ -89,9 +88,8 @@ class Login extends Component {
               />
             </div>
             <div className="modal-body">
-            
               <form type="form" onSubmit={this.handleSubmit}>
-              <span>{valide}</span>
+                <span>{valide}</span>
                 <div className="form-group">
                   <label htmlFor="">Email</label>
                   <input
