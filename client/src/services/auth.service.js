@@ -12,7 +12,7 @@ class AuthService {
       })
       .then((result) => {
         if (result.data) {
-          console.log(result.data)
+          //console.log(result.data)
           let userData = result.data.response;
           let id = parseInt(userData.userId, 10);
           localStorage.setItem("user", id);
