@@ -79,7 +79,7 @@ class Login extends Component {
           <div className="modal-content">
             <div className="modal-header d-flex justify-content-center">
               <FacebookLogin
-                appId="619143948759544"
+                appId="xxxxxxxx"
                 autoLoad
                 fields="name,email"
                 onClick={componentClicked}
