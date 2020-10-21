@@ -2,8 +2,8 @@ import React, { Component } from "react";
 //import {withRouter} from "react-router-dom";
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class saleStatus extends Component {
   constructor(props) {

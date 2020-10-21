@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const { success, error } = require("consola");
 
 require("dotenv").config();
-const conn = process.env.CONN
-// const conn = "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect"
+// const conn = process.env.CONN
+const conn =
+  "mongodb+srv://victoryohanna:tanams5562@cluster0-pizvr.mongodb.net/agroConnect";
 const dbInit = async () => {
   await mongoose
     .connect(conn, {
@@ -15,7 +16,7 @@ const dbInit = async () => {
       success({ message: `Database Connected`, badge: true });
     })
     .catch(() => {
-      error({ message: `Failed to connect database`, badge : true });
+      error({ message: `Failed to connect database`, badge: true });
     });
 };
 

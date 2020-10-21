@@ -76,11 +76,6 @@ class Navbar extends Component {
             Logout
           </Link>
         </li>
-        {/* <li className="navbar-item">
-          <Link className="nav-link tips" to="/add-tips">
-            StorageTpis
-          </Link>
-        </li> */}
       </ul>
     );
     return (

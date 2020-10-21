@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-
-//import States from "../header/state";
 import LGA from "../header/lga";
 
-//import getLGA from "../../services/user.service"
-
-const URL = "http://localhost:4000/";
-// const URL = "https://agroconnects.herokuapp.com/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 class saleProduct extends Component {
   constructor(props) {

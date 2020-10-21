@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const signUp = require("../controllers/userSignup.controller");
-const { userLogIn } = require("../controllers/userLogin.controller");
+const { userLogIn, facebookLogin } = require("../controllers/userLogin.controller");
 const {
   addProduct,
   getProduct,
@@ -37,6 +37,7 @@ router.post("/register", signUp);
 
 //user login
 router.post("/login", userLogIn);
+router.post("/facebooklogin", facebookLogin)
 
 //farmers routes
 router.get("/farmers", getAllFarmers);

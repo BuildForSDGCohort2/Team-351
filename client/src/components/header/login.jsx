@@ -1,36 +1,22 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
 import { withRouter } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 import "../../styles/login.css";
 
 import Backdrop from "./backdrop";
 import AuthService from "../../services/auth.service";
 
-const URL = "http://localhost:4000/";
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
 
 const responseFacebook = (response) => {
-  if(response){
-    //this.props.history.push("/farmer")
-     let email, password = response.email
-     axios
-    .post(URL + "login", {  
-      email, password
-      
-    })
-    .then((result) => {
-      // if (result.data) {
-      //   let userData = result.data.response;
-      //   let id = parseInt(userData.userId, 10);
-      //   localStorage.setItem("user", id);
-      // }
-      // return result;
-      alert("You are logged in")
-    });
-     //console.log(response.email)
-  }
-  //console.log(response.);
+  console.log(response.email);
+  const email = response.email
+  axios.post(URL + "facebooklogin", email).then((result)=>{
+    console.log(result)
+  })
 };
 
 const componentClicked = () => {
