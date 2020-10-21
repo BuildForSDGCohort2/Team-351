@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 import "../../styles/login.css";
 
 import Backdrop from "./backdrop";
 import AuthService from "../../services/auth.service";
 
+// const URL = "http://localhost:4000/";
+const URL = "https://agroconnects.herokuapp.com/";
+
 const responseFacebook = (response) => {
-  //console.log(response);
+  const email = response.email;
+  axios.post(URL + "facebooklogin", email).then((result) => {
+    //console.log(result);
+  });
 };
 
 const componentClicked = () => {
@@ -81,9 +88,8 @@ class Login extends Component {
               />
             </div>
             <div className="modal-body">
-            
               <form type="form" onSubmit={this.handleSubmit}>
-              <span>{valide}</span>
+                <span>{valide}</span>
                 <div className="form-group">
                   <label htmlFor="">Email</label>
                   <input

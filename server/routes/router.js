@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const signUp = require("../controllers/userSignup.controller");
-const { userLogIn } = require("../controllers/userLogin.controller");
+const {
+  userLogIn,
+  facebookLogin,
+} = require("../controllers/userLogin.controller");
 const {
   addProduct,
   getProduct,
@@ -30,13 +33,19 @@ const {
   updateStorage,
 } = require("../controllers/productStorage.controller");
 const sendMail = require("../controllers/contact.controller");
-const {addLga, getLga, addState, getState} =  require("../controllers/lga.controller");
+const {
+  addLga,
+  getLga,
+  addState,
+  getState,
+} = require("../controllers/lga.controller");
 
 //Register user
 router.post("/register", signUp);
 
 //user login
 router.post("/login", userLogIn);
+router.post("/facebooklogin", facebookLogin);
 
 //farmers routes
 router.get("/farmers", getAllFarmers);
@@ -70,7 +79,6 @@ router.post("/contact", sendMail);
 router.post("/state", addState);
 router.post("/lga", addLga);
 router.get("/states", getState);
-router.get("/lga-list", getLga);  
-
+router.get("/lga-list", getLga);
 
 module.exports = router;

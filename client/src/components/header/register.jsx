@@ -108,7 +108,7 @@ class Register extends Component {
         if (response) {
           let data = response.data;
 
-          localStorage.setItem("user", data.userId);
+          localStorage.setItem("user", data);
           //Redirect user
           if (data.userType === "Farmer") {
             this.props.history.push("/farmer");
@@ -126,7 +126,6 @@ class Register extends Component {
       }, 2000);
     }
   };
-
 
   render() {
     const { errors } = this.state;

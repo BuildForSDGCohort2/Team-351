@@ -34,6 +34,21 @@ class Navbar extends Component {
     this.props.history.push("/");
   }
   render() {
+    const user = localStorage.getItem("username");
+    const loggedInUser = (
+      <li className="nav-item active">
+        <Link to="/farmer" className="nav-link">
+          Home <span className="sr-only">(current)</span>
+        </Link>
+      </li>
+    );
+    const loggedOutUser = (
+      <li className="nav-item active">
+        <Link to="/" className="nav-link">
+          Home <span className="sr-only">(current)</span>
+        </Link>
+      </li>
+    );
     const loginLink = (
       <ul className="navbar-nav ml-auto">
         <li className="navbar-item">
@@ -53,17 +68,12 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="navbar-item">
           <Link className="nav-link" to="/farmer">
-            User
+            {user}
           </Link>
         </li>
         <li className="navbar-item">
           <Link className="nav-link" to="/" onClick={this.logout}>
             Logout
-          </Link>
-        </li>
-        <li className="navbar-item">
-          <Link className="nav-link tips" to="/add-tips">
-            StorageTpis
           </Link>
         </li>
       </ul>
@@ -87,11 +97,7 @@ class Navbar extends Component {
             </button>
             <div className="collapse navbar-collapse " id="navbarNavDropdown">
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <Link to="/" className="nav-link">
-                    Home <span className="sr-only">(current)</span>
-                  </Link>
-                </li>
+                {localStorage.user ? loggedInUser : loggedOutUser}
                 <li className="nav-item active">
                   <Link to="/products" className="nav-link">
                     Products
@@ -100,7 +106,7 @@ class Navbar extends Component {
                 <li className="nav-item">
                   <Link to="/about" className="nav-link">
                     About
-                  </Link>    
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/contact" className="nav-link">

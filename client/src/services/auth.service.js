@@ -6,15 +6,17 @@ const URL = "https://agroconnects.herokuapp.com/";
 class AuthService {
   login = (email, password) => {
     return axios
-      .post(URL + "login", {
+      .post(URL + "login", {  
         email,
         password,
       })
       .then((result) => {
         if (result.data) {
+          //console.log(result.data)
           let userData = result.data.response;
           let id = parseInt(userData.userId, 10);
           localStorage.setItem("user", id);
+          localStorage.setItem("username", userData.username);
         }
         return result;
       });
