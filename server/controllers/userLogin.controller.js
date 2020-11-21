@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const secretKey = process.env.SECRETE;
 
 const Login = require("../models/userlogModel");
-const { response } = require("express");
+//const { response } = require("express");
 
 //Login user
 const userLogIn = async (req, res) => {

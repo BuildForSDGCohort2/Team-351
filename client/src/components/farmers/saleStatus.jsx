@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import {withRouter} from "react-router-dom";
 import axios from "axios";
 
-// const URL = "http://localhost:4000/";
+//const URL = "http://localhost:4000/";
 const URL = "https://agroconnects.herokuapp.com/";
 
 class saleStatus extends Component {
@@ -21,7 +21,7 @@ class saleStatus extends Component {
     this.getDetails();
   }
 
-  getDetails = async () => {
+  getDetails = async () => {  
     let id = this.props.match.params.id;
     await axios.get(URL + "transactions").then((response) => {
       let prod = response.data.result;

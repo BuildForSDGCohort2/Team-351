@@ -23,6 +23,9 @@ const saleProduct = mongoose.Schema({
     productCategory: {
       type: String,
     },
+    status: {
+      type: String,
+    },
   },
   location: {
     state: {

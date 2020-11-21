@@ -4,11 +4,10 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 import "../../styles/login.css";
-
 import Backdrop from "./backdrop";
 import AuthService from "../../services/auth.service";
 
-// const URL = "http://localhost:4000/";
+//const URL = "http://localhost:4000/";
 const URL = "https://agroconnects.herokuapp.com/";
 
 const responseFacebook = (response) => {
@@ -79,7 +78,7 @@ class Login extends Component {
           <div className="modal-content">
             <div className="modal-header d-flex justify-content-center">
               <FacebookLogin
-                appId="xxxxxxxx"
+                appId="619143948759544"
                 autoLoad
                 fields="name,email"
                 onClick={componentClicked}

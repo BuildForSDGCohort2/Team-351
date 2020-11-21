@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../../styles/register.css";
 
-// const URL = "http://localhost:4000/";
+//const URL = "http://localhost:4000/";
 const URL = "https://agroconnects.herokuapp.com/";
 
 const validEmailRegex = RegExp(
@@ -118,7 +118,7 @@ class Register extends Component {
         }
       });
     } else {
-      //send validation notification
+      //send error validation notification
       this.setState({
         formInvalid: "Please fill required values in form fields",
       }).setTimeout(() => {

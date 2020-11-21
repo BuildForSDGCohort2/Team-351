@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import LGA from "../header/lga";
 
-// const URL = "http://localhost:4000/";
+//const URL = "http://localhost:4000/";
 const URL = "https://agroconnects.herokuapp.com/";
 
 class saleProduct extends Component {
@@ -53,7 +53,6 @@ class saleProduct extends Component {
       });
 
       filterProduct.forEach((item) => {
-        //console.log(item)
         this.setState({
           product: item,
         });
@@ -240,7 +239,8 @@ class saleProduct extends Component {
         totalQuantity: data.quantity,
         quantity: this.state.saleQuantity,
         price: this.state.price,
-        productCategory: data.productCategory,
+        productCategory: data.productCategory,  
+        status : "Available",
       },
       location: {
         state: this.state.stat,
