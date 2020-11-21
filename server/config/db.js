@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { success, error } = require("consola");
 
 require("dotenv").config();
-const conn = process.env.CONN;
+const conn = process.env.CONN_STRING;
 
 const dbInit = async () => {
   await mongoose

@@ -29,7 +29,7 @@ const addProduct = async (req, res) => {
 const saleProduct = async (req, res) => {
   const product = new SaleProduct(req.body);
 
-  await product.save().then((data) => {
+  await product.save().then((data) => {  
     if (!data) {
       return res.status(401).json({
         message: "Request is empty",
@@ -123,7 +123,6 @@ transactionStatus = async (req, res) => {
     (err, result) => {
       if (err) {
         return res.status(500).json({ message: "Error Occurred" });
-        //console.log(err);
       }
       if (!result) {
         return res.status(400).json({ message: "Record not found" });
@@ -154,7 +153,6 @@ productUpdate = async (req, res) => {
     (err, result) => {
       if (err) {
         return res.status(500).json({ message: "Error Occurred" });
-        //console.log(err);
       }
       if (!result) {
         return res.status(400).json({ message: "Record not found" });
